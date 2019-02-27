@@ -6,6 +6,7 @@
 
 #define _USE_MATH_DEFINES
 #include "Plane.cpp"
+#include "Box.cpp"
 #include <math.h>
 
 
@@ -262,16 +263,18 @@ void renderScene(void) {
 	glRotatef(ax,1,0,0);
 	glRotatef(ay,0,1,0);
 	glRotatef(az,0,0,1);
+	glPolygonMode(GL_FRONT,GL_LINE);
+	glBegin(GL_TRIANGLES);
 
 	glTranslatef(cx,cy,cz);
-
-	glPolygonMode(GL_FRONT,GL_LINE);
-	//glBegin(GL_TRIANGLES);
 	//drawCylinder(1,2,10);
 	//drawPlane(3);
 	//drawBox(1,3,2,0);
-	Plane *x = new Plane (4,2);
-	x->draw();
+	Plane *p = new Plane (4,2);
+	p->draw();
+
+	Box *b = new Box (1,3,3,0);
+	b->draw();
 
 	// End of frame
 	glutSwapBuffers();
@@ -307,8 +310,8 @@ int main(int argc, char **argv) {
 	glutKeyboardFunc(move);
 	
 // Callback registration for keyboard processing
-	//glutKeyboardFunc(processKeys);
-	//glutSpecialFunc(processSpecialKeys);
+	glutKeyboardFunc(processKeys);
+	glutSpecialFunc(processSpecialKeys);
 
 //  OpenGL settings
 	glEnable(GL_DEPTH_TEST);

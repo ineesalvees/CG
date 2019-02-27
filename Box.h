@@ -3,11 +3,11 @@
 
 class Box { 
   private: 
-  	float x, y, z;
+  	float xx, y, zz;
   	int slices;
 
   public:
-  	Box (float size, float height);
+  	Box (float x, float y, float z, int slices);
     void draw (); 
 }; 
 

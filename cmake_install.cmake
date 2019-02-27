@@ -1,4 +1,4 @@
-# Install script for directory: /home/joao/Desktop/CG/TP
+# Install script for directory: /home/joao/Desktop/CG/TP/CG
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/joao/Desktop/CG/TP/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/joao/Desktop/CG/TP/CG/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
