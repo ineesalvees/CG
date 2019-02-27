@@ -262,10 +262,11 @@ void renderScene(void) {
 	glRotatef(ax,1,0,0);
 	glRotatef(ay,0,1,0);
 	glRotatef(az,0,0,1);
-	glPolygonMode(GL_FRONT,GL_LINE);
-	glBegin(GL_TRIANGLES);
 
 	glTranslatef(cx,cy,cz);
+
+	glPolygonMode(GL_FRONT,GL_LINE);
+	//glBegin(GL_TRIANGLES);
 	//drawCylinder(1,2,10);
 	//drawPlane(3);
 	//drawBox(1,3,2,0);
@@ -306,8 +307,8 @@ int main(int argc, char **argv) {
 	glutKeyboardFunc(move);
 	
 // Callback registration for keyboard processing
-	glutKeyboardFunc(processKeys);
-	glutSpecialFunc(processSpecialKeys);
+	//glutKeyboardFunc(processKeys);
+	//glutSpecialFunc(processSpecialKeys);
 
 //  OpenGL settings
 	glEnable(GL_DEPTH_TEST);
