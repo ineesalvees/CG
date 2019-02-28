@@ -7,6 +7,7 @@
 #define _USE_MATH_DEFINES
 #include "Plane.cpp"
 #include "Box.cpp"
+#include "Cone.cpp"
 #include <math.h>
 
 
@@ -180,19 +181,6 @@ void drawBox(float xx , float y , float zz , int slices) {
 
 }
 
-void drawSphere( float radius , int slices, int stacks) {
-
-}
-
-void drawCone( float radius, float height, int slices, int stacks) {
-
-}
-
-void drawCylinder(float radius, float height, int slices) {
-
-// put code to draw cylinder in here
-
-}
 
 // write function to process keyboard events
 void move(unsigned char key, int x, int y){
@@ -271,10 +259,13 @@ void renderScene(void) {
 	//drawPlane(3);
 	//drawBox(1,3,2,0);
 	Plane *p = new Plane (4,2);
-	p->draw();
+	//p->draw();
 
 	Box *b = new Box (1,3,3,0);
-	b->draw();
+	//b->draw();
+
+	Cone *c = new Cone(2,3,100);
+	c->draw();
 
 	// End of frame
 	glutSwapBuffers();
