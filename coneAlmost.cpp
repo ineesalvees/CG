@@ -51,12 +51,12 @@ void drawCone(float radius, float height, int slices, int stack){
 
 		 glBegin(GL_TRIANGLES);
 		 	glColor3f(1, 0, 0);
+			glVertex3f(0.0f, -height/2, 0.0f);
 			glVertex3f(radius*sin(i+alpha), -height/2, radius*cos(i + alpha));
-		 	glVertex3f(0.0f, -height/2, 0.0f);
 			glVertex3f(radius*sin(i), -height/2, radius*cos(i));
 		 glEnd();
 	 }
-
+	
 	 for (int i = 0; i<stack; i++){
 		for (float j = 0; j <slices; j += alpha){
 
