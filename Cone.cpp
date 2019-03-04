@@ -1,35 +1,47 @@
 #include "Cone.h"
 
 void Cone::draw () {
-    float act_angle = 0;
+     float alpha = ((2 * M_PI)/slices); 
+	 float beta = height/stack; 
 
-	float angle;
+	 for(float i = 0; i <(2 * M_PI); i +=alpha){
 
-	for(int i=0; i < slices; i++){
-		angle = i * ((2*M_PI) / slices);
+		 glBegin(GL_TRIANGLES);
+		 	glColor3f(1, 0, 0);
+			glVertex3f(0.0f, -height/2, 0.0f);
+			glVertex3f(radius*sin(i+alpha), -height/2, radius*cos(i + alpha));
+			glVertex3f(radius*sin(i), -height/2, radius*cos(i));
+		 glEnd();
+	 }
+	
+	 for (int i = 0; i<stack; i++){
+		for (float j = 0; j <slices; j += alpha){
 
-		glBegin(GL_TRIANGLES);
+			float slice = (-height/2) + i * beta;
+			float slice1 = (-height/2) + (i + 1) * beta;
 
+			float raio = radius - (radius * i) / stack;
+			float raio1 = radius - (radius * (i + 1)) / stack;
 
-			if (i % 2 == 0) glColor3f(0.847, 0.133, 0.372);
-			else glColor3f(1, 0, 1);
+			glBegin(GL_TRIANGLES);
+		 		glColor3f(1, 0, 0);
+				glVertex3f(raio1 * sin(j), slice1, raio1 * cos(j));
+		 		glVertex3f(raio * sin(j), slice, raio * cos(j));
+				glVertex3f(raio1 * sin(j + alpha), slice1, raio1 * cos(j + alpha));
 
-			glVertex3f(0.0f,height / 2 ,0.0f);
-			glVertex3f(radius*cos(angle + ((2*M_PI) / slices)),-height / 2 ,radius*sin(angle + ((2*M_PI) / slices)));
-			glVertex3f(radius*cos(angle),-height / 2 ,radius*sin(angle));
+				glColor3f(0, 0, 0);
+				glVertex3f(raio * sin(j), slice, raio * cos(j));
+				glVertex3f(raio * sin(j + alpha), slice, raio * cos(j + alpha));
+				glVertex3f(raio1 * sin(j + alpha), slice1, raio1 * cos(j + alpha));
 
-
-			glColor3f(0.576, 0.847, 0.133);
-			glVertex3f(0.0f,-height / 2 ,0.0f);
-			glVertex3f(radius*cos(angle),-height / 2 ,radius*sin(angle));
-			glVertex3f(radius*cos(angle + ((2*M_PI) / slices)),-height / 2 ,radius*sin(angle + ((2*M_PI) / slices)));
-		glEnd();
-
+		 	glEnd();
+		}
 	}
 }
 
-Cone::Cone (float radius, float height, int slices) {
+Cone::Cone (float radius, float height, int slices, int stack) {
 	this->radius = radius;
 	this->height = height;
 	this->slices = slices;
+	this->stack = stack;
 }

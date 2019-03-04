@@ -1,4 +1,4 @@
-#include "Cone.h"
+#include "Sphere.h"
 
 void Sphere::draw () {
 	//float d_angle = 2*M_PI / slices;
@@ -34,8 +34,8 @@ void Sphere::draw () {
 	} 
 }
 
-Cone::Cone (float radius, float height, int slices) {
+Sphere::Sphere (float radius, int slices, int stack) {
 	this->radius = radius;
-	this->height = height;
+	this->stack = stack;
 	this->slices = slices;
 }

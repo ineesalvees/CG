@@ -4,10 +4,10 @@
 class Cone { 
   private: 
   	float radius, height;
-  	int slices;
+  	int slices, stack;
 
   public:
-  	Cone (float radius, float height, int slices);
+  	Cone (float radius, float height, int slices, int stack);
     void draw (); 
 }; 
 
