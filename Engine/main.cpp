@@ -5,10 +5,10 @@
 #endif
 
 #define _USE_MATH_DEFINES
-#include "Plane.cpp"
-#include "Sphere.cpp"
-#include "Box.cpp"
-#include "Cone.cpp"
+#include "../Plane.cpp"
+#include "../Box.cpp"
+#include "../Cone.cpp"
+#include "../Sphere.cpp"
 #include <math.h>
 #include "pugixml-1.9/src/pugixml.cpp"
 #include <iostream>

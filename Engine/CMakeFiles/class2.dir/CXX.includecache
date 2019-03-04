@@ -6,19 +6,19 @@
 
 #IncludeRegexTransform: 
 
-/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/Git/CG/Engine/Box.cpp
+/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Box.cpp
 Box.h
-/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/Git/CG/Engine/Box.h
+/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Box.h
 iostream
 -
 fstream
 -
 
-/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/Git/CG/Engine/Box.h
+/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Box.h
 
-/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/Git/CG/Engine/Cone.cpp
+/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Cone.cpp
 Cone.h
-/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/Git/CG/Engine/Cone.h
+/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Cone.h
 iostream
 -
 fstream
@@ -26,47 +26,25 @@ fstream
 math.h
 -
 
-/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/Git/CG/Engine/Cone.h
+/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Cone.h
 
-/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/Git/CG/Engine/Plane.cpp
-Plane.h
-/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/Git/CG/Engine/Plane.h
-iostream
--
-fstream
--
-
-/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/Git/CG/Engine/Plane.h
-
-/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/Git/CG/Engine/Sphere.cpp
-Sphere.h
-/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/Git/CG/Engine/Sphere.h
-iostream
--
-fstream
--
-math.h
--
-
-/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/Git/CG/Engine/Sphere.h
-
-/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/Git/CG/Engine/main.cpp
+/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Engine/main.cpp
 GLUT/glut.h
 -
 GL/glut.h
 -
-Plane.cpp
-/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/Git/CG/Engine/Plane.cpp
-Sphere.cpp
-/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/Git/CG/Engine/Sphere.cpp
-Box.cpp
-/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/Git/CG/Engine/Box.cpp
-Cone.cpp
-/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/Git/CG/Engine/Cone.cpp
+../Plane.cpp
+/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Plane.cpp
+../Box.cpp
+/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Box.cpp
+../Cone.cpp
+/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Cone.cpp
+../Sphere.cpp
+/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Sphere.cpp
 math.h
 -
 pugixml-1.9/src/pugixml.cpp
-/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/Git/CG/Engine/pugixml-1.9/src/pugixml.cpp
+/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Engine/pugixml-1.9/src/pugixml.cpp
 iostream
 -
 string
@@ -80,11 +58,11 @@ sstream
 stdio.h
 -
 
-/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/Git/CG/Engine/pugixml-1.9/src/pugiconfig.hpp
+/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Engine/pugixml-1.9/src/pugiconfig.hpp
 
-/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/Git/CG/Engine/pugixml-1.9/src/pugixml.cpp
+/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Engine/pugixml-1.9/src/pugixml.cpp
 pugixml.hpp
-/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/Git/CG/Engine/pugixml-1.9/src/pugixml.hpp
+/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Engine/pugixml-1.9/src/pugixml.hpp
 stdlib.h
 -
 stdio.h
@@ -112,9 +90,9 @@ new
 stdint.h
 -
 
-/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/Git/CG/Engine/pugixml-1.9/src/pugixml.hpp
+/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Engine/pugixml-1.9/src/pugixml.hpp
 pugiconfig.hpp
-/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/Git/CG/Engine/pugixml-1.9/src/pugiconfig.hpp
+/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Engine/pugixml-1.9/src/pugiconfig.hpp
 stddef.h
 -
 exception
@@ -125,4 +103,26 @@ iosfwd
 -
 string
 -
+
+/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Plane.cpp
+Plane.h
+/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Plane.h
+iostream
+-
+fstream
+-
+
+/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Plane.h
+
+/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Sphere.cpp
+Sphere.h
+/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Sphere.h
+iostream
+-
+fstream
+-
+math.h
+-
+
+/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Sphere.h
 

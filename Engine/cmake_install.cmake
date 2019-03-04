@@ -1,4 +1,4 @@
-# Install script for directory: /home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/Git/CG/Engine
+# Install script for directory: /home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Engine
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/Git/CG/Engine/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Engine/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
