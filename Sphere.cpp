@@ -1,4 +1,8 @@
 #include "Sphere.h"
+#include <iostream>
+#include <fstream>
+#include <math.h>
+using namespace std;
 
 void Sphere::draw () {
 	//float d_angle = 2*M_PI / slices;
@@ -38,4 +42,10 @@ Sphere::Sphere (float radius, int slices, int stack) {
 	this->radius = radius;
 	this->stack = stack;
 	this->slices = slices;
+}
+
+void Sphere::save (char *path) {
+	ofstream file (path);
+		file << "S " << this->radius << " " << this->stack << " " << this->slices;
+	file.close();
 }

@@ -1,6 +1,7 @@
 #include "Plane.h"
-#define _USE_MATH_DEFINES
-#include <math.h>
+#include <iostream>
+#include <fstream>
+using namespace std;
 
 void Plane::draw () {
     glBegin(GL_TRIANGLES);
@@ -19,4 +20,11 @@ void Plane::draw () {
 Plane::Plane (float size, float height) {
 	this->size = size;
 	this->height = height;
+}
+
+void Plane::save (char *path) {
+	ofstream file (path);
+		file << "P " << this->size << " " << this->height;
+	file.close();
+
 }

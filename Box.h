@@ -9,6 +9,7 @@ class Box {
   public:
   	Box (float x, float y, float z, int slices);
     void draw (); 
+    void save (char *path);
 }; 
 
 #endif

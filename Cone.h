@@ -9,6 +9,7 @@ class Cone {
   public:
   	Cone (float radius, float height, int slices, int stack);
     void draw (); 
+    void save (char *path);
 }; 
 
 #endif

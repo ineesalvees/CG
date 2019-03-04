@@ -1,4 +1,9 @@
 #include "Cone.h"
+#include <iostream>
+#include <fstream>
+#include <math.h>
+using namespace std;
+
 
 void Cone::draw () {
      float alpha = ((2 * M_PI)/slices); 
@@ -45,3 +50,25 @@ Cone::Cone (float radius, float height, int slices, int stack) {
 	this->slices = slices;
 	this->stack = stack;
 }
+
+void Cone::save (char *path) {
+	ofstream file (path);
+		file << "C " << this->radius << " " << this->height << " " << this->slices << " " << this->stack;
+	file.close();
+
+}
+/*
+// writing on a text file
+
+int main () {
+  ofstream myfile ("example.txt");
+  if (myfile.is_open())
+  {
+    myfile << "This is a line.\n";
+    myfile << "This is another line.\n";
+    myfile.close();
+  }
+  else cout << "Unable to open file";
+  return 0;
+}
+*/

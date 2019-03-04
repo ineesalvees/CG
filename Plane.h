@@ -8,6 +8,7 @@ class Plane {
   public:
   	Plane (float size, float height);
     void draw (); 
+    void save (char *path);
 }; 
 
 #endif

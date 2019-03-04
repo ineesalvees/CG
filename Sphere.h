@@ -9,6 +9,7 @@ class Sphere {
   public:
   	Sphere (float radius, int slices, int stack);
     void draw (); 
+    void save (char *path);
 }; 
 
 #endif
