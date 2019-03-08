@@ -56,17 +56,6 @@ CMAKE_BINARY_DIR = /home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/local/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
-
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
-
-.PHONY : rebuild_cache/fast
-
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
@@ -77,6 +66,17 @@ edit_cache:
 edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
+
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	/usr/local/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
+
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
+
+.PHONY : rebuild_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -111,44 +111,231 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named class2
+# Target rules for targets named generator
 
 # Build rule for target.
-class2: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 class2
-.PHONY : class2
+generator: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 generator
+.PHONY : generator
 
 # fast build rule for target.
-class2/fast:
-	$(MAKE) -f CMakeFiles/class2.dir/build.make CMakeFiles/class2.dir/build
-.PHONY : class2/fast
+generator/fast:
+	$(MAKE) -f CMakeFiles/generator.dir/build.make CMakeFiles/generator.dir/build
+.PHONY : generator/fast
 
-main.o: main.cpp.o
+#=============================================================================
+# Target rules for targets named engine
 
-.PHONY : main.o
+# Build rule for target.
+engine: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 engine
+.PHONY : engine
+
+# fast build rule for target.
+engine/fast:
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/build
+.PHONY : engine/fast
+
+pugixml-1.9/src/pugixml.o: pugixml-1.9/src/pugixml.cpp.o
+
+.PHONY : pugixml-1.9/src/pugixml.o
 
 # target to build an object file
-main.cpp.o:
-	$(MAKE) -f CMakeFiles/class2.dir/build.make CMakeFiles/class2.dir/main.cpp.o
-.PHONY : main.cpp.o
+pugixml-1.9/src/pugixml.cpp.o:
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/pugixml-1.9/src/pugixml.cpp.o
+.PHONY : pugixml-1.9/src/pugixml.cpp.o
 
-main.i: main.cpp.i
+pugixml-1.9/src/pugixml.i: pugixml-1.9/src/pugixml.cpp.i
 
-.PHONY : main.i
+.PHONY : pugixml-1.9/src/pugixml.i
 
 # target to preprocess a source file
-main.cpp.i:
-	$(MAKE) -f CMakeFiles/class2.dir/build.make CMakeFiles/class2.dir/main.cpp.i
-.PHONY : main.cpp.i
+pugixml-1.9/src/pugixml.cpp.i:
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/pugixml-1.9/src/pugixml.cpp.i
+.PHONY : pugixml-1.9/src/pugixml.cpp.i
 
-main.s: main.cpp.s
+pugixml-1.9/src/pugixml.s: pugixml-1.9/src/pugixml.cpp.s
 
-.PHONY : main.s
+.PHONY : pugixml-1.9/src/pugixml.s
 
 # target to generate assembly for a file
-main.cpp.s:
-	$(MAKE) -f CMakeFiles/class2.dir/build.make CMakeFiles/class2.dir/main.cpp.s
-.PHONY : main.cpp.s
+pugixml-1.9/src/pugixml.cpp.s:
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/pugixml-1.9/src/pugixml.cpp.s
+.PHONY : pugixml-1.9/src/pugixml.cpp.s
+
+src/Box.o: src/Box.cpp.o
+
+.PHONY : src/Box.o
+
+# target to build an object file
+src/Box.cpp.o:
+	$(MAKE) -f CMakeFiles/generator.dir/build.make CMakeFiles/generator.dir/src/Box.cpp.o
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/Box.cpp.o
+.PHONY : src/Box.cpp.o
+
+src/Box.i: src/Box.cpp.i
+
+.PHONY : src/Box.i
+
+# target to preprocess a source file
+src/Box.cpp.i:
+	$(MAKE) -f CMakeFiles/generator.dir/build.make CMakeFiles/generator.dir/src/Box.cpp.i
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/Box.cpp.i
+.PHONY : src/Box.cpp.i
+
+src/Box.s: src/Box.cpp.s
+
+.PHONY : src/Box.s
+
+# target to generate assembly for a file
+src/Box.cpp.s:
+	$(MAKE) -f CMakeFiles/generator.dir/build.make CMakeFiles/generator.dir/src/Box.cpp.s
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/Box.cpp.s
+.PHONY : src/Box.cpp.s
+
+src/Cone.o: src/Cone.cpp.o
+
+.PHONY : src/Cone.o
+
+# target to build an object file
+src/Cone.cpp.o:
+	$(MAKE) -f CMakeFiles/generator.dir/build.make CMakeFiles/generator.dir/src/Cone.cpp.o
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/Cone.cpp.o
+.PHONY : src/Cone.cpp.o
+
+src/Cone.i: src/Cone.cpp.i
+
+.PHONY : src/Cone.i
+
+# target to preprocess a source file
+src/Cone.cpp.i:
+	$(MAKE) -f CMakeFiles/generator.dir/build.make CMakeFiles/generator.dir/src/Cone.cpp.i
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/Cone.cpp.i
+.PHONY : src/Cone.cpp.i
+
+src/Cone.s: src/Cone.cpp.s
+
+.PHONY : src/Cone.s
+
+# target to generate assembly for a file
+src/Cone.cpp.s:
+	$(MAKE) -f CMakeFiles/generator.dir/build.make CMakeFiles/generator.dir/src/Cone.cpp.s
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/Cone.cpp.s
+.PHONY : src/Cone.cpp.s
+
+src/Plane.o: src/Plane.cpp.o
+
+.PHONY : src/Plane.o
+
+# target to build an object file
+src/Plane.cpp.o:
+	$(MAKE) -f CMakeFiles/generator.dir/build.make CMakeFiles/generator.dir/src/Plane.cpp.o
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/Plane.cpp.o
+.PHONY : src/Plane.cpp.o
+
+src/Plane.i: src/Plane.cpp.i
+
+.PHONY : src/Plane.i
+
+# target to preprocess a source file
+src/Plane.cpp.i:
+	$(MAKE) -f CMakeFiles/generator.dir/build.make CMakeFiles/generator.dir/src/Plane.cpp.i
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/Plane.cpp.i
+.PHONY : src/Plane.cpp.i
+
+src/Plane.s: src/Plane.cpp.s
+
+.PHONY : src/Plane.s
+
+# target to generate assembly for a file
+src/Plane.cpp.s:
+	$(MAKE) -f CMakeFiles/generator.dir/build.make CMakeFiles/generator.dir/src/Plane.cpp.s
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/Plane.cpp.s
+.PHONY : src/Plane.cpp.s
+
+src/Sphere.o: src/Sphere.cpp.o
+
+.PHONY : src/Sphere.o
+
+# target to build an object file
+src/Sphere.cpp.o:
+	$(MAKE) -f CMakeFiles/generator.dir/build.make CMakeFiles/generator.dir/src/Sphere.cpp.o
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/Sphere.cpp.o
+.PHONY : src/Sphere.cpp.o
+
+src/Sphere.i: src/Sphere.cpp.i
+
+.PHONY : src/Sphere.i
+
+# target to preprocess a source file
+src/Sphere.cpp.i:
+	$(MAKE) -f CMakeFiles/generator.dir/build.make CMakeFiles/generator.dir/src/Sphere.cpp.i
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/Sphere.cpp.i
+.PHONY : src/Sphere.cpp.i
+
+src/Sphere.s: src/Sphere.cpp.s
+
+.PHONY : src/Sphere.s
+
+# target to generate assembly for a file
+src/Sphere.cpp.s:
+	$(MAKE) -f CMakeFiles/generator.dir/build.make CMakeFiles/generator.dir/src/Sphere.cpp.s
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/Sphere.cpp.s
+.PHONY : src/Sphere.cpp.s
+
+src/generator.o: src/generator.cpp.o
+
+.PHONY : src/generator.o
+
+# target to build an object file
+src/generator.cpp.o:
+	$(MAKE) -f CMakeFiles/generator.dir/build.make CMakeFiles/generator.dir/src/generator.cpp.o
+.PHONY : src/generator.cpp.o
+
+src/generator.i: src/generator.cpp.i
+
+.PHONY : src/generator.i
+
+# target to preprocess a source file
+src/generator.cpp.i:
+	$(MAKE) -f CMakeFiles/generator.dir/build.make CMakeFiles/generator.dir/src/generator.cpp.i
+.PHONY : src/generator.cpp.i
+
+src/generator.s: src/generator.cpp.s
+
+.PHONY : src/generator.s
+
+# target to generate assembly for a file
+src/generator.cpp.s:
+	$(MAKE) -f CMakeFiles/generator.dir/build.make CMakeFiles/generator.dir/src/generator.cpp.s
+.PHONY : src/generator.cpp.s
+
+src/main.o: src/main.cpp.o
+
+.PHONY : src/main.o
+
+# target to build an object file
+src/main.cpp.o:
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/main.cpp.o
+.PHONY : src/main.cpp.o
+
+src/main.i: src/main.cpp.i
+
+.PHONY : src/main.i
+
+# target to preprocess a source file
+src/main.cpp.i:
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/main.cpp.i
+.PHONY : src/main.cpp.i
+
+src/main.s: src/main.cpp.s
+
+.PHONY : src/main.s
+
+# target to generate assembly for a file
+src/main.cpp.s:
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/main.cpp.s
+.PHONY : src/main.cpp.s
 
 # Help Target
 help:
@@ -156,12 +343,31 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... class2"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
+	@echo "... generator"
+	@echo "... rebuild_cache"
+	@echo "... engine"
+	@echo "... pugixml-1.9/src/pugixml.o"
+	@echo "... pugixml-1.9/src/pugixml.i"
+	@echo "... pugixml-1.9/src/pugixml.s"
+	@echo "... src/Box.o"
+	@echo "... src/Box.i"
+	@echo "... src/Box.s"
+	@echo "... src/Cone.o"
+	@echo "... src/Cone.i"
+	@echo "... src/Cone.s"
+	@echo "... src/Plane.o"
+	@echo "... src/Plane.i"
+	@echo "... src/Plane.s"
+	@echo "... src/Sphere.o"
+	@echo "... src/Sphere.i"
+	@echo "... src/Sphere.s"
+	@echo "... src/generator.o"
+	@echo "... src/generator.i"
+	@echo "... src/generator.s"
+	@echo "... src/main.o"
+	@echo "... src/main.i"
+	@echo "... src/main.s"
 .PHONY : help
 
 

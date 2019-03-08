@@ -1,0 +1,36 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/headers/Box.h
+Figure.h
+/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/headers/Figure.h
+GLUT/glut.h
+-
+GL/glut.h
+-
+
+/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/headers/Figure.h
+Vertex.h
+/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/headers/Vertex.h
+vector
+-
+
+/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/headers/Vertex.h
+
+/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/src/Box.cpp
+../headers/Box.h
+/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/headers/Box.h
+../headers/Figure.h
+/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/headers/Figure.h
+../headers/Vertex.h
+/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/headers/Vertex.h
+iostream
+-
+fstream
+-
+

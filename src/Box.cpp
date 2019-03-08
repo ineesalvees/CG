@@ -1,9 +1,30 @@
 #include "../headers/Box.h"
+#include "../headers/Figure.h"
+#include "../headers/Vertex.h"
 #include <iostream>
 #include <fstream>
 using namespace std;
 
-void Box::draw (double comp, double largure, double height, int stack) {
+void Box::draw () {
+	int index = 0;
+
+	 glBegin(GL_TRIANGLES);
+
+	 for (index = 0; index < figure->getsize(); index ++) {
+	 		Vertex v = this->figure->getvertex(index);
+			glVertex3f(v.getx(), v.gety(), v.getz());
+	 }
+	 glEnd();
+}
+
+Box::Box (float comp, float largure, float height, int stack) {
+	this->comp = comp;
+	this->largure = largure;
+	this->height = height;
+	this->stack = stack;
+	this->figure = new Figure();
+
+
 	double x, y, z, xx, yy, zz; 
 	double stackC, stackL, stackA; //espaçamento entre as stack de comprimento, largura e altura
 	int i, j;
@@ -25,27 +46,21 @@ void Box::draw (double comp, double largure, double height, int stack) {
  		zz = z - stackL;  //decrementa o z, pois temos o z com o seu valor maximo positivo e para o plano ficar centrado temos que ir tirando o espaçamento entre as stack de largur e altura
 		for (j = 0; j < stack; j++){
 
-			glBegin(GL_TRIANGLES);
-				glColor3f(0, 0, 0);
-				glVertex3f(x, y, z);
-				glVertex3f(xx, y, z);
-				glVertex3f(x, y, zz);
-		
-				glColor3f(0, 0, 0);
-				glVertex3f(xx, y, z);
-				glVertex3f(xx, y, zz);
-				glVertex3f(x, y, zz);
+				this->figure->pushvertex(new Vertex(x, y, z));
+				this->figure->pushvertex(new Vertex(xx, y, z));
+				this->figure->pushvertex(new Vertex(x, y, zz));
 
-				glColor3f(0, 0, 0);
-				glVertex3f(x, yy, z);
-				glVertex3f(x, yy, zz);
-				glVertex3f(xx, yy, z);
+				this->figure->pushvertex(new Vertex(xx, y, z));
+				this->figure->pushvertex(new Vertex(xx, y, zz));
+				this->figure->pushvertex(new Vertex(x, y, zz));
 
-				glColor3f(0, 0, 0);
-				glVertex3f(xx, yy, z);
-				glVertex3f(x, yy, zz);
-				glVertex3f(xx, yy, zz);
-			glEnd();
+				this->figure->pushvertex(new Vertex(x, yy, z));
+				this->figure->pushvertex(new Vertex(x, yy, zz));
+				this->figure->pushvertex(new Vertex(xx, yy, z));
+
+				this->figure->pushvertex(new Vertex(xx, yy, z));
+				this->figure->pushvertex(new Vertex(x, yy, zz));
+				this->figure->pushvertex(new Vertex(xx, yy, zz));
 
 			x = x + stackC;   //incrementa o x, sendo o x assumindo o valor na proxima camada
 			xx = xx + stackC;//incrementa também o xx, para andar sempre à frente do x, para fazer o triângulo
@@ -65,27 +80,25 @@ void Box::draw (double comp, double largure, double height, int stack) {
 
 		for (j = 0; j < stack; j++){
 
-			glBegin(GL_TRIANGLES);
-				glColor3f(0, 0, 0);
-				glVertex3f(x, y, z);
-				glVertex3f(x, yy, z);
-				glVertex3f(x, yy, zz);
-		
-				glColor3f(0, 0, 0);
-				glVertex3f(x, y, zz);
-				glVertex3f(xx, yy, z);
-				glVertex3f(x, yy, zz);
+				this->figure->pushvertex(new Vertex(x, y, z));
+				this->figure->pushvertex(new Vertex(x, yy, z));
+				this->figure->pushvertex(new Vertex(x, yy, zz));
 
-				glColor3f(0, 0, 0);
-				glVertex3f(xx, y, z);
-				glVertex3f(xx, y, zz);
-				glVertex3f(xx, yy, zz);
+				this->figure->pushvertex(new Vertex(x, y, zz));
+				this->figure->pushvertex(new Vertex(xx, yy, z));
+				this->figure->pushvertex(new Vertex(x, yy, zz));
 
-				glColor3f(0, 0, 0);
+				this->figure->pushvertex(new Vertex(xx, y, z));
+				this->figure->pushvertex(new Vertex(xx, y, zz));
+				this->figure->pushvertex(new Vertex(xx, yy, zz));
+
+				this->figure->pushvertex(new Vertex(xx, y, z));
+				this->figure->pushvertex(new Vertex(xx, yy, zz));
+				this->figure->pushvertex(new Vertex(xx, yy, z));
+
 				glVertex3f(xx, y, z);
 				glVertex3f(xx, yy, zz);
 				glVertex3f(xx, yy, z);
-			glEnd();
 
 			z = z - stackL;   // z vai decrementando sempre o valor do espaçamento lateral, para ficar com as stack certas na largureura
 			zz = zz - stackL;//decrementa o z, pois temos o z com o seu valor maximo positivo e para o plano ficar centrado temos que ir tirando o espaçamento entre as stack de largureura
@@ -106,27 +119,21 @@ void Box::draw (double comp, double largure, double height, int stack) {
 
 		for (j = 0; j < stack; j++){
 
-			glBegin(GL_TRIANGLES);
-				glColor3f(0, 0, 0);
-				glVertex3f(x, y, z);
-				glVertex3f(xx, y, z);
-				glVertex3f(x, yy, z);
-		
-				glColor3f(0, 0, 0);
-				glVertex3f(xx, y, z);
-				glVertex3f(xx, yy, z);
-				glVertex3f(x, yy, z);
+				this->figure->pushvertex(new Vertex(x, y, z));
+				this->figure->pushvertex(new Vertex(xx, y, z));
+				this->figure->pushvertex(new Vertex(x, yy, z));
 
-				glColor3f(0, 0, 0);
-				glVertex3f(x, y, zz);
-				glVertex3f(x, yy, zz);
-				glVertex3f(xx, y, zz);
+				this->figure->pushvertex(new Vertex(xx, y, z));
+				this->figure->pushvertex(new Vertex(xx, yy, z));
+				this->figure->pushvertex(new Vertex(x, yy, z));
 
-				glColor3f(0, 0, 0);
-				glVertex3f(xx, y, zz);
-				glVertex3f(x, yy, zz);
-				glVertex3f(xx, yy, zz);
-			glEnd();
+				this->figure->pushvertex(new Vertex(x, y, zz));
+				this->figure->pushvertex(new Vertex(x, yy, zz));
+				this->figure->pushvertex(new Vertex(xx, y, zz));
+
+				this->figure->pushvertex(new Vertex(xx, y, zz));
+				this->figure->pushvertex(new Vertex(x, yy, zz));
+				this->figure->pushvertex(new Vertex(xx, yy, zz));
 
 			x = x + stackC;    //x vai incrementando o valor do espaçamento do comprimento, para ficar com as stack indicadas
 			xx = xx + stackC; //xx também incrementa o valor do espaçamento do comprimento, para ficar sempre na proxima camada no eixo do x	
@@ -135,15 +142,6 @@ void Box::draw (double comp, double largure, double height, int stack) {
 	}
 }
 
-Box::Box (float xx, float y, float zz, int slices) {
-	this->xx = xx;
-	this->y = y;
-	this->zz = zz;
-	this->slices = slices;
-}
-
 void Box::save (char *path) {
-	ofstream file (path);
-		file << "B " << this->xx << " " << this->y << " " << this->zz << " " << this->slices;
-	file.close();
+	
 }

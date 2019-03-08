@@ -1,6 +1,6 @@
 #ifndef _BOX_H_
 #define _BOX_H_
-
+#include "Figure.h"
 #ifdef __APPLE__
 #include <GLUT/glut.h>
 #else
@@ -9,12 +9,13 @@
 
 class Box { 
   private: 
-  	float xx, y, zz;
-  	int slices;
+  	float comp, largure, height;
+  	int stack;
+  	Figure *figure;
 
   public:
-  	Box (float x, float y, float z, int slices);
-    void draw (double comp, double largure, double height, int stack); 
+  	Box (float comp, float largure, float height, int stack);
+    void draw (); 
     void save (char *path);
 }; 
 

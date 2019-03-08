@@ -1,6 +1,6 @@
 #ifndef _SPHERE_H_
 #define _SPHERE_H_
-
+#include "Figure.h"
 #ifdef __APPLE__
 #include <GLUT/glut.h>
 #else
@@ -11,6 +11,7 @@ class Sphere {
   private: 
   	float radius;
   	int slices, stack;
+  	Figure *figure;
 
   public:
   	Sphere (float radius, int slices, int stack);

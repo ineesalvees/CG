@@ -169,7 +169,7 @@ void readFile(string name) {
     	}
     	if (linha.at(0) == 'B') {
     		Box *b = new Box (arr[0],arr[1],arr[2],arr[3]);
-			b->draw(arr[0],arr[1],arr[2],arr[3]);    	
+			b->draw();    	
     	}
 
     }
@@ -236,19 +236,21 @@ void renderScene(void) {
 
 
 	Plane *p = new Plane (6,2);
+
 	//p->draw();
 	p->save("/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/Git/CG/PlanoTESTE.3d");
 
-	Box *b = new Box (1,3,3,0);
-	//b->draw();
+	Box *b = new Box (3,3,3,10);
+	b->draw();
 	b->save("/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/Git/CG/BoxTESTE.3d");
 
 	Cone *c = new Cone(2,3,100,30);
+	//c->draw();
 	c->save("/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/Git/CG/ConeTESTE.3d");
 
 	Sphere *s = new Sphere(3,20,30);
 	s->save("/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/Git/CG/SphereTESTE.3d");
-
+	//s->draw();
 	parseFile(filename);
 	// End of frame
 	glutSwapBuffers();

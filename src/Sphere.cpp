@@ -1,16 +1,30 @@
 #include "../headers/Sphere.h"
+#include "../headers/Vertex.h"
+#include "../headers/Figure.h"
 #include <iostream>
 #include <fstream>
 #include <math.h>
 using namespace std;
 
 void Sphere::draw () {
-	//float d_angle = 2*M_PI / slices;
-	//float act_angle = 0;
-	float alpha, beta, beta1;
 
-	
-	//beta1 = beta + ((M_PI)/stack);
+	int index = 0;
+
+	 glBegin(GL_TRIANGLES);
+
+	 for (index = 0; index < figure->getsize(); index ++) {
+	 		Vertex v = this->figure->getvertex(index);
+			glVertex3f(v.getx(), v.gety(), v.getz());
+	 }
+	 glEnd();
+}
+
+Sphere::Sphere (float radius, int slices, int stack) {
+	this->radius = radius;
+	this->stack = stack;
+	this->slices = slices;
+	this->figure = new Figure();
+	float alpha, beta, beta1;
 
 	for(int j = 0; j < stack; j++){
 		for(int i=0; i < slices; i++){
@@ -18,30 +32,19 @@ void Sphere::draw () {
 			beta = j * ((M_PI)/stack) - M_PI / 2;
 			beta1 = beta + ((M_PI)/stack);
 
-		glBegin(GL_TRIANGLES);
-
 		//lateral 1
-		glColor3f(1, 0, 0);
-		glVertex3f(radius*cos(beta) * cos(alpha), radius*sin(beta), radius*cos(beta)*sin(alpha));
-		glVertex3f(radius*cos(beta + ((M_PI)/stack)) * cos(alpha), sin(beta + ((M_PI)/stack))*radius, radius*cos(beta + ((M_PI)/stack))*sin(alpha));
-		glVertex3f(radius*cos(beta)*cos(alpha + ((2*M_PI) / slices)),radius*sin(beta),radius*cos(beta)*sin(alpha + ((2*M_PI) / slices)));
-
-		//lateral 2
+		this->figure->pushvertex(new Vertex(radius*cos(beta) * cos(alpha), radius*sin(beta), radius*cos(beta)*sin(alpha)));
+		this->figure->pushvertex(new Vertex(radius*cos(beta + ((M_PI)/stack)) * cos(alpha), sin(beta + ((M_PI)/stack))*radius, radius*cos(beta + ((M_PI)/stack))*sin(alpha)));
+		this->figure->pushvertex(new Vertex(radius*cos(beta)*cos(alpha + ((2*M_PI) / slices)),radius*sin(beta),radius*cos(beta)*sin(alpha + ((2*M_PI) / slices))));
 		
-		glColor3f(1, 0, 0);
-		glVertex3f(radius*cos(beta + ((M_PI)/stack)) * cos(alpha), sin(beta + ((M_PI)/stack))*radius, radius*cos(beta + ((M_PI)/stack))*sin(alpha));
-		glVertex3f(radius*cos(beta + ((M_PI)/stack))*cos(alpha + ((2*M_PI) / slices)), radius*sin(beta + ((M_PI)/stack)), radius*cos(beta1)*sin(alpha + ((2*M_PI) / slices)));
-		glVertex3f(radius*cos(beta)*cos(alpha + ((2*M_PI) / slices)), radius*sin(beta), radius*cos(beta)*sin(alpha + ((2*M_PI) / slices)));
-
-		glEnd();
-	}
+		//lateral 2
+		this->figure->pushvertex(new Vertex(radius*cos(beta + ((M_PI)/stack)) * cos(alpha), sin(beta + ((M_PI)/stack))*radius, radius*cos(beta + ((M_PI)/stack))*sin(alpha)));
+		this->figure->pushvertex(new Vertex(radius*cos(beta + ((M_PI)/stack))*cos(alpha + ((2*M_PI) / slices)), radius*sin(beta + ((M_PI)/stack)), radius*cos(beta1)*sin(alpha + ((2*M_PI) / slices))));
+		this->figure->pushvertex(new Vertex(radius*cos(beta)*cos(alpha + ((2*M_PI) / slices)), radius*sin(beta), radius*cos(beta)*sin(alpha + ((2*M_PI) / slices))));
+		}
 	} 
-}
 
-Sphere::Sphere (float radius, int slices, int stack) {
-	this->radius = radius;
-	this->stack = stack;
-	this->slices = slices;
+
 }
 
 void Sphere::save (char *path) {

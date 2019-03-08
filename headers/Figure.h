@@ -9,7 +9,8 @@ class Figure {
   	std::vector<Vertex> vertexes;
   public:
   	Vertex getvertex (int i);
-  	void pushvertex (Vertex v);
+  	void pushvertex (Vertex *v);
+  	int getsize();
 
 }; 
 
