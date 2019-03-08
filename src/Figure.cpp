@@ -18,8 +18,19 @@ int Figure::getsize() {
 	this->vertexes.size();
 }
 
+void Figure::draw() {
+	int index;
+	glBegin(GL_TRIANGLES);
+
+	 for (index = 0; index < this->getsize(); index ++) {
+	 		Vertex v = this->getvertex(index);
+			glVertex3f(v.getx(), v.gety(), v.getz());
+	 }
+	 glEnd();
+}
+
 void Figure::save (char *filename) {
-	char src[] = "src/";
+	char src[] = "";
 	strcat(src,filename);
 	
 	ofstream file(src);

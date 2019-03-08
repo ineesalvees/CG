@@ -117,8 +117,10 @@ void move(unsigned char key, int x, int y){
 using namespace std; 
 
 void readFile(string name) {
-  int i = 0;
-  int arr[10];
+
+  double arr[3];
+  Figure *figure = new Figure();
+  int verts = 0;
 
   ifstream nfile(name.c_str());
 
@@ -129,67 +131,31 @@ void readFile(string name) {
     string linha;
     getline(nfile, linha);
     
+    	ss << linha; 
+    	string temp; 
+    	double found; 
+
+    	while (!ss.eof()) { 
+        	ss >> temp; 
+        	if (stringstream(temp) >> found) {
+            	arr[verts] = found;
+
+            	if (verts == 2) {
+            		figure->pushvertex(new Vertex(arr[0], arr[1], arr[2]));
+            	}
+
+            	verts = (verts + 1) % 3;
+
+        	}
+
+        	temp = ""; 
+
+    	}
+    	int index = 0;
+
+
+	 figure->draw();
     
-
-    if (linha.at(0) == 'P') { //Plano
-    	ss << linha; 
-    	string temp; 
-    	int found; 
-    	while (!ss.eof()) { 
-        	ss >> temp; 
-        	if (stringstream(temp) >> found) {
-            	arr[i] = found;
-            	i++;
-        	}
-
-        	temp = ""; 
-    	}
-    	Plane *p = new Plane (arr[0],arr[1]);
-    	p->draw();
-    }
-
-
-
-    if ( linha.at(0) == 'C' || linha.at(0) == 'B' ) { //cone
-    	ss << linha; 
-    	string temp; 
-    	int found; 
-    	while (!ss.eof()) { 
-        	ss >> temp; 
-        	if (stringstream(temp) >> found) {
-            	arr[i] = found;
-            	i++;
-        	}
-
-        	temp = ""; 
-    	}
-    	if (linha.at(0) == 'C') {
-    		Cone *c = new Cone (arr[0],arr[1],arr[2],arr[3]);
-    		c->draw();
-    	}
-    	if (linha.at(0) == 'B') {
-    		Box *b = new Box (arr[0],arr[1],arr[2],arr[3]);
-			b->draw();    	
-    	}
-
-    }
-
-    if ( linha.at(0) == 'S') { //sphere
-    	ss << linha; 
-    	string temp; 
-    	int found; 
-    	while (!ss.eof()) { 
-        	ss >> temp; 
-        	if (stringstream(temp) >> found) {
-            	arr[i] = found;
-            	i++;
-        	}
-
-        	temp = ""; 
-    	}
-    	Sphere *s = new Sphere(arr[0],arr[1],arr[2]);
-    	s->draw();
-    }
 
   }
 
@@ -210,7 +176,7 @@ void parseFile(char * path) {
     {
 
     	pugi::xml_attribute filename = model.first_attribute();
- 
+ 		
         readFile(filename.value());
 
     }
@@ -235,22 +201,6 @@ void renderScene(void) {
 	glPolygonMode(GL_FRONT,GL_LINE);
 
 
-	Plane *p = new Plane (6,2);
-
-	//p->draw();
-	p->save("/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/Git/CG/PlanoTESTE.3d");
-
-	Box *b = new Box (3,3,3,10);
-	b->draw();
-	b->save("/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/Git/CG/BoxTESTE.3d");
-
-	Cone *c = new Cone(2,3,100,30);
-	//c->draw();
-	c->save("/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/Git/CG/ConeTESTE.3d");
-
-	Sphere *s = new Sphere(3,20,30);
-	s->save("/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/Git/CG/SphereTESTE.3d");
-	//s->draw();
 	parseFile(filename);
 	// End of frame
 	glutSwapBuffers();

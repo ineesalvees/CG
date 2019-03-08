@@ -12,6 +12,7 @@ class Figure {
   	void pushvertex (Vertex *v);
   	int getsize();
   	void save (char *filepath);
+  	void draw();
 
 }; 
 
