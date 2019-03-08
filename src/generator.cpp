@@ -21,7 +21,7 @@ int main (int argc, char *argv[]) {
 			int stacks = atoi(argv[4]);
 
 			Sphere *s = new Sphere(radius,slices,stacks);
-			s->save(argv[5]);
+			s->figure->save(argv[5]);
 		}
 		if (strcmp(argv[1],"Box") == 0) {
 			cout << "Drawing Box!\n";
@@ -32,7 +32,7 @@ int main (int argc, char *argv[]) {
 			int slices = atoi(argv[5]);
 
 			Box *b = new Box(x,y,z,slices);
-			b->save(argv[6]);
+			b->figure->save(argv[6]);
 			
 		}
 		if (strcmp(argv[1],"Plane") == 0) {
@@ -42,7 +42,7 @@ int main (int argc, char *argv[]) {
 			float height = atof(argv[3]);
 
 			Plane *p = new Plane(size,height);
-			p->save(argv[4]);
+			p->figure->save(argv[4]);
 		}
 		if (strcmp(argv[1],"Cone") == 0) {
 			cout << "Drawing Cone!\n";
@@ -53,7 +53,7 @@ int main (int argc, char *argv[]) {
 			int stacks = atoi(argv[5]);
 			
 			Cone *c = new Cone (radius,height,slices,stacks);
-			c->save(argv[6]);
+			c->figure->save(argv[6]);
 		}
 	} else {
 		cout << "Argumentos insuficientes!\n";

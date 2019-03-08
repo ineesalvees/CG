@@ -11,9 +11,9 @@ class Sphere {
   private: 
   	float radius;
   	int slices, stack;
-  	Figure *figure;
 
   public:
+  	Figure *figure;
   	Sphere (float radius, int slices, int stack);
     void draw (); 
     void save (char *path);

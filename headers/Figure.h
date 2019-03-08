@@ -11,6 +11,7 @@ class Figure {
   	Vertex getvertex (int i);
   	void pushvertex (Vertex *v);
   	int getsize();
+  	void save (char *filepath);
 
 }; 
 

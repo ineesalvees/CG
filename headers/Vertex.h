@@ -7,9 +7,9 @@ class Vertex {
 
   public:
   	Vertex (float x, float y, float z);
-  	float getx ();
-  	float getz ();
-  	float gety ();
+  	float getx () const;
+  	float getz () const;
+  	float gety () const;
 }; 
 
 #endif

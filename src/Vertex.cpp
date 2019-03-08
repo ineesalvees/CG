@@ -6,15 +6,15 @@ Vertex::Vertex (float x, float y, float z) {
 	this->z = z;
 }
 
-float Vertex::getx () {
+float Vertex::getx () const {
 	return this->x;
 }
 
-float Vertex::gety () {
+float Vertex::gety () const {
 	return this->y;
 	
 }
 
-float Vertex::getz () {
+float Vertex::getz () const {
 	return this->z;
 }

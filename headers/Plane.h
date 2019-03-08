@@ -12,9 +12,9 @@
 class Plane { 
   private: 
   	float size, height;
-    Figure *figure;
 
   public:
+    Figure *figure;
   	Plane (float size, float height);
     void draw (); 
     void save (char *path);

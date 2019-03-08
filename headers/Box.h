@@ -11,9 +11,9 @@ class Box {
   private: 
   	float comp, largure, height;
   	int stack;
-  	Figure *figure;
 
   public:
+  	Figure *figure;
   	Box (float comp, float largure, float height, int stack);
     void draw (); 
     void save (char *path);

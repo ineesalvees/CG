@@ -13,9 +13,9 @@ class Cone {
   private: 
   	float radius, height;
   	int slices, stack;
-  	Figure *figure;
 
   public:
+  	Figure *figure;
   	Cone (float radius, float height, int slices, int stack);
     void draw (); 
     void save (char *path);
