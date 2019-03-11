@@ -1,0 +1,4 @@
+/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/CMakeFiles/edit_cache.dir
+/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/CMakeFiles/generator.dir
+/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/CMakeFiles/rebuild_cache.dir
+/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/CMakeFiles/engine.dir
