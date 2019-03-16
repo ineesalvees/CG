@@ -24,6 +24,7 @@ CMakeFiles/engine.dir/src/Translation.cpp.o: src/Translation.cpp
 CMakeFiles/engine.dir/src/Vertex.cpp.o: headers/Vertex.h
 CMakeFiles/engine.dir/src/Vertex.cpp.o: src/Vertex.cpp
 
+CMakeFiles/engine.dir/src/main.cpp.o: headers/Color.h
 CMakeFiles/engine.dir/src/main.cpp.o: headers/Figure.h
 CMakeFiles/engine.dir/src/main.cpp.o: headers/Rotation.h
 CMakeFiles/engine.dir/src/main.cpp.o: headers/Translation.h

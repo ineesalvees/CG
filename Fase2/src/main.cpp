@@ -9,6 +9,7 @@
 #include "../headers/Translation.h"
 #include "../headers/Figure.h"
 #include "../headers/Rotation.h"
+#include "../headers/Color.h"
 #include <math.h>
 #include "../pugixml-1.9/src/pugixml.hpp"
 #include <iostream>
@@ -117,7 +118,7 @@ void move(unsigned char key, int x, int y){
 
 using namespace std; 
 
-void readFile(string name,Translation *translation, Rotation *rotation) {
+void readFile(string name,Translation *translation, Rotation *rotation,Color *color) {
 
   double arr[3];
   Figure *figure = new Figure();
@@ -157,6 +158,7 @@ void readFile(string name,Translation *translation, Rotation *rotation) {
      /*
 
 		POR AQUI AS FUNCOES QUE VAO APLICAR A FIGURA TRANSLACOES E ROTACOES
+		TESTAR SE AS TRANSLACOES, ROTACOES ETC. SAO NULL OU NAO
 	
      */
 	 figure->draw();
@@ -168,7 +170,7 @@ void readFile(string name,Translation *translation, Rotation *rotation) {
 }
 
 
-void groupReader(pugi::xml_node group,Translation *translation, Rotation *rotation) {
+void groupReader(pugi::xml_node group,Translation *translation, Rotation *rotation,Color *color) {
 
 
 	//Translate translate = NULL;
@@ -176,7 +178,7 @@ void groupReader(pugi::xml_node group,Translation *translation, Rotation *rotati
 	//group = scene.first_child();
 	for (pugi::xml_node attr = group.first_child(); attr; attr = attr.next_sibling()) //percorre os varios atributos
     {
-    	if (strcmp(attr.name(),"translate")==0) {
+    	if (strcmp(attr.name(),"translate")==0 || strcmp(attr.name(),"color")==0 ) {
 
 
     		pugi::xml_attribute x , y , z;
@@ -191,10 +193,12 @@ void groupReader(pugi::xml_node group,Translation *translation, Rotation *rotati
     		zv = z.value();
 
 
-    		translation = new Translation(atof(xv.c_str()),atof(yv.c_str()),atof(zv.c_str()));
+    		if(strcmp(attr.name(),"translate")==0) 
+    			translation = new Translation(atof(xv.c_str()),atof(yv.c_str()),atof(zv.c_str()));
+
+    		else color = new Color(atof(xv.c_str()),atof(yv.c_str()),atof(zv.c_str()));
 
     		//printf("Translate\nx- %s \ny- %s \nz- %s\n",x.value(),y.value(),z.value());
-    		//translate = new Translate(atol(x.value()),atol(y.value()),atol(z.value()));
     		continue;
 
     	}
@@ -217,7 +221,7 @@ void groupReader(pugi::xml_node group,Translation *translation, Rotation *rotati
 
     		rotation = new Rotation(atof(anglev.c_str()),atof(cxv.c_str()),atof(cyv.c_str()),atof(czv.c_str()));
 
-    		printf("Rotate\nx- %s \ny- %s \nz- %s\n",cx.value(),cy.value(),cz.value());
+    		//printf("Rotate\nx- %s \ny- %s \nz- %s\n",cx.value(),cy.value(),cz.value());
     		continue;
     	}
     	if (strcmp(attr.name(),"models")==0) {
@@ -227,17 +231,17 @@ void groupReader(pugi::xml_node group,Translation *translation, Rotation *rotati
 
     			pugi::xml_attribute filename = model.first_attribute();
 
-    			printf("Models\n");
-        		printf(filename.value());
-        		readFile(filename.value(),translation,rotation);
+    			//printf("Models\n");
+        		//printf(filename.value());
+        		readFile(filename.value(),translation,rotation,color);
 
     		}
     		
     	}
     	if (strcmp(attr.name(),"group")==0) {
-    		printf("group--------\n");
+    		//printf("group--------\n");
 
-    		groupReader(attr,translation,rotation);
+    		groupReader(attr,translation,rotation,color);
     	}
 
     }
@@ -259,7 +263,7 @@ void parseFile2(char *path) {
 
 	for (pugi::xml_node group = scene.first_child(); group; group = group.next_sibling()) //percorre os varios groups
     {
-    	groupReader(group,NULL,NULL);
+    	groupReader(group,NULL,NULL,NULL);
     	//pugi::xml_attribute filename = model.first_attribute();
  		
         //readFile(filename.value());

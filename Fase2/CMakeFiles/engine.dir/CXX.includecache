@@ -6,6 +6,10 @@
 
 #IncludeRegexTransform: 
 
+/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase2/headers/Color.h
+GL/glut.h
+-
+
 /home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase2/headers/Figure.h
 Vertex.h
 /home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase2/headers/Vertex.h
@@ -38,26 +42,6 @@ iosfwd
 string
 -
 
-/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase2/src/Figure.cpp
-GLUT/glut.h
--
-GL/glut.h
--
-math.h
--
-../headers/Figure.h
-/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase2/headers/Figure.h
-../headers/Vertex.h
-/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase2/headers/Vertex.h
-vector
--
-iostream
--
-fstream
--
-string.h
--
-
 /home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase2/src/main.cpp
 GLUT/glut.h
 -
@@ -69,6 +53,8 @@ GL/glut.h
 /home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase2/headers/Figure.h
 ../headers/Rotation.h
 /home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase2/headers/Rotation.h
+../headers/Color.h
+/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase2/headers/Color.h
 math.h
 -
 ../pugixml-1.9/src/pugixml.hpp
