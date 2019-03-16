@@ -1,4 +1,4 @@
-#include "Rotation.h"
+#include "../headers/Rotation.h"
 
 Rotation::Rotation(){
 	angle = 0.0;
@@ -14,4 +14,3 @@ Rotation::Rotation(float angle, float axisX, float axisY, float axisZ){
 	this->axisZ = axisZ;
 }
 
-int main(){}

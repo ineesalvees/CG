@@ -1,4 +1,4 @@
-#include "Scale.h"
+#include "../headers/Scale.h"
 
 Scale::Scale(){
 	x = 1.0;
@@ -12,4 +12,3 @@ Scale::Scale(float x, float y, float z){
 	this->z = z;
 }
 
-int main(){}

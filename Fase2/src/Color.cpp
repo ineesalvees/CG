@@ -1,4 +1,4 @@
-#include "Color.h"
+#include "../headers/Color.h"
 
 Color::Color(){
 	r = 0.0;
@@ -12,4 +12,3 @@ Color::Color(float r, float b, float g){
 	this->g = g;
 };
 
-int main(){}

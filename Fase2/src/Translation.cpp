@@ -1,4 +1,4 @@
-#include "Translation.h"
+#include "../headers/Translation.h"
 
 Translation::Translation(){
 	x = 0.0;
@@ -12,5 +12,3 @@ Translation::Translation(float x, float y, float z){
 	this->z = z;
 }
 
-int main(){
-}
