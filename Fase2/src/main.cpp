@@ -161,7 +161,26 @@ void readFile(string name,Translation *translation, Rotation *rotation,Color *co
 		TESTAR SE AS TRANSLACOES, ROTACOES ETC. SAO NULL OU NAO
 	
      */
-	 figure->draw();
+    int i;
+
+    if (translation != NULL) {
+        printf("translate\n");
+        glTranslatef(0,1,0);
+//        glTranslatef(translation->getX(),translation->getY(),translation->getZ());
+    }
+
+
+    glBegin(GL_TRIANGLES);
+
+
+
+     for (i = 0; i < figure->getsize(); i++) {
+            Vertex v = figure->getvertex(i);
+            glVertex3f(v.getx(), v.gety(), v.getz());
+     }
+    glEnd();
+
+	//figure->draw();
     
 
   }
