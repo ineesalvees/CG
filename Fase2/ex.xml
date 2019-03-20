@@ -1,5 +1,16 @@
 <scene>
-	<model file="PlaneTESTEEE.3d" />
-	<model file="ConeTeste.3d" />
-	<model file="Esfera.3d" />
+	<group>
+		<rotate angle="45" x="5" y="5" z="5" />
+		<models>			
+			<model file="Esfera.3d" />
+		</models>
+		<group>
+			<translate x="2" y="0" z="0" />
+			<color R="0" G="0" B="3.3" />
+			<scale X="2" Y="2" Z="2" />
+			<models>			
+				<model file="Esfera.3d" />
+			</models>
+		</group>
+	</group>
 </scene> 

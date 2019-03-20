@@ -42,7 +42,7 @@ void Figure::save (char *filename) {
 	ofstream file(src);
 	
 	for(vector<Vertex>::const_iterator i = vertexes.begin(); i != vertexes.end(); ++i) {
-    	file<< i->getx() << " " << i->gety() << " " << i->getz() << " ";
+    	file << i->getx() << " " << i->gety() << " " << i->getz() << " ";
 	}
 }
 
