@@ -20,6 +20,10 @@ vector
 GL/glut.h
 -
 
+/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase2/headers/Scale.h
+GL/glut.h
+-
+
 /home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase2/headers/Translation.h
 GL/glut.h
 -
@@ -55,6 +59,8 @@ GL/glut.h
 /home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase2/headers/Rotation.h
 ../headers/Color.h
 /home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase2/headers/Color.h
+../headers/Scale.h
+/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase2/headers/Scale.h
 math.h
 -
 ../pugixml-1.9/src/pugixml.hpp

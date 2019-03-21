@@ -180,7 +180,7 @@ void readFile(string name,Translation *translation, Rotation *rotation,Color *co
         glScalef(scale->getX(),scale->getY(),scale->getZ());
     }
 
-
+    /*
     glBegin(GL_TRIANGLES);
 
 
@@ -190,9 +190,10 @@ void readFile(string name,Translation *translation, Rotation *rotation,Color *co
             glVertex3f(v.getx(), v.gety(), v.getz());
      }
     glEnd();
+    */
 
-	//figure->draw();
-    
+	figure->draw();
+
 
   }
 
@@ -288,6 +289,7 @@ void groupReader(pugi::xml_node group,Translation *translation, Rotation *rotati
         		readFile(filename.value(),translation,rotation,color,scale);
 
     		}
+            continue;
     		
     	}
     	if (strcmp(attr.name(),"group")==0) {

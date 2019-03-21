@@ -27,6 +27,7 @@ CMakeFiles/engine.dir/src/Vertex.cpp.o: src/Vertex.cpp
 CMakeFiles/engine.dir/src/main.cpp.o: headers/Color.h
 CMakeFiles/engine.dir/src/main.cpp.o: headers/Figure.h
 CMakeFiles/engine.dir/src/main.cpp.o: headers/Rotation.h
+CMakeFiles/engine.dir/src/main.cpp.o: headers/Scale.h
 CMakeFiles/engine.dir/src/main.cpp.o: headers/Translation.h
 CMakeFiles/engine.dir/src/main.cpp.o: headers/Vertex.h
 CMakeFiles/engine.dir/src/main.cpp.o: pugixml-1.9/src/pugiconfig.hpp
