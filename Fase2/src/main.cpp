@@ -156,12 +156,6 @@ void readFile(string name,Translation *translation, Rotation *rotation,Color *co
     	}
     	int index = 0;
 
-     /*
-
-		POR AQUI AS FUNCOES QUE VAO APLICAR A FIGURA TRANSLACOES E ROTACOES
-		TESTAR SE AS TRANSLACOES, ROTACOES ETC. SAO NULL OU NAO
-	
-     */
     int i;
 
     if (translation != NULL) {
@@ -180,18 +174,6 @@ void readFile(string name,Translation *translation, Rotation *rotation,Color *co
         glScalef(scale->getX(),scale->getY(),scale->getZ());
     }
 
-    /*
-    glBegin(GL_TRIANGLES);
-
-
-
-     for (i = 0; i < figure->getsize(); i++) {
-            Vertex v = figure->getvertex(i);
-            glVertex3f(v.getx(), v.gety(), v.getz());
-     }
-    glEnd();
-    */
-
 	figure->draw();
 
 
@@ -202,11 +184,7 @@ void readFile(string name,Translation *translation, Rotation *rotation,Color *co
 
 
 void groupReader(pugi::xml_node group,Translation *translation, Rotation *rotation,Color *color, Scale *scale) {
-
-
-	//Translate translate = NULL;
-
-	//group = scene.first_child();
+    glPushMatrix();
 	for (pugi::xml_node attr = group.first_child(); attr; attr = attr.next_sibling()) //percorre os varios atributos
     {
     	if (strcmp(attr.name(),"translate")==0 || strcmp(attr.name(),"color")==0 ) {
@@ -299,7 +277,7 @@ void groupReader(pugi::xml_node group,Translation *translation, Rotation *rotati
     	}
 
     }
-
+    glPopMatrix();
 
 }
 
@@ -318,9 +296,7 @@ void parseFile2(char *path) {
 	for (pugi::xml_node group = scene.first_child(); group; group = group.next_sibling()) //percorre os varios groups
     {
     	groupReader(group,NULL,NULL,NULL,NULL);
-    	//pugi::xml_attribute filename = model.first_attribute();
- 		
-        //readFile(filename.value());
+
 
     }
 
@@ -342,7 +318,7 @@ void renderScene(void) {
 	glRotatef(az,0,0,1);
 	glTranslatef(cx,cy,cz);
 
-	glPolygonMode(GL_FRONT,GL_LINE);
+	//glPolygonMode(GL_FRONT,GL_LINE);
 
 
 	parseFile2(filename);
