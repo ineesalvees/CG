@@ -14,6 +14,11 @@ void Figure::pushvertex (Vertex *v) {
 	this->vertexes.push_back(*v);
 }
 
+void Figure::add (float x, float y, float z) {
+	Vertex *v = new Vertex (x,y,z);
+	this->vertexes.push_back(*v);
+}
+
 int Figure::getsize() {
 	this->vertexes.size();
 }

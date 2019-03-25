@@ -8,8 +8,8 @@ class Vertex {
   public:
   	Vertex (float x, float y, float z);
   	float getx () const;
-  	float getz () const;
   	float gety () const;
+  	float getz () const;
 }; 
 
 #endif

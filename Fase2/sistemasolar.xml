@@ -13,7 +13,7 @@
 
 		<!--MERCÚRIO-->
 		<group>
-			<scale X="0.2" Y="0.2" Z="0.2"/>
+			<scale X="0.076" Y="0.076" Z="0.076"/>
 			<translate X="10.0" Y="0" Z="0"/>
 			<color X="0.59" Y="0.59" Z="0.62"/>
 			<models>
@@ -23,7 +23,7 @@
 
 		<!--VÉNUS-->
 		<group>
-			<scale X="0.2" Y="0.2" Z="0.2"/>
+			<scale X="0.19" Y="0.19" Z="0.19"/>
 			<translate X="20.0" Y="0" Z="0"/>
 			<color r="0.89" g="0.73" b="0.46"/>
 			<models>
@@ -53,7 +53,7 @@
 
 		<!--MARTE-->
 		<group>
-			<scale X="0.2" Y="0.2" Z="0.2"/>
+			<scale X="0.106" Y="0.106" Z="0.106"/>
 			<color r="0.76" g="0.27" b="0.05"/>
 			<translate X="40.0" Y="0" Z="0"/>
 			<models>
@@ -63,27 +63,39 @@
 
 		<!--JÚPITER-->
 		<group>
-			<scale X="0.8" Y="0.8" Z="0.8"/>
+			<scale X="0.9" Y="0.9" Z="0.9"/>
 			<color r="0.85" g="0.81" b="0.62"/>
 			<translate X="60.0" Y="0" Z="0"/>
 			<models>
 				<model file = "sphere.3d"/>
 			</models>
+
 		</group>
 
 		<!--SATURNO-->
 		<group>
-			<scale X="0.75" Y="0.75" Z="0.75"/>
+			<scale X="0.9" Y="0.9" Z="0.9"/>
 			<translate X="90.0" Y="0" Z="0"/>
 			<color r="0.76" g="0.67" b="0.43"/>
 			<models>
 				<model file = "sphere.3d"/>
 			</models>
+
+
+				<group>
+						<scale X="1.5" Y="1.5" Z="1.5"/>
+						<translate X="3.0" Y="0" Z="0"/>
+						<color r="1" g="1" b="1"/>
+						<models>
+							<model file = "torus.3d"/>
+						</models>
+				</group>
+
 		</group>
 
 		<!--URANO-->
 		<group>
-			<scale X="0.6" Y="0.6" Z="0.6"/>
+			<scale X="0.8" Y="0.8" Z="0.8"/>
 			<translate X="105.0" Y="0" Z="0"/>
 			<color r="0.73" g="0.88" b="0.88"/>
 			<models>
@@ -93,7 +105,7 @@
 
 		<!--NEPTUNO-->
 		<group>
-			<scale X="0.5" Y="0.5" Z="0.5"/>
+			<scale X="0.78" Y="0.78" Z="0.78"/>
 			<translate X="125.0" Y="0" Z="0"/>
 			<color r="0.35" g="0.52" b="0.52"/>
 			<models>

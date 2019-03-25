@@ -10,6 +10,7 @@ class Figure {
   public:
   	Vertex getvertex (int i);
   	void pushvertex (Vertex *v);
+  	void add (float x, float y, float z);
   	int getsize();
   	void save (char *filepath);
   	void draw();
