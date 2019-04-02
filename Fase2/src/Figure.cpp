@@ -21,7 +21,7 @@ void Figure::pushvertex (Vertex *v) {
 }
 
 int Figure::getsize() {
-	this->vertexes.size();
+	return this->vertexes.size();
 }
 
 void Figure::draw() {
