@@ -1,7 +1,6 @@
 #ifndef _Color_H_
 #define _Color_H_
 
-#include<GL/glut.h>
 
 class Color{
 	private:

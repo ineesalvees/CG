@@ -1,7 +1,6 @@
 #ifndef _Transformation_H_
 #define _Transformation_H_
 
-#include<GL/glut.h>
 #include "Translation.h"
 #include "Color.h"
 #include "Scale.h"

@@ -1,7 +1,6 @@
 #ifndef _TRANSLATION_H_
 #define _TRANSLATION_H_
 
-#include<GL/glut.h>
 
 class Translation{
 	private:
