@@ -7,7 +7,6 @@
 #else
 #include <GL/glut.h>
 #endif
-#include<GL/glut.h>
 #include "Vertex.h"
 #include "Transformation.h"
 #include <fstream>

@@ -3,8 +3,8 @@
 
 #include <vector>
 #include "Vertex.h"
-#include <GL/glew.h>
-#include <GL/glut.h>
+//#include </usr/local/Cellar/glew/2.1.0/include/GL/glew.h>
+//#include <GL/glut.h>
 
 class VBO {
 	float buff[1];

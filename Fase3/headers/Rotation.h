@@ -1,8 +1,6 @@
 #ifndef _Rotation_H_
 #define _Rotation_H_
 
-#include<GL/glut.h>
-
 class Rotation{
 	private:
 		float time, axisX, axisY, axisZ;

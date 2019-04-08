@@ -1,7 +1,13 @@
-#include <GL/glew.h>
+#ifdef __APPLE__
+#include <GLUT/glut.h>
+#else
 #include <GL/glut.h>
-#include "../headers/VBO.h"
+#endif
+#include "../headers/Figure.h"
 #include "../headers/Vertex.h"
+#include "../headers/VBO.h"
+
+#include <vector>
 
 using std::vector;
 

@@ -1,8 +1,6 @@
 #ifndef _Scale_H_
 #define _Scale_H_
 
-#include<GL/glut.h>
-
 class Scale{
 	private:
 		float x, y, z;
