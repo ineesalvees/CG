@@ -185,11 +185,11 @@ void readFile(string name,Translation *translation, Rotation *rotation,Color *co
     int i;
 
     if (translation != NULL) {
-   //     glTranslatef(translation->getX(),translation->getY(),translation->getZ());
+        //glTranslatef(translation->getX(),translation->getY(),translation->getZ());
     }
 
     if (rotation != NULL) {
-      //  glRotatef(rotation->getAngle(),rotation->getAxisX(),rotation->getAxisY(),rotation->getAxisZ());
+        //glRotatef(rotation->getAngle(),rotation->getAxisX(),rotation->getAxisY(),rotation->getAxisZ());
     }
 
     if (color != NULL) {
@@ -216,6 +216,7 @@ void groupReader(pugi::xml_node group,Translation *translation, Rotation *rotati
     glPushMatrix();
     for (pugi::xml_node attr = group.first_child(); attr; attr = attr.next_sibling()) //percorre os varios atributos
     {
+        printf("olá!\n");
         if (strcmp(attr.name(),"translate")==0  ) {
 
             translation = new Translation();
@@ -308,7 +309,7 @@ void groupReader(pugi::xml_node group,Translation *translation, Rotation *rotati
                 pugi::xml_attribute filename = model.first_attribute();
 
                 //printf("Models\n");
-                //readFile(filename.value(),translation,rotation,color,scale);
+                readFile(filename.value(),translation,rotation,color,scale);
 
             }
             continue;

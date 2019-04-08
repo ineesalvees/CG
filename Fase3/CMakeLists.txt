@@ -29,7 +29,7 @@ if  (WIN32)
 
 else (WIN32) #Linux and Mac
 
-	set(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} -Wno-deprecated")
+	set(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} -Wno-deprecated -g -lGLEW -DGLEW_STATIC")
 	set_source_files_properties(${sources} PROPERTIES COMPILE_FLAGS
 		"-xobjective-c -Wno-deprecated-declarations")
 	find_package(OpenGL REQUIRED)
@@ -45,7 +45,7 @@ endif(WIN32)
 # Project Name
 project(engine)
 
-set(ENGINE_FILES ./src/main.cpp ./src/Figure.cpp ./src/Color.cpp ./src/Rotation.cpp ./src/Scale.cpp ./src/Translation.cpp ./src/Vertex.cpp ./pugixml-1.9/src/pugixml.cpp)
+set(ENGINE_FILES ./src/main.cpp ./src/Figure.cpp ./src/Color.cpp ./src/Rotation.cpp ./src/Scale.cpp ./src/Translation.cpp ./src/Vertex.cpp ./pugixml-1.9/src/pugixml.cpp ./src/VBO.cpp)
 
 add_executable(engine ${ENGINE_FILES})
 
