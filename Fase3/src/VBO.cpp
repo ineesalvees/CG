@@ -11,7 +11,7 @@
 
 using std::vector;
 
-void VBO::render (std::vector<Vertex*> vertexes) {
+void VBO::render (std::vector<Vertex> vertexes) {
 
 	//setup
 	buff[0] = vertexes.size();
@@ -19,10 +19,10 @@ void VBO::render (std::vector<Vertex*> vertexes) {
     int index = 0;
     float* vertex_array = (float*) malloc(sizeof(float) * (vertexes.size()) * 3);
 
-    for(Vertex* v: vertexes){
-        vertex_array[index] = v->getx();
-        vertex_array[index+1] = v->gety();
-        vertex_array[index+2] = v->getz();
+    for(Vertex v: vertexes){
+        vertex_array[index] = v.getx();
+        vertex_array[index+1] = v.gety();
+        vertex_array[index+2] = v.getz();
         index+=3;
     }
 

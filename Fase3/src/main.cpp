@@ -11,6 +11,7 @@
 #include "../headers/Rotation.h"
 #include "../headers/Color.h"
 #include "../headers/Scale.h"
+#include "../headers/VBO.h"
 #include <math.h>
 #include "../pugixml-1.9/src/pugixml.hpp"
 #include <iostream>
@@ -22,9 +23,9 @@
 #include <stdio.h>
 #include <string.h>
 
-double alfa = M_PI;
-double beta1 = M_PI;
 char *filename;
+
+int start = 0;
 
 float ax = 0;
 float ay = 0;
@@ -36,29 +37,31 @@ float cz = 0;
 
 float speed = 5;
 
-void mexeeeer (int key, int x, int y) {
+int X_TRANSLATE = 0;
+int Y_TRANSLATE = 0;
+int Z_TRANSLATE = 0;
 
-    switch (key) {
-        case GLUT_KEY_LEFT :
-            alfa += 0.1f;
-            break;
-        case GLUT_KEY_RIGHT :
-            alfa -= 0.1f;
-            break;
-        case GLUT_KEY_UP :
-            beta1 -= 0.08f;
-            if (beta1 < M_PI / 2)
-                beta1 = M_PI / 2;
-            break;
-        case GLUT_KEY_DOWN :
-            beta1 += 0.08f;
-            if (beta1 > 3 * M_PI / 2)
-                beta1 = 3 * M_PI / 2;
-            break;
-    }
+int mode = GL_FILL;
+int mode_aux = 1;
 
-    glutPostRedisplay();
-}
+float scale = 1;
+
+int X_ANGLE = 0;
+int Y_ANGLE = 0;
+int Z_ANGLE = 0;
+
+//Mouse movements
+int alpha = 0, beta = 45, r = 50;
+float camX = 0, camY, camZ = 5;
+int startX, startY, tracking = 0;
+
+float px = 0.0f, py = 0.0f, pz = 10.0f, dx= 0.0f, dy = 0.0f, dz = -1.0f, ux = 0.0f, uy = 1.0f, uz = 0.0f;
+double alfa = M_PI;
+double beta1 = M_PI;
+int mexer = 0;
+int timebase = 0, frame = 0;
+
+using namespace std; 
 
 void changeSize(int w, int h) {
 
@@ -85,65 +88,32 @@ void changeSize(int w, int h) {
     glMatrixMode(GL_MODELVIEW);
 }
 
+void changeMode() {
+    if (mode_aux == 0)
+        mode = GL_LINE;
+    else if (mode_aux == 1)
+        mode = GL_FILL;
+    else if (mode_aux == 2)
+        mode = GL_POINT;
 
+    glPolygonMode(GL_FRONT_AND_BACK, mode);
+}
 
+void moveforward(){
 
-// write function to process keyboard events
-void move(unsigned char key, int x, int y){
-    switch (key) {
-        case 'q':
-            cx++;
-            glutPostRedisplay();
-            break;
-        case 'w':
-            cx--;
-            glutPostRedisplay();
-            break;
-        case 'a':
-            cy++;
-            glutPostRedisplay();
-            break;
-        case 's':
-            cy--;
-            glutPostRedisplay();
-            break;
-        case 'z':
-            cz++;
-            glutPostRedisplay();
-            break;
-        case 'x':
-            cz--;
-            glutPostRedisplay();
-            break;
-        case 't':
-            ax += speed;
-            glutPostRedisplay();
-            break;
-        case 'y':
-            ax -= speed;
-            glutPostRedisplay();
-            break;
-        case 'g':
-            ay += speed;
-            glutPostRedisplay();
-            break;
-        case 'h':
-            ay -= speed;
-            glutPostRedisplay();
-            break;
-        case 'b':
-            az += speed;
-            glutPostRedisplay();
-            break;
-        case 'n':
-            az -= speed;
-            glutPostRedisplay();
-            break;  
-    }
+    px = px + 0.5 * dx;
+    py = py + 0.5 * dy;
+    pz = pz + 0.5 * dz;
+}
+
+void movebackwards(){
+
+    px = px - 0.5 * dx;
+    py = py - 0.5 * dy;
+    pz = pz - 0.5 * dz;
 }
 
 
-using namespace std; 
 
 void readFile(string name,Translation *translation, Rotation *rotation,Color *color, Scale *scale) {
 
@@ -180,27 +150,32 @@ void readFile(string name,Translation *translation, Rotation *rotation,Color *co
             temp = ""; 
 
         }
-        int index = 0;
 
-    int i;
 
     if (translation != NULL) {
-        //glTranslatef(translation->getX(),translation->getY(),translation->getZ());
+        
+        glTranslatef(translation->getvertex(0).getx(),translation->getvertex(0).gety(),translation->getvertex(0).getz());                
     }
-
+    /*
     if (rotation != NULL) {
-        //glRotatef(rotation->getAngle(),rotation->getAxisX(),rotation->getAxisY(),rotation->getAxisZ());
+        glRotatef(rotation->getAngle(),rotation->getAxisX(),rotation->getAxisY(),rotation->getAxisZ());
     }
-
+    */
     if (color != NULL) {
-        //glColor3f(color->getR(),color->getG(),color->getB());
+        glColor3f(color->getR(),color->getG(),color->getB());
     }
 
     if (scale != NULL) {
-        //glScalef(scale->getX(),scale->getY(),scale->getZ());
+        glScalef(scale->getX(),scale->getY(),scale->getZ());
     }
 
-    figure->draw();
+    VBO *vbo = new VBO();
+
+    vbo->render(figure->getvertexes());
+
+    //mfigure->draw();
+    //printf("draw\n");
+
 
 
   }
@@ -210,13 +185,23 @@ void readFile(string name,Translation *translation, Rotation *rotation,Color *co
 
 
 
-
+/*
+            <translate time="3.61269" >
+                <point X="34.9025385" Y="0" Z="0"/>
+                <point X="24.679821" Y="0" Z="24.679821"/>
+                <point X="0" Y="0" Z="34.9025385"/>
+                <point X="-24.679821" Y="0" Z="24.679821"/>
+                <point X="-34.9025385" Y="0" Z="0"/>
+                <point X="-24.679821" Y="0" Z="-24.679821"/>
+                <point X="0" Y="0" Z="-34.9025385"/>
+                <point X="24.679821" Y="0" Z="-24.679821"/>
+            </translate>
+*/
 
 void groupReader(pugi::xml_node group,Translation *translation, Rotation *rotation,Color *color, Scale *scale) {
     glPushMatrix();
     for (pugi::xml_node attr = group.first_child(); attr; attr = attr.next_sibling()) //percorre os varios atributos
     {
-        printf("olá!\n");
         if (strcmp(attr.name(),"translate")==0  ) {
 
             translation = new Translation();
@@ -348,28 +333,184 @@ void parseFile2(char *path) {
 
 }
 
-void renderScene(void) {
+void renderScene() {
+    float fps;
+    int time;
+    char s[64];
 
     // clear buffers
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
     // set the camera
     glLoadIdentity();
-    gluLookAt(5.0,5.0,5.0, 
-              0.0,0.0,0.0,
-              0.0f,1.0f,0.0f);
 
-    glRotatef(ax,1,0,0);
-    glRotatef(ay,0,1,0);
-    glRotatef(az,0,0,1);
-    glTranslatef(cx,cy,cz);
+    dx = sin(alfa);
+    dy = sin(beta1);
+    dz = cos(alfa);
+
+    gluLookAt(px, py, pz,
+              px + dx, py + dy, pz + dz,
+              ux, uy, uz);
+
+    frame++;
+    time=glutGet(GLUT_ELAPSED_TIME);
+    if (time - timebase > 1000) {
+        fps = frame*1000.0/(time-timebase);
+        timebase = time;
+        frame = 0;
+        sprintf(s, "FPS: %f6.2", fps);
+        glutSetWindowTitle(s);
+    }
+
+    if (mexer){
+        moveforward();
+    };
+
+    glColor3f(1,1,1);
+
+    changeMode();
+
+    glTranslatef(X_TRANSLATE ,Y_TRANSLATE ,Z_TRANSLATE);
+
+    glRotatef(X_ANGLE, 1, 0, 0);
+    glRotatef(Y_ANGLE, 0, 1, 0);
+    glRotatef(Z_ANGLE, 0, 0, 1);
+
+    //Zoom in & Zoom out
+    glScalef(scale, scale, scale);
 
     //glPolygonMode(GL_FRONT,GL_LINE);
 
-
-    parseFile2(filename);
+    if (start == 0) {
+        parseFile2(filename);
+        start = 1;
+    }
     // End of frame
     glutSwapBuffers();
+}
+
+// write function to process keyboard events
+void keyboard(unsigned char key, int x, int y){
+    if (key == 'm') {
+        mode_aux++;
+        mode_aux = mode_aux % 3;
+    }
+
+    if (key == '+')
+        scale += 0.1;
+
+
+    if (key == '-') {
+        scale -= 0.1;
+        if (scale <= 0.1)
+            scale = 0.1;
+    }
+
+    if (key == 'n')
+        mexer = (mexer + 1) % 2;
+
+    if (key == ' ')
+        moveforward();
+
+    if (key == 'b')
+        movebackwards();
+
+    glutPostRedisplay();
+}
+
+void movement (int key, int x, int y) {
+
+   switch (key) {
+        case GLUT_KEY_LEFT :
+            alfa += 0.1f;
+            break;
+        case GLUT_KEY_RIGHT :
+            alfa -= 0.1f;
+            break;
+        case GLUT_KEY_UP :
+            beta1 -= 0.08f;
+            if (beta1 < M_PI / 2)
+                beta1 = M_PI / 2;
+            break;
+        case GLUT_KEY_DOWN :
+            beta1 += 0.08f;
+            if (beta1 > 3 * M_PI / 2)
+                beta1 = 3 * M_PI / 2;
+            break;
+    }
+
+    glutPostRedisplay();
+}
+
+void processMouseButtons(int button, int state, int xx, int yy) {
+
+    if (state == GLUT_DOWN)  {
+        startX = xx;
+        startY = yy;
+        if (button == GLUT_LEFT_BUTTON)
+            tracking = 1;
+        else if (button == GLUT_RIGHT_BUTTON)
+            tracking = 2;
+        else
+            tracking = 0;
+    }
+    else if (state == GLUT_UP) {
+        if (tracking == 1) {
+            alpha += (xx - startX);
+            beta += (yy - startY);
+        }
+        else if (tracking == 2) {
+
+            r -= yy - startY;
+            if (r < 3)
+                r = 3.0;
+        }
+        tracking = 0;
+    }
+
+    glutPostRedisplay();
+}
+
+
+void processMouseMotion(int xx, int yy) {
+
+    int deltaX, deltaY;
+    int alphaAux, betaAux;
+    int rAux;
+
+    if (!tracking)
+        return;
+
+    deltaX = xx - startX;
+    deltaY = yy - startY;
+
+    if (tracking == 1) {
+        alfa += 0.0001 * -(xx - startX);
+        beta1 += 0.0001 * (yy - startY);
+
+        alphaAux = alpha + deltaX;
+        betaAux = beta + deltaY;
+
+        if (betaAux > 85.0)
+            betaAux = 85.0;
+        else if (betaAux < -85.0)
+            betaAux = -85.0;
+
+        rAux = r;
+    }
+    else if (tracking == 2) {
+
+        alphaAux = alpha;
+        betaAux = beta;
+        rAux = r - deltaY;
+        if (rAux < 3)
+            rAux = 3;
+    }
+    camX = rAux * sin(alphaAux * 3.14 / 180.0) * cos(betaAux * 3.14 / 180.0);
+    camZ = rAux * cos(alphaAux * 3.14 / 180.0) * cos(betaAux * 3.14 / 180.0);
+    camY = rAux *                                sin(betaAux * 3.14 / 180.0);
+
+    glutPostRedisplay();
 }
 
 
@@ -384,12 +525,19 @@ int main(int argc, char **argv) {
     glutInitWindowPosition(100,100);
     glutInitWindowSize(800,800);
     glutCreateWindow("CG@DI-UM");
+    glEnableClientState(GL_VERTEX_ARRAY);
+
         
 // Required callback registry 
     glutDisplayFunc(renderScene);
     glutReshapeFunc(changeSize);
-    glutKeyboardFunc(move);
-    glutSpecialFunc(mexeeeer);
+//  glutKeyboardFunc(move);
+
+    glutKeyboardFunc(keyboard);
+    glutSpecialFunc(movement);
+
+    glutMouseFunc(processMouseButtons);
+    glutMotionFunc(processMouseMotion);
     
 // Callback registration for keyboard processing
 //  glutKeyboardFunc(processKeys);

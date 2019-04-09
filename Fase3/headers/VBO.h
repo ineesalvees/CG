@@ -11,7 +11,7 @@ class VBO {
 	GLuint buffers[1];
 
 	public:
-		void render (std::vector<Vertex*> vertexes);
+		void render (std::vector<Vertex> vertexes);
 };
 
 #endif

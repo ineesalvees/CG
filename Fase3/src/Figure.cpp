@@ -12,6 +12,10 @@
 #include <string.h>
 using namespace std;
 
+std::vector<Vertex> Figure::getvertexes () {
+	return this->vertexes;
+}
+
 Vertex Figure::getvertex (int i) {
 	return this->vertexes.at(i);
 }

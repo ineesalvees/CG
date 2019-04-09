@@ -8,6 +8,7 @@ class Figure {
   private: 
   	std::vector<Vertex> vertexes;
   public:
+    std::vector<Vertex> getvertexes ();
   	Vertex getvertex (int i);
   	void pushvertex (Vertex *v);
   	int getsize();
