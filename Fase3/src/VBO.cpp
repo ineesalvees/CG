@@ -11,7 +11,11 @@
 
 using std::vector;
 
-void VBO::render (std::vector<Vertex> vertexes) {
+VBO::VBO(std::vector<Vertex> vertexes){
+    this->vertexes = vertexes;
+}
+
+void VBO::render () {
 
 	//setup
 	buff[0] = vertexes.size();

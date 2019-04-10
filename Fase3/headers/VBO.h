@@ -7,11 +7,14 @@
 //#include <GL/glut.h>
 
 class VBO {
-	float buff[1];
-	GLuint buffers[1];
+	private: 
+  		std::vector<Vertex> vertexes;
+		float buff[1];
+		GLuint buffers[1];
 
 	public:
-		void render (std::vector<Vertex> vertexes);
+		VBO(std::vector<Vertex> vertexes);
+		void render ();
 };
 
 #endif

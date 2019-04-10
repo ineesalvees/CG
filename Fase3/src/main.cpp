@@ -6,6 +6,7 @@
 
 #define _USE_MATH_DEFINES
 
+#include "../headers/Transformation.h"
 #include "../headers/Translation.h"
 #include "../headers/Figure.h"
 #include "../headers/Rotation.h"
@@ -169,9 +170,9 @@ void readFile(string name,Translation *translation, Rotation *rotation,Color *co
         glScalef(scale->getX(),scale->getY(),scale->getZ());
     }
 
-    VBO *vbo = new VBO();
+    VBO *vbo = new VBO(figure->getvertexes());
 
-    vbo->render(figure->getvertexes());
+    vbo->render();
 
     //mfigure->draw();
     //printf("draw\n");
@@ -381,10 +382,7 @@ void renderScene() {
 
     //glPolygonMode(GL_FRONT,GL_LINE);
 
-    if (start == 0) {
-        parseFile2(filename);
-        start = 1;
-    }
+    parseFile2(filename);
     // End of frame
     glutSwapBuffers();
 }
