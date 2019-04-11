@@ -8,45 +8,15 @@
 
 class Transformation{
 	private:
-		Translation translation;
-		Rotation rotation;
-		Scale scale;
-		Color color;
+		float x;
+		float y;
+		float z;
 
 	public:
-		Transformation();
-		Transformation(Translation t, Rotation r, Scale s, Color c);
-
-		Translation getTranslation(){
-			return translation;
-		}
-
-		Rotation getRotation(){
-			return rotation;
-		}
-
-		Scale getScale(){
-			return scale;
-		}
-
-		Color getColor(){
-			return color;
-		}
-
-		void setTranslation(Translation translation){
-			this->translation = translation;
-		}
-
-		void setRotation(Rotation rotation){
-			this->rotation = rotation;
-		}
-
-		void setScale(Scale scale){
-			this->scale = scale;
-		}
-
-		void setColor(Color color){
-			this->color = color;
-		}
+		Transformation (float x, float y, float z);
+		float getx ();
+		float gety ();
+		float getz ();
+		virtual void make () {};
 };
 #endif

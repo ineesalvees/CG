@@ -1,7 +1,7 @@
 #ifndef _Rotation_H_
 #define _Rotation_H_
 
-class Rotation{
+class Rotation : public Transformation {
 	private:
 		float time, axisX, axisY, axisZ;
 

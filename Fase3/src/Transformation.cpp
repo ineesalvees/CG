@@ -1,17 +1,19 @@
 #include "Transformation.h"
 
-Transformation::Transformation(){
-	translation = Translation::Translation();
-	rotation = Rotation::Rotation();
-	scale = Scale::Scale();
-	color = Color::Color();
+Transformation::Transformation(float x, float y, float z){
+	this->x = x;
+	this->y = y;
+	this->z = z;
 }
 
-Transformation::Transformation(Translation translation, Rotation rotation, Scale scale, Color color){
-	this->translation = translation;
-	this->rotation = rotation;
-	this->scale = scale;
-	this->color = color;
+float Transformation::getx () {
+	return this->x;
 }
 
-int main(){}
+float Transformation::gety () {
+	return this->y;
+}
+
+float Transformation::getz () {
+	return this->z;
+}
