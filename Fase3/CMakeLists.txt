@@ -37,6 +37,12 @@ else (WIN32) #Linux and Mac
 	link_directories(${OpenGL_LIBRARY_DIRS})
 	add_definitions(${OpenGL_DEFINITIONS})
 
+	find_package(GLEW REQUIRED)
+	if (GLEW_FOUND)
+	    include_directories(${GLEW_INCLUDE_DIRS})
+	    link_libraries(${GLEW_LIBRARIES})
+	endif()
+
 	if(NOT OPENGL_FOUND)
 		message(ERROR " OPENGL not found!")
 	endif(NOT OPENGL_FOUND)

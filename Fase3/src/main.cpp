@@ -1,6 +1,7 @@
 #ifdef __APPLE__
 #include <GLUT/glut.h>
 #else
+#include <GL/glew.h>
 #include <GL/glut.h>
 #endif
 
@@ -50,8 +51,6 @@ float scale = 1;
 int X_ANGLE = 0;
 int Y_ANGLE = 0;
 int Z_ANGLE = 0;
-
-Group sistema;
 
 //Mouse movements
 int alpha = 0, beta = 45, r = 50;
@@ -186,18 +185,33 @@ void readFile(string name,Translation *translation, Rotation *rotation,Color *co
   nfile.close();
 }
 
-void groupReader(pugi::xml_node group,Translation *translation, Rotation *rotation,Color *color, Scale *scale, Transformation *transformation) {
-    glPushMatrix();    
+
+
+/*
+            <translate time="3.61269" >
+                <point X="34.9025385" Y="0" Z="0"/>
+                <point X="24.679821" Y="0" Z="24.679821"/>
+                <point X="0" Y="0" Z="34.9025385"/>
+                <point X="-24.679821" Y="0" Z="24.679821"/>
+                <point X="-34.9025385" Y="0" Z="0"/>
+                <point X="-24.679821" Y="0" Z="-24.679821"/>
+                <point X="0" Y="0" Z="-34.9025385"/>
+                <point X="24.679821" Y="0" Z="-24.679821"/>
+            </translate>
+*/
+
+void groupReader(pugi::xml_node group,Translation *translation, Rotation *rotation,Color *color, Scale *scale) {
+    glPushMatrix();
     for (pugi::xml_node attr = group.first_child(); attr; attr = attr.next_sibling()) //percorre os varios atributos
     {
         if (strcmp(attr.name(),"translate")==0  ) {
 
             translation = new Translation();
-            pugi::xml_attribute time, x, y, z;
+            pugi::xml_attribute time,x , y , z;
 
             x = attr.first_attribute();
             if(strcmp(x.name(),"time")==0) {
-                std::string timev, xv, yv, zv;
+                std::string timev,xv,yv,zv;
 
                 time = x;
                 timev = time.value();
@@ -213,7 +227,6 @@ void groupReader(pugi::xml_node group,Translation *translation, Rotation *rotati
                     zv = z.value();
                     Vertex *vertex = new Vertex(atof(xv.c_str()),atof(yv.c_str()),atof(zv.c_str()));
                     translation->pushvertex(vertex);
-
                 }
             }
             else {
@@ -291,8 +304,8 @@ void groupReader(pugi::xml_node group,Translation *translation, Rotation *rotati
         }
         if (strcmp(attr.name(),"group")==0) {
             //printf("group--------\n");
-            Transformation *transformation = new Transformation ();
-            groupReader(attr,translation,rotation,color,scale,transformation);
+
+            groupReader(attr,translation,rotation,color,scale);
         }
 
     }
@@ -513,7 +526,14 @@ int main(int argc, char **argv) {
     glutCreateWindow("CG@DI-UM");
     glEnableClientState(GL_VERTEX_ARRAY);
 
+    #ifdef __APPLE__
+    #else
+        glewInit();
+    #endif
+
         
+
+
 // Required callback registry 
     glutDisplayFunc(renderScene);
     glutReshapeFunc(changeSize);

@@ -3,7 +3,7 @@
 
 #include <vector>
 #include "Vertex.h"
-#include <GLUT/glut.h>
+
 
 class VBO {
 	private: 
