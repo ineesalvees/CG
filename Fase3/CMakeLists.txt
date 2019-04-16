@@ -51,7 +51,7 @@ endif(WIN32)
 # Project Name
 project(engine)
 
-set(ENGINE_FILES ./src/main.cpp ./src/Figure.cpp ./src/Color.cpp ./src/Rotation.cpp ./src/Scale.cpp ./src/Translation.cpp ./src/Vertex.cpp ./pugixml-1.9/src/pugixml.cpp ./src/VBO.cpp)
+set(ENGINE_FILES ./src/main.cpp ./src/Figure.cpp ./src/Color.cpp ./src/Rotation.cpp ./src/Scale.cpp ./src/Translation.cpp ./src/Vertex.cpp ./pugixml-1.9/src/pugixml.cpp ./src/VBO.cpp  )
 
 add_executable(engine ${ENGINE_FILES})
 

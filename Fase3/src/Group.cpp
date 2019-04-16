@@ -1,8 +1,12 @@
-#include "../headers/group.h"
+#include "../headers/Group.h"
 #include "../headers/VBO.h"
 #include "../headers/Transformation.h"
 #include <vector>
 
+
+Group::Group() {
+	
+}
 std::vector<VBO> Group::getVBOs () {
 	return this->vbos;
 }
@@ -25,4 +29,7 @@ void Group::pushTransformation (Transformation transformation) {
 
 void Group::pushGroup (Group group) {
 	this->children.push_back(group);
+}
+void Group::pushScene(std::string string) {
+	this->scenes.push_back(string);
 }

@@ -2,11 +2,12 @@
 #define _TRANSLATION_H_
 
 #include "Vertex.h"
+#include "Transformation.h"
 #include <vector>
 
 #define POINT_COUNT 5
 
-class Translation{
+class Translation /*: public Transformation */{
 	private:
 		std::vector<Vertex> vertexes;
 		float time;

@@ -13,6 +13,7 @@ class Transformation{
 		float z;
 
 	public:
+		Transformation();
 		Transformation (float x, float y, float z);
 		float getx ();
 		float gety ();

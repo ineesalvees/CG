@@ -14,6 +14,7 @@
 #include "../headers/Color.h"
 #include "../headers/Scale.h"
 #include "../headers/VBO.h"
+#include "../headers/Group.h"
 #include <math.h>
 #include "../pugixml-1.9/src/pugixml.hpp"
 #include <iostream>
@@ -63,7 +64,11 @@ double beta1 = M_PI;
 int mexer = 0;
 int timebase = 0, frame = 0;
 
+
 using namespace std; 
+
+
+std::vector<Group> groups;
 
 void changeSize(int w, int h) {
 
@@ -200,8 +205,12 @@ void readFile(string name,Translation *translation, Rotation *rotation,Color *co
             </translate>
 */
 
-void groupReader(pugi::xml_node group,Translation *translation, Rotation *rotation,Color *color, Scale *scale) {
+Group groupReader(pugi::xml_node group,Translation *translation, Rotation *rotation,Color *color, Scale *scale) {
     glPushMatrix();
+
+    Group *res = new Group();
+
+
     for (pugi::xml_node attr = group.first_child(); attr; attr = attr.next_sibling()) //percorre os varios atributos
     {
         if (strcmp(attr.name(),"translate")==0  ) {
@@ -294,18 +303,45 @@ void groupReader(pugi::xml_node group,Translation *translation, Rotation *rotati
             {
 
                 pugi::xml_attribute filename = model.first_attribute();
+                
 
                 //printf("Models\n");
-                readFile(filename.value(),translation,rotation,color,scale);
+                //readFile(filename.value(),translation,rotation,color,scale);
+
+                /*
+
+                ADICIONA OS VARIOS FICHEIROS AO VETOR DE SCENES
+                */
+                res->pushScene(filename.value());
 
             }
+
+
+            /*
+
+            DA ERRO AO EXTENDER A CLASSE NAO SEI PORQUE ???????????????????
+            res->pushTransformation(translation);
+            res->pushTransformation(rotation);
+            res->pushTransformation(color);
+            res->pushTransformation(scale);
+
+            
+*/
+
+
             continue;
             
         }
         if (strcmp(attr.name(),"group")==0) {
             //printf("group--------\n");
 
-            groupReader(attr,translation,rotation,color,scale);
+
+            /*
+
+        ADICIONA AO GRUPO FILHO A PARTE RECURSIVA
+
+            */
+            res->pushGroup(groupReader(attr,translation,rotation,color,scale));
         }
 
     }
@@ -328,7 +364,18 @@ void parseFile2(char *path) {
 
     for (pugi::xml_node group = scene.first_child(); group; group = group.next_sibling()) //percorre os varios groups
     {
-        groupReader(group,NULL,NULL,NULL,NULL);
+
+
+
+
+        /*A CADA GROUP VAI ADICIONA LO AO VECTOR DE GROUPS*/
+
+
+
+
+
+
+        groups.push_back(groupReader(group,NULL,NULL,NULL,NULL));
 
 
     }
