@@ -4,7 +4,7 @@
 #include "Translation.h"
 #include "Color.h"
 #include "Scale.h"
-#include "Rotation.h"
+
 
 class Transformation{
 	private:
@@ -20,4 +20,30 @@ class Transformation{
 		float getz ();
 		virtual void make () {};
 };
+
+class Rotation : public Transformation {
+	private:
+		float time, axisX, axisY, axisZ;
+
+	public:
+		Rotation();
+		Rotation(float time, float axisX, float axisY, float axisZ);
+
+		float getTime(){
+			return time;
+		}
+
+		float getAxisX(){
+			return axisX;
+		}
+
+		float getAxisY(){
+			return axisY;
+		}
+
+		float getAxisZ(){
+			return axisZ;
+		}
+};
+
 #endif
