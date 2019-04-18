@@ -167,7 +167,7 @@ VBO* readFile(string name) {
 }
 
 
-Group groupReader(pugi::xml_node group,Translation *translation, Rotation *rotation,Color *color, Scale *scale) {
+Group* groupReader(pugi::xml_node group,Translation *translation, Rotation *rotation,Color *color, Scale *scale) {
     glPushMatrix();
 
     Group *res = new Group();
@@ -266,11 +266,13 @@ Group groupReader(pugi::xml_node group,Translation *translation, Rotation *rotat
 
                 pugi::xml_attribute filename = model.first_attribute();
                 
-
+                printf("ANRES\n");
                 res->pushVBO(readFile(filename.value()));
-
+                printf("depois\n");
                 
             }
+
+            
 
 
             /*
@@ -291,16 +293,14 @@ Group groupReader(pugi::xml_node group,Translation *translation, Rotation *rotat
             //printf("group--------\n");
 
 
-            /*
-
-        ADICIONA AO GRUPO FILHO A PARTE RECURSIVA
-
-            */
             res->pushGroup(groupReader(attr,translation,rotation,color,scale));
+
         }
 
     }
     glPopMatrix();
+
+    return res;
 
 }
 
@@ -320,17 +320,11 @@ void parseFile2(char *path) {
     for (pugi::xml_node group = scene.first_child(); group; group = group.next_sibling()) //percorre os varios groups
     {
 
+        printf("GRUPO\n");
 
+        Group *g = groupReader(group,NULL,NULL,NULL,NULL);
 
-
-        /*A CADA GROUP VAI ADICIONA LO AO VECTOR DE GROUPS*/
-
-
-
-
-
-
-        groups.push_back(groupReader(group,NULL,NULL,NULL,NULL));
+        groups.push_back(*g);
 
 
     }
@@ -385,7 +379,7 @@ void renderScene() {
 
     //glPolygonMode(GL_FRONT,GL_LINE);
 
-    parseFile2(filename);
+    
     // End of frame
     glutSwapBuffers();
 }
@@ -534,7 +528,7 @@ int main(int argc, char **argv) {
     #endif
 
         
-
+    parseFile2(filename);
 
 // Required callback registry 
     glutDisplayFunc(renderScene);

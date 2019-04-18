@@ -27,7 +27,7 @@ void Group::pushTransformation (Transformation transformation) {
 	this->transformations.push_back(transformation);
 }
 
-void Group::pushGroup (Group group) {
-	this->children.push_back(group);
+void Group::pushGroup (Group *group) {
+	this->children.push_back(*group);
 }
 
