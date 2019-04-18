@@ -22,7 +22,7 @@ class Group {
 		std::vector<Group> getChildren ();
 		void pushVBO (VBO *vbo);
 		void pushTransformation (Transformation transformation);
-		void pushGroup (Group group);
+		void pushGroup (Group *group);
 };
 
 #endif

@@ -211,7 +211,6 @@ Group* groupReader(pugi::xml_node group,Translation *translation, Rotation *rota
                 translation->pushvertex(vertex);
 
             }
-            //printf("Translate\nx- %s \ny- %s \nz- %s\n",x.value(),y.value(),z.value());
             continue;
 
         }
@@ -266,9 +265,9 @@ Group* groupReader(pugi::xml_node group,Translation *translation, Rotation *rota
 
                 pugi::xml_attribute filename = model.first_attribute();
                 
-                printf("ANRES\n");
+                
                 res->pushVBO(readFile(filename.value()));
-                printf("depois\n");
+                
                 
             }
 
