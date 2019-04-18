@@ -10,7 +10,6 @@
 #include "../headers/Transformation.h"
 #include "../headers/Translation.h"
 #include "../headers/Figure.h"
-#include "../headers/Rotation.h"
 #include "../headers/Color.h"
 #include "../headers/Scale.h"
 #include "../headers/VBO.h"
@@ -282,7 +281,6 @@ Group groupReader(pugi::xml_node group,Translation *translation, Rotation *rotat
             res->pushTransformation(color);
             res->pushTransformation(scale);
 
-            
 */
 
 

@@ -20,7 +20,7 @@ std::vector<Group> Group::getChildren () {
 }
 
 void Group::pushVBO (VBO *vbo) {
-	this->vbos.push_back(vbo);
+	this->vbos.push_back(*vbo);
 }
 
 void Group::pushTransformation (Transformation transformation) {
