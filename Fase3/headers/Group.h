@@ -20,10 +20,9 @@ class Group {
 		std::vector<VBO> getVBOs ();
 		std::vector<Transformation> getTransformations ();
 		std::vector<Group> getChildren ();
-		void pushVBO (VBO vbo);
+		void pushVBO (VBO *vbo);
 		void pushTransformation (Transformation transformation);
 		void pushGroup (Group group);
-		void pushScene(std::string string);
 };
 
 #endif

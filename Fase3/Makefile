@@ -204,32 +204,32 @@ src/Figure.cpp.s:
 	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/Figure.cpp.s
 .PHONY : src/Figure.cpp.s
 
-src/Rotation.o: src/Rotation.cpp.o
+src/Group.o: src/Group.cpp.o
 
-.PHONY : src/Rotation.o
+.PHONY : src/Group.o
 
 # target to build an object file
-src/Rotation.cpp.o:
-	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/Rotation.cpp.o
-.PHONY : src/Rotation.cpp.o
+src/Group.cpp.o:
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/Group.cpp.o
+.PHONY : src/Group.cpp.o
 
-src/Rotation.i: src/Rotation.cpp.i
+src/Group.i: src/Group.cpp.i
 
-.PHONY : src/Rotation.i
+.PHONY : src/Group.i
 
 # target to preprocess a source file
-src/Rotation.cpp.i:
-	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/Rotation.cpp.i
-.PHONY : src/Rotation.cpp.i
+src/Group.cpp.i:
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/Group.cpp.i
+.PHONY : src/Group.cpp.i
 
-src/Rotation.s: src/Rotation.cpp.s
+src/Group.s: src/Group.cpp.s
 
-.PHONY : src/Rotation.s
+.PHONY : src/Group.s
 
 # target to generate assembly for a file
-src/Rotation.cpp.s:
-	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/Rotation.cpp.s
-.PHONY : src/Rotation.cpp.s
+src/Group.cpp.s:
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/Group.cpp.s
+.PHONY : src/Group.cpp.s
 
 src/Scale.o: src/Scale.cpp.o
 
@@ -257,6 +257,33 @@ src/Scale.s: src/Scale.cpp.s
 src/Scale.cpp.s:
 	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/Scale.cpp.s
 .PHONY : src/Scale.cpp.s
+
+src/Transformation.o: src/Transformation.cpp.o
+
+.PHONY : src/Transformation.o
+
+# target to build an object file
+src/Transformation.cpp.o:
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/Transformation.cpp.o
+.PHONY : src/Transformation.cpp.o
+
+src/Transformation.i: src/Transformation.cpp.i
+
+.PHONY : src/Transformation.i
+
+# target to preprocess a source file
+src/Transformation.cpp.i:
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/Transformation.cpp.i
+.PHONY : src/Transformation.cpp.i
+
+src/Transformation.s: src/Transformation.cpp.s
+
+.PHONY : src/Transformation.s
+
+# target to generate assembly for a file
+src/Transformation.cpp.s:
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/Transformation.cpp.s
+.PHONY : src/Transformation.cpp.s
 
 src/Translation.o: src/Translation.cpp.o
 
@@ -384,12 +411,15 @@ help:
 	@echo "... src/Figure.o"
 	@echo "... src/Figure.i"
 	@echo "... src/Figure.s"
-	@echo "... src/Rotation.o"
-	@echo "... src/Rotation.i"
-	@echo "... src/Rotation.s"
+	@echo "... src/Group.o"
+	@echo "... src/Group.i"
+	@echo "... src/Group.s"
 	@echo "... src/Scale.o"
 	@echo "... src/Scale.i"
 	@echo "... src/Scale.s"
+	@echo "... src/Transformation.o"
+	@echo "... src/Transformation.i"
+	@echo "... src/Transformation.s"
 	@echo "... src/Translation.o"
 	@echo "... src/Translation.i"
 	@echo "... src/Translation.s"

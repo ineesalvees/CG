@@ -35,8 +35,6 @@ Color.h
 /home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/headers/Color.h
 Scale.h
 /home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/headers/Scale.h
-Rotation.h
-/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/headers/Rotation.h
 
 /home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/headers/Translation.h
 Vertex.h
@@ -47,6 +45,12 @@ vector
 -
 
 /home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/headers/VBO.h
+GLUT/glut.h
+-
+GL/glew.h
+-
+GL/glut.h
+-
 vector
 -
 Vertex.h
@@ -70,24 +74,14 @@ iosfwd
 string
 -
 
-/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/src/Translation.cpp
-../headers/Translation.h
-/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/headers/Translation.h
-math.h
--
-../headers/Vertex.h
-/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/headers/Vertex.h
+/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/src/Group.cpp
+../headers/Group.h
+/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/headers/Group.h
+../headers/VBO.h
+/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/headers/VBO.h
+../headers/Transformation.h
+/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/headers/Transformation.h
 vector
--
-iostream
--
-fstream
--
-string.h
--
-GLUT/glut.h
--
-GL/glut.h
 -
 
 /home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/src/main.cpp

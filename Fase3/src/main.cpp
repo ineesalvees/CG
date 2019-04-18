@@ -122,7 +122,7 @@ void movebackwards(){
 
 
 
-void readFile(string name,Translation *translation, Rotation *rotation,Color *color, Scale *scale) {
+VBO* readFile(string name) {
 
   double arr[3];
   Figure *figure = new Figure();
@@ -158,31 +158,8 @@ void readFile(string name,Translation *translation, Rotation *rotation,Color *co
 
         }
 
-
-    if (translation != NULL) {
-        
-        glTranslatef(translation->getvertex(0).getx(),translation->getvertex(0).gety(),translation->getvertex(0).getz());                
-    }
-    /*
-    if (rotation != NULL) {
-        glRotatef(rotation->getAngle(),rotation->getAxisX(),rotation->getAxisY(),rotation->getAxisZ());
-    }
-    */
-    if (color != NULL) {
-        glColor3f(color->getR(),color->getG(),color->getB());
-    }
-
-    if (scale != NULL) {
-        glScalef(scale->getX(),scale->getY(),scale->getZ());
-    }
-
     VBO *vbo = new VBO(figure->getvertexes());
-
-    vbo->render();
-
-    //mfigure->draw();
-    //printf("draw\n");
-
+    return vbo;
 
 
   }
@@ -190,20 +167,6 @@ void readFile(string name,Translation *translation, Rotation *rotation,Color *co
   nfile.close();
 }
 
-
-
-/*
-            <translate time="3.61269" >
-                <point X="34.9025385" Y="0" Z="0"/>
-                <point X="24.679821" Y="0" Z="24.679821"/>
-                <point X="0" Y="0" Z="34.9025385"/>
-                <point X="-24.679821" Y="0" Z="24.679821"/>
-                <point X="-34.9025385" Y="0" Z="0"/>
-                <point X="-24.679821" Y="0" Z="-24.679821"/>
-                <point X="0" Y="0" Z="-34.9025385"/>
-                <point X="24.679821" Y="0" Z="-24.679821"/>
-            </translate>
-*/
 
 Group groupReader(pugi::xml_node group,Translation *translation, Rotation *rotation,Color *color, Scale *scale) {
     glPushMatrix();
@@ -305,15 +268,9 @@ Group groupReader(pugi::xml_node group,Translation *translation, Rotation *rotat
                 pugi::xml_attribute filename = model.first_attribute();
                 
 
-                //printf("Models\n");
-                //readFile(filename.value(),translation,rotation,color,scale);
+                res->pushVBO(readFile(filename.value()));
 
-                /*
-
-                ADICIONA OS VARIOS FICHEIROS AO VETOR DE SCENES
-                */
-                res->pushScene(filename.value());
-
+                
             }
 
 

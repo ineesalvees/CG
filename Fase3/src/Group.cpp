@@ -19,7 +19,7 @@ std::vector<Group> Group::getChildren () {
 	return this->children;
 }
 
-void Group::pushVBO (VBO vbo) {
+void Group::pushVBO (VBO *vbo) {
 	this->vbos.push_back(vbo);
 }
 
@@ -30,6 +30,4 @@ void Group::pushTransformation (Transformation transformation) {
 void Group::pushGroup (Group group) {
 	this->children.push_back(group);
 }
-void Group::pushScene(std::string string) {
-	this->scenes.push_back(string);
-}
+

@@ -12,14 +12,26 @@ CMakeFiles/engine.dir/src/Figure.cpp.o: headers/Figure.h
 CMakeFiles/engine.dir/src/Figure.cpp.o: headers/Vertex.h
 CMakeFiles/engine.dir/src/Figure.cpp.o: src/Figure.cpp
 
-CMakeFiles/engine.dir/src/Rotation.cpp.o: headers/Rotation.h
-CMakeFiles/engine.dir/src/Rotation.cpp.o: src/Rotation.cpp
+CMakeFiles/engine.dir/src/Group.cpp.o: headers/Color.h
+CMakeFiles/engine.dir/src/Group.cpp.o: headers/Group.h
+CMakeFiles/engine.dir/src/Group.cpp.o: headers/Scale.h
+CMakeFiles/engine.dir/src/Group.cpp.o: headers/Transformation.h
+CMakeFiles/engine.dir/src/Group.cpp.o: headers/Translation.h
+CMakeFiles/engine.dir/src/Group.cpp.o: headers/VBO.h
+CMakeFiles/engine.dir/src/Group.cpp.o: headers/Vertex.h
+CMakeFiles/engine.dir/src/Group.cpp.o: src/Group.cpp
 
 CMakeFiles/engine.dir/src/Scale.cpp.o: headers/Scale.h
 CMakeFiles/engine.dir/src/Scale.cpp.o: src/Scale.cpp
 
+CMakeFiles/engine.dir/src/Transformation.cpp.o: headers/Color.h
+CMakeFiles/engine.dir/src/Transformation.cpp.o: headers/Scale.h
+CMakeFiles/engine.dir/src/Transformation.cpp.o: headers/Transformation.h
+CMakeFiles/engine.dir/src/Transformation.cpp.o: headers/Translation.h
+CMakeFiles/engine.dir/src/Transformation.cpp.o: headers/Vertex.h
+CMakeFiles/engine.dir/src/Transformation.cpp.o: src/Transformation.cpp
+
 CMakeFiles/engine.dir/src/Translation.cpp.o: headers/Color.h
-CMakeFiles/engine.dir/src/Translation.cpp.o: headers/Rotation.h
 CMakeFiles/engine.dir/src/Translation.cpp.o: headers/Scale.h
 CMakeFiles/engine.dir/src/Translation.cpp.o: headers/Transformation.h
 CMakeFiles/engine.dir/src/Translation.cpp.o: headers/Translation.h
