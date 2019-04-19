@@ -77,6 +77,10 @@ int main (int argc, char *argv[]) {
 			}
 			f->save(argv[3]);
 		}
+		if (strcmp(argv[1],"Teapot") == 0){
+			generatePatch(argv[2],argv[3],argv[4]);
+		}
+		
 		if (strcmp(argv[1],"Torus") == 0) {
 
 	Figure *f = new Figure ();
