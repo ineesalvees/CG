@@ -11,8 +11,8 @@ std::vector<VBO> Group::getVBOs () {
 	return this->vbos;
 }
 
-std::vector<Transformation> Group::getTransformations () {
-	return this->transformations;
+std::vector<Transformation*> Group::getTransformations () {
+	return transformations;
 }
 
 std::vector<Group> Group::getChildren () {
@@ -23,7 +23,7 @@ void Group::pushVBO (VBO *vbo) {
 	this->vbos.push_back(*vbo);
 }
 
-void Group::pushTransformation (Transformation transformation) {
+void Group::pushTransformation (Transformation *transformation) {
 	this->transformations.push_back(transformation);
 }
 

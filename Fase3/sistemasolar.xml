@@ -1,6 +1,5 @@
 <scene>
 
-	<group>
 		
 		<!-- SOL -->
 		<group>
@@ -23,15 +22,11 @@
 
 		<!--VÉNUS-->
 		<group>
-			<translate time="9.22797">
-				<point X="1.25" Y="0" Z="0"/>
-				<point X="27.690767" Y="0" Z="27.690767"/>
-				<point X="0" Y="0" Z="39.16066113"/>
-				<point X="-27.690767" Y="0" Z="27.690767"/>
-				<point X="0" Y="0" Z="-39.16066113"/>
-				<point X="-27.690767" Y="0" Z="-27.690767"/>
-				<point X="0" Y="0" Z="-39.16066113"/>
-				<point X="27.690767" Y="0" Z="-27.690767"/>
+			<translate time="5">
+				<point X="3" Y="0" Z="0"/>
+				<point X="3" Y="3" Z="0"/>
+				<point X="0" Y="3" Z="3"/>
+				<point X="0" Y="0" Z="3"/>
 			</translate>
 			<scale X="0.05" Y="0.06" Z="0.06"/>
 			<color r="0.89" g="0.73" b="0.46"/>			
@@ -132,7 +127,6 @@
 			<color r="0.76" g="0.67" b="0.43"/>
 			<models>
 				<model file="sphere.3d"/>
-				<model file="belt.3d"/>
 			</models>
 		</group>
 
@@ -177,6 +171,5 @@
 
 
 
-	</group>
 
 </scene>

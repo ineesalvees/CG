@@ -8,10 +8,7 @@
 #define _USE_MATH_DEFINES
 
 #include "../headers/Transformation.h"
-#include "../headers/Translation.h"
 #include "../headers/Figure.h"
-#include "../headers/Color.h"
-#include "../headers/Scale.h"
 #include "../headers/VBO.h"
 #include "../headers/Group.h"
 #include <math.h>
@@ -177,11 +174,11 @@ Group* groupReader(pugi::xml_node group,Translation *translation, Rotation *rota
     {
         if (strcmp(attr.name(),"translate")==0  ) {
 
-            translation = new Translation();
             pugi::xml_attribute time,x , y , z;
 
             x = attr.first_attribute();
             if(strcmp(x.name(),"time")==0) {
+                translation = new Translation();
                 std::string timev,xv,yv,zv;
 
                 time = x;
@@ -207,8 +204,12 @@ Group* groupReader(pugi::xml_node group,Translation *translation, Rotation *rota
                 xv = x.value();
                 yv = y.value();
                 zv = z.value();
+                /*
                 Vertex *vertex = new Vertex(atof(xv.c_str()),atof(yv.c_str()),atof(zv.c_str()));
                 translation->pushvertex(vertex);
+                */
+                
+                translation = new Translation(atof(xv.c_str()),atof(yv.c_str()),atof(zv.c_str()),0);
 
             }
             continue;
@@ -250,7 +251,6 @@ Group* groupReader(pugi::xml_node group,Translation *translation, Rotation *rota
             yv = y.value();
             zv = z.value();
 
-
             if (strcmp(attr.name(),"scale")==0) scale = new Scale(atof(xv.c_str()),atof(yv.c_str()),atof(zv.c_str()));
             else color = new Color(atof(xv.c_str()),atof(yv.c_str()),atof(zv.c_str()));
 
@@ -274,15 +274,14 @@ Group* groupReader(pugi::xml_node group,Translation *translation, Rotation *rota
             
 
 
-            /*
+            if (translation != NULL) res->pushTransformation(translation);
+            //if (rotation != NULL) res->pushTransformation(rotation);
+            if (scale != NULL) res->pushTransformation(scale);
+            if (color != NULL) res->pushTransformation(color);
 
-            DA ERRO AO EXTENDER A CLASSE NAO SEI PORQUE ???????????????????
-            res->pushTransformation(translation);
-            res->pushTransformation(rotation);
-            res->pushTransformation(color);
-            res->pushTransformation(scale);
+            
 
-*/
+
 
 
             continue;
@@ -319,7 +318,6 @@ void parseFile2(char *path) {
     for (pugi::xml_node group = scene.first_child(); group; group = group.next_sibling()) //percorre os varios groups
     {
 
-        printf("GRUPO\n");
 
         Group *g = groupReader(group,NULL,NULL,NULL,NULL);
 
@@ -328,6 +326,21 @@ void parseFile2(char *path) {
 
     }
 
+}
+
+void render(Group g){
+    glPushMatrix();
+    vector<Transformation*> t_list = g.getTransformations();
+    for(Transformation *t: t_list){
+        t->make();
+    }
+
+    vector<VBO> vbos = g.getVBOs();
+    for(VBO v: vbos) v.render();
+
+    vector<Group> children = g.getChildren();
+    for(Group child: children) render(child);
+    glPopMatrix();
 }
 
 void renderScene() {
@@ -377,8 +390,9 @@ void renderScene() {
     glScalef(scale, scale, scale);
 
     //glPolygonMode(GL_FRONT,GL_LINE);
+    for(Group g: groups) render(g);
 
-    
+   
     // End of frame
     glutSwapBuffers();
 }
@@ -531,6 +545,7 @@ int main(int argc, char **argv) {
 
 // Required callback registry 
     glutDisplayFunc(renderScene);
+    glutIdleFunc(renderScene);
     glutReshapeFunc(changeSize);
 //  glutKeyboardFunc(move);
 

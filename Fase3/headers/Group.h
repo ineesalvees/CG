@@ -12,16 +12,16 @@ class Group {
 	private:
 		std::vector<VBO> vbos; 
 		std::vector<std::string> scenes;
-		std::vector<Transformation> transformations;
+		std::vector<Transformation*> transformations;
 		std::vector<Group> children;
 
 	public:
 		Group();
 		std::vector<VBO> getVBOs ();
-		std::vector<Transformation> getTransformations ();
+		std::vector<Transformation*> getTransformations ();
 		std::vector<Group> getChildren ();
 		void pushVBO (VBO *vbo);
-		void pushTransformation (Transformation transformation);
+		void pushTransformation (Transformation *transformation);
 		void pushGroup (Group *group);
 };
 
