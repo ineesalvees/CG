@@ -7,9 +7,8 @@
 #include <iostream>
 
 
-
 class Bezier {
-	Figure* bezier_parse(std::string patch_path, int tesselation);
+	Figure* bezierPatch_parse(std::string patch_path, int tesselation);
 };
 
 #endif
