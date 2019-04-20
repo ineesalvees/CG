@@ -29,7 +29,7 @@ if  (WIN32)
 
 else (WIN32) #Linux and Mac
 
-	set(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} -Wno-deprecated")
+	set(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} -Wno-deprecated -std=c++11")
 	set_source_files_properties(${sources} PROPERTIES COMPILE_FLAGS
 		"-xobjective-c -Wno-deprecated-declarations")
 	find_package(OpenGL REQUIRED)
@@ -58,7 +58,7 @@ add_executable(engine ${ENGINE_FILES})
 target_link_libraries(engine ${OPENGL_LIBRARIES} ${GLUT_LIBRARY} )
 
 project(generator)
-set(GENERATOR_FILES ./src/generator.cpp ./src/Figure.cpp ./src/Bezier.cpp ./src/Vertex.cpp ./src/Plane.cpp ./src/Box.cpp ./src/Cone.cpp ./src/Sphere.cpp)
+set(GENERATOR_FILES ./src/generator.cpp ./src/Figure.cpp ./src/Bezier.cpp ./src/Vertex.cpp )
 
 
 add_executable(generator ${GENERATOR_FILES} )

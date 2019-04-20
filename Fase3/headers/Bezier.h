@@ -6,9 +6,11 @@
 #include <fstream>
 #include <iostream>
 
+using namespace std;
 
 class Bezier {
 	public:
+		Bezier();
 		Figure* bezierPatch_parse(std::string patch_path, int tesselation);
 		void processPatch(int tesselation, int n);
 		Vertex* bezierCalc(float u, float v, int n_patch);

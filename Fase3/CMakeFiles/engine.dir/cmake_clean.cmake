@@ -1,9 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/engine.dir/src/main.cpp.o"
   "CMakeFiles/engine.dir/src/Figure.cpp.o"
-  "CMakeFiles/engine.dir/src/Color.cpp.o"
-  "CMakeFiles/engine.dir/src/Scale.cpp.o"
-  "CMakeFiles/engine.dir/src/Translation.cpp.o"
   "CMakeFiles/engine.dir/src/Transformation.cpp.o"
   "CMakeFiles/engine.dir/src/Vertex.cpp.o"
   "CMakeFiles/engine.dir/pugixml-1.9/src/pugixml.cpp.o"

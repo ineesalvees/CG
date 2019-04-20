@@ -45,9 +45,9 @@ void Figure::draw() {
 }
 
 void Figure::save (char *filename) {
+	printf("OLAOALAOAL");
 	char src[] = "";
 	strcat(src,filename);
-	
 	ofstream file(src);
 	
 	for(vector<Vertex>::const_iterator i = vertexes.begin(); i != vertexes.end(); ++i) {

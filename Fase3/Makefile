@@ -111,6 +111,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named generator
+
+# Build rule for target.
+generator: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 generator
+.PHONY : generator
+
+# fast build rule for target.
+generator/fast:
+	$(MAKE) -f CMakeFiles/generator.dir/build.make CMakeFiles/generator.dir/build
+.PHONY : generator/fast
+
+#=============================================================================
 # Target rules for targets named engine
 
 # Build rule for target.
@@ -150,32 +163,32 @@ pugixml-1.9/src/pugixml.cpp.s:
 	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/pugixml-1.9/src/pugixml.cpp.s
 .PHONY : pugixml-1.9/src/pugixml.cpp.s
 
-src/Color.o: src/Color.cpp.o
+src/Bezier.o: src/Bezier.cpp.o
 
-.PHONY : src/Color.o
+.PHONY : src/Bezier.o
 
 # target to build an object file
-src/Color.cpp.o:
-	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/Color.cpp.o
-.PHONY : src/Color.cpp.o
+src/Bezier.cpp.o:
+	$(MAKE) -f CMakeFiles/generator.dir/build.make CMakeFiles/generator.dir/src/Bezier.cpp.o
+.PHONY : src/Bezier.cpp.o
 
-src/Color.i: src/Color.cpp.i
+src/Bezier.i: src/Bezier.cpp.i
 
-.PHONY : src/Color.i
+.PHONY : src/Bezier.i
 
 # target to preprocess a source file
-src/Color.cpp.i:
-	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/Color.cpp.i
-.PHONY : src/Color.cpp.i
+src/Bezier.cpp.i:
+	$(MAKE) -f CMakeFiles/generator.dir/build.make CMakeFiles/generator.dir/src/Bezier.cpp.i
+.PHONY : src/Bezier.cpp.i
 
-src/Color.s: src/Color.cpp.s
+src/Bezier.s: src/Bezier.cpp.s
 
-.PHONY : src/Color.s
+.PHONY : src/Bezier.s
 
 # target to generate assembly for a file
-src/Color.cpp.s:
-	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/Color.cpp.s
-.PHONY : src/Color.cpp.s
+src/Bezier.cpp.s:
+	$(MAKE) -f CMakeFiles/generator.dir/build.make CMakeFiles/generator.dir/src/Bezier.cpp.s
+.PHONY : src/Bezier.cpp.s
 
 src/Figure.o: src/Figure.cpp.o
 
@@ -183,6 +196,7 @@ src/Figure.o: src/Figure.cpp.o
 
 # target to build an object file
 src/Figure.cpp.o:
+	$(MAKE) -f CMakeFiles/generator.dir/build.make CMakeFiles/generator.dir/src/Figure.cpp.o
 	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/Figure.cpp.o
 .PHONY : src/Figure.cpp.o
 
@@ -192,6 +206,7 @@ src/Figure.i: src/Figure.cpp.i
 
 # target to preprocess a source file
 src/Figure.cpp.i:
+	$(MAKE) -f CMakeFiles/generator.dir/build.make CMakeFiles/generator.dir/src/Figure.cpp.i
 	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/Figure.cpp.i
 .PHONY : src/Figure.cpp.i
 
@@ -201,6 +216,7 @@ src/Figure.s: src/Figure.cpp.s
 
 # target to generate assembly for a file
 src/Figure.cpp.s:
+	$(MAKE) -f CMakeFiles/generator.dir/build.make CMakeFiles/generator.dir/src/Figure.cpp.s
 	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/Figure.cpp.s
 .PHONY : src/Figure.cpp.s
 
@@ -231,33 +247,6 @@ src/Group.cpp.s:
 	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/Group.cpp.s
 .PHONY : src/Group.cpp.s
 
-src/Scale.o: src/Scale.cpp.o
-
-.PHONY : src/Scale.o
-
-# target to build an object file
-src/Scale.cpp.o:
-	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/Scale.cpp.o
-.PHONY : src/Scale.cpp.o
-
-src/Scale.i: src/Scale.cpp.i
-
-.PHONY : src/Scale.i
-
-# target to preprocess a source file
-src/Scale.cpp.i:
-	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/Scale.cpp.i
-.PHONY : src/Scale.cpp.i
-
-src/Scale.s: src/Scale.cpp.s
-
-.PHONY : src/Scale.s
-
-# target to generate assembly for a file
-src/Scale.cpp.s:
-	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/Scale.cpp.s
-.PHONY : src/Scale.cpp.s
-
 src/Transformation.o: src/Transformation.cpp.o
 
 .PHONY : src/Transformation.o
@@ -284,33 +273,6 @@ src/Transformation.s: src/Transformation.cpp.s
 src/Transformation.cpp.s:
 	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/Transformation.cpp.s
 .PHONY : src/Transformation.cpp.s
-
-src/Translation.o: src/Translation.cpp.o
-
-.PHONY : src/Translation.o
-
-# target to build an object file
-src/Translation.cpp.o:
-	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/Translation.cpp.o
-.PHONY : src/Translation.cpp.o
-
-src/Translation.i: src/Translation.cpp.i
-
-.PHONY : src/Translation.i
-
-# target to preprocess a source file
-src/Translation.cpp.i:
-	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/Translation.cpp.i
-.PHONY : src/Translation.cpp.i
-
-src/Translation.s: src/Translation.cpp.s
-
-.PHONY : src/Translation.s
-
-# target to generate assembly for a file
-src/Translation.cpp.s:
-	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/Translation.cpp.s
-.PHONY : src/Translation.cpp.s
 
 src/VBO.o: src/VBO.cpp.o
 
@@ -345,6 +307,7 @@ src/Vertex.o: src/Vertex.cpp.o
 
 # target to build an object file
 src/Vertex.cpp.o:
+	$(MAKE) -f CMakeFiles/generator.dir/build.make CMakeFiles/generator.dir/src/Vertex.cpp.o
 	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/Vertex.cpp.o
 .PHONY : src/Vertex.cpp.o
 
@@ -354,6 +317,7 @@ src/Vertex.i: src/Vertex.cpp.i
 
 # target to preprocess a source file
 src/Vertex.cpp.i:
+	$(MAKE) -f CMakeFiles/generator.dir/build.make CMakeFiles/generator.dir/src/Vertex.cpp.i
 	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/Vertex.cpp.i
 .PHONY : src/Vertex.cpp.i
 
@@ -363,8 +327,36 @@ src/Vertex.s: src/Vertex.cpp.s
 
 # target to generate assembly for a file
 src/Vertex.cpp.s:
+	$(MAKE) -f CMakeFiles/generator.dir/build.make CMakeFiles/generator.dir/src/Vertex.cpp.s
 	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/Vertex.cpp.s
 .PHONY : src/Vertex.cpp.s
+
+src/generator.o: src/generator.cpp.o
+
+.PHONY : src/generator.o
+
+# target to build an object file
+src/generator.cpp.o:
+	$(MAKE) -f CMakeFiles/generator.dir/build.make CMakeFiles/generator.dir/src/generator.cpp.o
+.PHONY : src/generator.cpp.o
+
+src/generator.i: src/generator.cpp.i
+
+.PHONY : src/generator.i
+
+# target to preprocess a source file
+src/generator.cpp.i:
+	$(MAKE) -f CMakeFiles/generator.dir/build.make CMakeFiles/generator.dir/src/generator.cpp.i
+.PHONY : src/generator.cpp.i
+
+src/generator.s: src/generator.cpp.s
+
+.PHONY : src/generator.s
+
+# target to generate assembly for a file
+src/generator.cpp.s:
+	$(MAKE) -f CMakeFiles/generator.dir/build.make CMakeFiles/generator.dir/src/generator.cpp.s
+.PHONY : src/generator.cpp.s
 
 src/main.o: src/main.cpp.o
 
@@ -400,35 +392,33 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... edit_cache"
+	@echo "... generator"
 	@echo "... rebuild_cache"
 	@echo "... engine"
 	@echo "... pugixml-1.9/src/pugixml.o"
 	@echo "... pugixml-1.9/src/pugixml.i"
 	@echo "... pugixml-1.9/src/pugixml.s"
-	@echo "... src/Color.o"
-	@echo "... src/Color.i"
-	@echo "... src/Color.s"
+	@echo "... src/Bezier.o"
+	@echo "... src/Bezier.i"
+	@echo "... src/Bezier.s"
 	@echo "... src/Figure.o"
 	@echo "... src/Figure.i"
 	@echo "... src/Figure.s"
 	@echo "... src/Group.o"
 	@echo "... src/Group.i"
 	@echo "... src/Group.s"
-	@echo "... src/Scale.o"
-	@echo "... src/Scale.i"
-	@echo "... src/Scale.s"
 	@echo "... src/Transformation.o"
 	@echo "... src/Transformation.i"
 	@echo "... src/Transformation.s"
-	@echo "... src/Translation.o"
-	@echo "... src/Translation.i"
-	@echo "... src/Translation.s"
 	@echo "... src/VBO.o"
 	@echo "... src/VBO.i"
 	@echo "... src/VBO.s"
 	@echo "... src/Vertex.o"
 	@echo "... src/Vertex.i"
 	@echo "... src/Vertex.s"
+	@echo "... src/generator.o"
+	@echo "... src/generator.i"
+	@echo "... src/generator.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

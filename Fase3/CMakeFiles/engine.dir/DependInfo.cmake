@@ -5,12 +5,9 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/pugixml-1.9/src/pugixml.cpp" "/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/CMakeFiles/engine.dir/pugixml-1.9/src/pugixml.cpp.o"
-  "/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/src/Color.cpp" "/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/CMakeFiles/engine.dir/src/Color.cpp.o"
   "/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/src/Figure.cpp" "/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/CMakeFiles/engine.dir/src/Figure.cpp.o"
   "/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/src/Group.cpp" "/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/CMakeFiles/engine.dir/src/Group.cpp.o"
-  "/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/src/Scale.cpp" "/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/CMakeFiles/engine.dir/src/Scale.cpp.o"
   "/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/src/Transformation.cpp" "/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/CMakeFiles/engine.dir/src/Transformation.cpp.o"
-  "/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/src/Translation.cpp" "/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/CMakeFiles/engine.dir/src/Translation.cpp.o"
   "/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/src/VBO.cpp" "/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/CMakeFiles/engine.dir/src/VBO.cpp.o"
   "/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/src/Vertex.cpp" "/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/CMakeFiles/engine.dir/src/Vertex.cpp.o"
   "/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/src/main.cpp" "/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/CMakeFiles/engine.dir/src/main.cpp.o"

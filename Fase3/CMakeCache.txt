@@ -139,7 +139,7 @@ CMAKE_PROJECT_DESCRIPTION:STATIC=
 CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=engine
+CMAKE_PROJECT_NAME:STATIC=generator
 
 //Path to a program.
 CMAKE_RANLIB:FILEPATH=/usr/bin/ranlib
@@ -253,6 +253,12 @@ engine_BINARY_DIR:STATIC=/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fa
 
 //Value Computed by CMake
 engine_SOURCE_DIR:STATIC=/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3
+
+//Value Computed by CMake
+generator_BINARY_DIR:STATIC=/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3
+
+//Value Computed by CMake
+generator_SOURCE_DIR:STATIC=/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3
 
 
 ########################

@@ -5,39 +5,20 @@ CMakeFiles/engine.dir/pugixml-1.9/src/pugixml.cpp.o
  /home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/pugixml-1.9/src/pugiconfig.hpp
  /home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/pugixml-1.9/src/pugixml.cpp
  /home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/pugixml-1.9/src/pugixml.hpp
-CMakeFiles/engine.dir/src/Color.cpp.o
- /home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/headers/Color.h
- /home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/src/Color.cpp
 CMakeFiles/engine.dir/src/Figure.cpp.o
  /home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/headers/Figure.h
  /home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/headers/Vertex.h
  /home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/src/Figure.cpp
 CMakeFiles/engine.dir/src/Group.cpp.o
- /home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/headers/Color.h
  /home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/headers/Group.h
- /home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/headers/Scale.h
  /home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/headers/Transformation.h
- /home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/headers/Translation.h
  /home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/headers/VBO.h
  /home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/headers/Vertex.h
  /home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/src/Group.cpp
-CMakeFiles/engine.dir/src/Scale.cpp.o
- /home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/headers/Scale.h
- /home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/src/Scale.cpp
 CMakeFiles/engine.dir/src/Transformation.cpp.o
- /home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/headers/Color.h
- /home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/headers/Scale.h
  /home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/headers/Transformation.h
- /home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/headers/Translation.h
  /home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/headers/Vertex.h
  /home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/src/Transformation.cpp
-CMakeFiles/engine.dir/src/Translation.cpp.o
- /home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/headers/Color.h
- /home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/headers/Scale.h
- /home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/headers/Transformation.h
- /home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/headers/Translation.h
- /home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/headers/Vertex.h
- /home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/src/Translation.cpp
 CMakeFiles/engine.dir/src/VBO.cpp.o
  /home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/headers/Figure.h
  /home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/headers/VBO.h
@@ -47,13 +28,9 @@ CMakeFiles/engine.dir/src/Vertex.cpp.o
  /home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/headers/Vertex.h
  /home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/src/Vertex.cpp
 CMakeFiles/engine.dir/src/main.cpp.o
- /home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/headers/Color.h
  /home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/headers/Figure.h
  /home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/headers/Group.h
- /home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/headers/Rotation.h
- /home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/headers/Scale.h
  /home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/headers/Transformation.h
- /home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/headers/Translation.h
  /home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/headers/VBO.h
  /home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/headers/Vertex.h
  /home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/pugixml-1.9/src/pugiconfig.hpp

@@ -6,8 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/headers/Color.h
-
 /home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/headers/Figure.h
 Vertex.h
 /home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/headers/Vertex.h
@@ -24,23 +22,11 @@ VBO.h
 Transformation.h
 /home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/headers/Transformation.h
 
-/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/headers/Rotation.h
-
-/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/headers/Scale.h
-
 /home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/headers/Transformation.h
-Translation.h
-/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/headers/Translation.h
-Color.h
-/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/headers/Color.h
-Scale.h
-/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/headers/Scale.h
-
-/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/headers/Translation.h
 Vertex.h
 /home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/headers/Vertex.h
-Transformation.h
-/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/headers/Transformation.h
+stdio.h
+-
 vector
 -
 
@@ -57,6 +43,8 @@ Vertex.h
 /home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/headers/Vertex.h
 
 /home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/headers/Vertex.h
+string
+-
 
 /home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/pugixml-1.9/src/pugiconfig.hpp
 
@@ -74,16 +62,6 @@ iosfwd
 string
 -
 
-/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/src/Group.cpp
-../headers/Group.h
-/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/headers/Group.h
-../headers/VBO.h
-/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/headers/VBO.h
-../headers/Transformation.h
-/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/headers/Transformation.h
-vector
--
-
 /home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/src/main.cpp
 GLUT/glut.h
 -
@@ -93,16 +71,8 @@ GL/glut.h
 -
 ../headers/Transformation.h
 /home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/headers/Transformation.h
-../headers/Translation.h
-/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/headers/Translation.h
 ../headers/Figure.h
 /home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/headers/Figure.h
-../headers/Rotation.h
-/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/headers/Rotation.h
-../headers/Color.h
-/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/headers/Color.h
-../headers/Scale.h
-/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/headers/Scale.h
 ../headers/VBO.h
 /home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/headers/VBO.h
 ../headers/Group.h

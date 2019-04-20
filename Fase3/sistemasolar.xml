@@ -156,6 +156,26 @@
 		
 		</group>
 
+		<!--Cometa-->
+		<group>
+			<translate time="6">
+				<point X="3.75" Y="0" Z="0"/>
+				<point X="0" Y="-3.75" Z="0"/>
+				<point X="-3.75" Y="0" Z="0"/>
+				<point X="0" Y="3.75" Z="0"/>
+			</translate>
+			<scale X="0.08" Y="0.08" Z="0.08"/>
+			<color r="0.35" g="0.52" b="0.52"/>
+			<models>
+				<model file="cometa.3d"/>
+			</models>
+		
+		</group>
+
+
+
+
+
 
 
 

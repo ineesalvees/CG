@@ -1,0 +1,44 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/headers/Bezier.h
+Figure.h
+/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/headers/Figure.h
+string
+-
+fstream
+-
+iostream
+-
+
+/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/headers/Figure.h
+Vertex.h
+/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/headers/Vertex.h
+vector
+-
+
+/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/headers/Vertex.h
+string
+-
+
+/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/src/generator.cpp
+string.h
+-
+stdlib.h
+-
+iostream
+-
+math.h
+-
+../headers/Vertex.h
+/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/headers/Vertex.h
+../headers/Figure.h
+/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/headers/Figure.h
+../headers/Bezier.h
+/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/headers/Bezier.h
+

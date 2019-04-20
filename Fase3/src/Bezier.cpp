@@ -1,7 +1,10 @@
 #include "../headers/Bezier.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string> 
 
 using namespace std;
-
+/*
 void processPatch(int tesselation, int n);
 Vertex* bezierCalc(float u, float v, int n);
 Vertex* vertexCalc(float t, float *p1, float *p2, float *p3, float *p4);
@@ -10,6 +13,9 @@ int p_size;
 int* patches;
 Figure* model = new Figure();
 vector<Vertex*> control_points;
+
+
+Bezier::Bezier(){}
 
 Figure* bezierPatch_parse(string patch_path, int tesselation){
     string line;
@@ -21,7 +27,7 @@ Figure* bezierPatch_parse(string patch_path, int tesselation){
 
     getline(file,line);
 
-    p_size = stoi(line);
+    p_size = std::stoi(line);
     patches = (int *) malloc (sizeof(int) * p_size*16);
 
     for(int i= 0; i != p_size; i++){
@@ -117,4 +123,4 @@ Vertex* vertexCalc(float t, float *p1, float *p2, float *p3, float *p4){
     points[2] = bz1*p1[2] + bz2*p2[2] + bz3*p3[2] + bz4*p4[2];
 
     return (new Vertex(points[0],points[1],points[2]));
-}
+}*/

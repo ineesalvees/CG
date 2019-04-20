@@ -83,48 +83,9 @@ CMakeFiles/engine.dir/src/Figure.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/engine.dir/src/Figure.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/src/Figure.cpp -o CMakeFiles/engine.dir/src/Figure.cpp.s
 
-CMakeFiles/engine.dir/src/Color.cpp.o: CMakeFiles/engine.dir/flags.make
-CMakeFiles/engine.dir/src/Color.cpp.o: src/Color.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/engine.dir/src/Color.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/engine.dir/src/Color.cpp.o -c /home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/src/Color.cpp
-
-CMakeFiles/engine.dir/src/Color.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/engine.dir/src/Color.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/src/Color.cpp > CMakeFiles/engine.dir/src/Color.cpp.i
-
-CMakeFiles/engine.dir/src/Color.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/engine.dir/src/Color.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/src/Color.cpp -o CMakeFiles/engine.dir/src/Color.cpp.s
-
-CMakeFiles/engine.dir/src/Scale.cpp.o: CMakeFiles/engine.dir/flags.make
-CMakeFiles/engine.dir/src/Scale.cpp.o: src/Scale.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/engine.dir/src/Scale.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/engine.dir/src/Scale.cpp.o -c /home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/src/Scale.cpp
-
-CMakeFiles/engine.dir/src/Scale.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/engine.dir/src/Scale.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/src/Scale.cpp > CMakeFiles/engine.dir/src/Scale.cpp.i
-
-CMakeFiles/engine.dir/src/Scale.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/engine.dir/src/Scale.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/src/Scale.cpp -o CMakeFiles/engine.dir/src/Scale.cpp.s
-
-CMakeFiles/engine.dir/src/Translation.cpp.o: CMakeFiles/engine.dir/flags.make
-CMakeFiles/engine.dir/src/Translation.cpp.o: src/Translation.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/engine.dir/src/Translation.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/engine.dir/src/Translation.cpp.o -c /home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/src/Translation.cpp
-
-CMakeFiles/engine.dir/src/Translation.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/engine.dir/src/Translation.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/src/Translation.cpp > CMakeFiles/engine.dir/src/Translation.cpp.i
-
-CMakeFiles/engine.dir/src/Translation.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/engine.dir/src/Translation.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/src/Translation.cpp -o CMakeFiles/engine.dir/src/Translation.cpp.s
-
 CMakeFiles/engine.dir/src/Transformation.cpp.o: CMakeFiles/engine.dir/flags.make
 CMakeFiles/engine.dir/src/Transformation.cpp.o: src/Transformation.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/engine.dir/src/Transformation.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/engine.dir/src/Transformation.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/engine.dir/src/Transformation.cpp.o -c /home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/src/Transformation.cpp
 
 CMakeFiles/engine.dir/src/Transformation.cpp.i: cmake_force
@@ -137,7 +98,7 @@ CMakeFiles/engine.dir/src/Transformation.cpp.s: cmake_force
 
 CMakeFiles/engine.dir/src/Vertex.cpp.o: CMakeFiles/engine.dir/flags.make
 CMakeFiles/engine.dir/src/Vertex.cpp.o: src/Vertex.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/engine.dir/src/Vertex.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/engine.dir/src/Vertex.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/engine.dir/src/Vertex.cpp.o -c /home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/src/Vertex.cpp
 
 CMakeFiles/engine.dir/src/Vertex.cpp.i: cmake_force
@@ -150,7 +111,7 @@ CMakeFiles/engine.dir/src/Vertex.cpp.s: cmake_force
 
 CMakeFiles/engine.dir/pugixml-1.9/src/pugixml.cpp.o: CMakeFiles/engine.dir/flags.make
 CMakeFiles/engine.dir/pugixml-1.9/src/pugixml.cpp.o: pugixml-1.9/src/pugixml.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/engine.dir/pugixml-1.9/src/pugixml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/engine.dir/pugixml-1.9/src/pugixml.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/engine.dir/pugixml-1.9/src/pugixml.cpp.o -c /home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/pugixml-1.9/src/pugixml.cpp
 
 CMakeFiles/engine.dir/pugixml-1.9/src/pugixml.cpp.i: cmake_force
@@ -163,7 +124,7 @@ CMakeFiles/engine.dir/pugixml-1.9/src/pugixml.cpp.s: cmake_force
 
 CMakeFiles/engine.dir/src/VBO.cpp.o: CMakeFiles/engine.dir/flags.make
 CMakeFiles/engine.dir/src/VBO.cpp.o: src/VBO.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/engine.dir/src/VBO.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/engine.dir/src/VBO.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/engine.dir/src/VBO.cpp.o -c /home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/src/VBO.cpp
 
 CMakeFiles/engine.dir/src/VBO.cpp.i: cmake_force
@@ -176,7 +137,7 @@ CMakeFiles/engine.dir/src/VBO.cpp.s: cmake_force
 
 CMakeFiles/engine.dir/src/Group.cpp.o: CMakeFiles/engine.dir/flags.make
 CMakeFiles/engine.dir/src/Group.cpp.o: src/Group.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/engine.dir/src/Group.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/engine.dir/src/Group.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/engine.dir/src/Group.cpp.o -c /home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/src/Group.cpp
 
 CMakeFiles/engine.dir/src/Group.cpp.i: cmake_force
@@ -191,9 +152,6 @@ CMakeFiles/engine.dir/src/Group.cpp.s: cmake_force
 engine_OBJECTS = \
 "CMakeFiles/engine.dir/src/main.cpp.o" \
 "CMakeFiles/engine.dir/src/Figure.cpp.o" \
-"CMakeFiles/engine.dir/src/Color.cpp.o" \
-"CMakeFiles/engine.dir/src/Scale.cpp.o" \
-"CMakeFiles/engine.dir/src/Translation.cpp.o" \
 "CMakeFiles/engine.dir/src/Transformation.cpp.o" \
 "CMakeFiles/engine.dir/src/Vertex.cpp.o" \
 "CMakeFiles/engine.dir/pugixml-1.9/src/pugixml.cpp.o" \
@@ -205,9 +163,6 @@ engine_EXTERNAL_OBJECTS =
 
 engine: CMakeFiles/engine.dir/src/main.cpp.o
 engine: CMakeFiles/engine.dir/src/Figure.cpp.o
-engine: CMakeFiles/engine.dir/src/Color.cpp.o
-engine: CMakeFiles/engine.dir/src/Scale.cpp.o
-engine: CMakeFiles/engine.dir/src/Translation.cpp.o
 engine: CMakeFiles/engine.dir/src/Transformation.cpp.o
 engine: CMakeFiles/engine.dir/src/Vertex.cpp.o
 engine: CMakeFiles/engine.dir/pugixml-1.9/src/pugixml.cpp.o
@@ -221,7 +176,7 @@ engine: /usr/lib/x86_64-linux-gnu/libglut.so
 engine: /usr/lib/x86_64-linux-gnu/libXmu.so
 engine: /usr/lib/x86_64-linux-gnu/libXi.so
 engine: CMakeFiles/engine.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable engine"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/joaonuno/Desktop/3Ano/2semestre/CG/Trabalho/CG/Fase3/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable engine"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/engine.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
