@@ -28,6 +28,10 @@ int Figure::getsize() {
 	return this->vertexes.size();
 }
 
+void Figure::getvertexat(int i, Vertex** v){
+    *v = vertexes.at(i);
+}
+
 void Figure::draw() {
 	int index;
 	glBegin(GL_TRIANGLES);

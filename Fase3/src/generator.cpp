@@ -78,6 +78,7 @@ int main (int argc, char *argv[]) {
 			f->save(argv[3]);
 		}
 		if (strcmp(argv[1],"Teapot") == 0){
+			cout << "Drawing Teapot!\n";
 			generatePatch(argv[2],argv[3],argv[4]);
 		}
 		
@@ -143,11 +144,11 @@ void generatePatch(char* patch_path, char* tesselation, char* f_path){
     writeFile(f,f_path);
 }
 
-// Writes all our Shape's Vertexes on the desired file ("f_path")
+// Writes all our Figure's Vertexes on the desired file ("f_path")
 void writeFile(Figure* f, string f_path){
     char buff[1024];
     int i;
-    int size = f->getSize();
+    int size = f->getsize();
     Vertex* v;
 
     system("mkdir -p ../files3d/ ");
@@ -155,7 +156,7 @@ void writeFile(Figure* f, string f_path){
     ofstream file (path,std::ofstream::out);
 
     for(i=0;i<size;i++){
-        f->getVertexAt(i,&v);
+        f->getvertexat(i,&v);
         sprintf(buff, "%f %f %f\n", v->getx(), v->gety(), v->getz());
         file << buff;
     }
