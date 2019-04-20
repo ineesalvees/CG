@@ -54,7 +54,7 @@ int alpha = 0, beta = 45, r = 50;
 float camX = 0, camY, camZ = 5;
 int startX, startY, tracking = 0;
 
-float px = 0.0f, py = 0.0f, pz = 10.0f, dx= 0.0f, dy = 0.0f, dz = -1.0f, ux = 0.0f, uy = 1.0f, uz = 0.0f;
+float px = 0.0f, py = 0.0f, pz = 10.0f, dx= 0.0f, dy = 0.0f, dz = -1.0f;
 double alfa = M_PI;
 double beta1 = M_PI;
 int mexer = 0;
@@ -360,7 +360,11 @@ void renderScene() {
 
     gluLookAt(px, py, pz,
               px + dx, py + dy, pz + dz,
-              ux, uy, uz);
+              0, 1, 0);
+
+    /*gluLookAt(camX, camY, camZ, 
+              0.0,0.0,0.0,
+              0.0f,1.0f,0.0f);*/
 
     frame++;
     time=glutGet(GLUT_ELAPSED_TIME);
