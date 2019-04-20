@@ -9,9 +9,10 @@
 #include "../headers/Box.h"
 #include "../headers/Cone.h"
 #include "../headers/Sphere.h"
-
-void generatePatch(char* patch_path, char* tesselation, char* f_path);
-void writeFile(Shape* s, string f_path);
+#include "../headers/Bezier.h"
+//#include "Bezier.cpp"
+//void generatePatch(char* patch_path, char* tesselation, char* f_path);
+//void writeFile(Shape* s, string f_path);
 
 using namespace std;
 
@@ -61,6 +62,7 @@ int main (int argc, char *argv[]) {
 			Cone *c = new Cone (radius,height,slices,stacks);
 			c->figure->save(argv[6]);
 		}
+		/*
 		if (strcmp(argv[1],"Orbit") == 0) {
 			cout << "Drawing orbit!\n";
 
@@ -77,63 +79,73 @@ int main (int argc, char *argv[]) {
 			}
 			f->save(argv[3]);
 		}
+		*/
 		if (strcmp(argv[1],"Teapot") == 0){
+			int tess;
+
+    		tess = atoi(argv[3]);
+
+    		Figure* f = bezierPatch_parse(argv[2],tess);
+    		f->save(argv[4]);
+			/*
 			cout << "Drawing Teapot!\n";
 			generatePatch(argv[2],argv[3],argv[4]);
+			*/
 		}
 		
 		if (strcmp(argv[1],"Torus") == 0) {
 
-	Figure *f = new Figure ();
+			Figure *f = new Figure ();
 
-	float radiusIn = atof(argv[2]);
-	float radiusOut = atof(argv[3]);
-	int sides = atoi(argv[4]);
-	int rings = atoi(argv[5]);
+			float radiusIn = atof(argv[2]);
+			float radiusOut = atof(argv[3]);
+			int sides = atoi(argv[4]);
+			int rings = atoi(argv[5]);
 
-	float dimSide = (2*M_PI)/sides;
-	float dimRing = (2*M_PI)/rings;
+			float dimSide = (2*M_PI)/sides;
+			float dimRing = (2*M_PI)/rings;
 
-	for (int i = 0; i < rings; i++) {		
-		double a0 = i*dimRing;
-		double a1 = a0 + dimRing;
+			for (int i = 0; i < rings; i++) {		
+				double a0 = i*dimRing;
+				double a1 = a0 + dimRing;
 
-		float x0 = cos(a0);
-		float y0 = sin(a0);
-		float x1 = cos(a1);
-		float y1 = sin(a1);
+			float x0 = cos(a0);
+			float y0 = sin(a0);
+			float x1 = cos(a1);
+			float y1 = sin(a1);
 
-		for (int j = 0; j < sides+1; j++){
+				for (int j = 0; j < sides+1; j++){
 
-			//pontos actuais
-			float c = cos(j*dimSide);
-			float r = radiusIn * c + radiusOut;
-			float z = radiusIn * sin(j*dimSide);
+					//pontos actuais
+					float c = cos(j*dimSide);
+					float r = radiusIn * c + radiusOut;
+					float z = radiusIn * sin(j*dimSide);
 			
-			//proximos pontos
-			float nc = cos((j+1)*dimSide);
-			float nr = radiusIn * nc + radiusOut;
-			float nz = radiusIn * sin((j+1)*dimSide);
+					//proximos pontos
+					float nc = cos((j+1)*dimSide);
+					float nr = radiusIn * nc + radiusOut;
+					float nz = radiusIn * sin((j+1)*dimSide);
 
-			f->pushvertex(new Vertex(x0*r,y0*r,z));
-			f->pushvertex(new Vertex(x1*r,y1*r,z));
-			f->pushvertex(new Vertex(x0*nr,y0*nr,nz));
-				
+					f->pushvertex(new Vertex(x0*r,y0*r,z));
+					f->pushvertex(new Vertex(x1*r,y1*r,z));
+					f->pushvertex(new Vertex(x0*nr,y0*nr,nz));
+					
 
-			f->pushvertex(new Vertex(x0*nr,y0*nr,nz));
-			f->pushvertex(new Vertex(x1*r,y1*r,z));
-			f->pushvertex(new Vertex(x1*nr,y1*nr,nz));
-		}
-	}
+					f->pushvertex(new Vertex(x0*nr,y0*nr,nz));
+					f->pushvertex(new Vertex(x1*r,y1*r,z));
+					f->pushvertex(new Vertex(x1*nr,y1*nr,nz));
+				}
+			}
 			f->save(argv[6]);
-
-
 		}
 
 	} else {
 		cout << "Argumentos insuficientes!\n";
 	}
 
+}
+
+/*
 
 void generatePatch(char* patch_path, char* tesselation, char* f_path){
     int tess;
@@ -141,9 +153,8 @@ void generatePatch(char* patch_path, char* tesselation, char* f_path){
     tess = atoi(tesselation);
 
     Figure* f = bezierPatch_parse(patch_path,tess);
-    writeFile(f,f_path);
+    f->save(f_path);
 }
-
 // Writes all our Figure's Vertexes on the desired file ("f_path")
 void writeFile(Figure* f, string f_path){
     char buff[1024];
@@ -163,6 +174,4 @@ void writeFile(Figure* f, string f_path){
 
     file.close();
 }
-
-
-}
+*/

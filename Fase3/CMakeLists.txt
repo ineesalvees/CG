@@ -51,8 +51,15 @@ endif(WIN32)
 # Project Name
 project(engine)
 
-set(ENGINE_FILES ./src/main.cpp ./src/Figure.cpp ./src/Transformation.cpp ./src/Vertex.cpp ./pugixml-1.9/src/pugixml.cpp ./src/VBO.cpp ./src/Group.cpp  )
+set(ENGINE_FILES ./src/main.cpp ./src/Figure.cpp ./src/Transformation.cpp ./src/Vertex.cpp ./pugixml-1.9/src/pugixml.cpp ./src/VBO.cpp ./src/Group.cpp)
 
 add_executable(engine ${ENGINE_FILES})
 
 target_link_libraries(engine ${OPENGL_LIBRARIES} ${GLUT_LIBRARY} )
+
+project(generator)
+set(GENERATOR_FILES ./src/generator.cpp ./src/Figure.cpp ./src/Bezier.cpp ./src/Vertex.cpp ./src/Plane.cpp ./src/Box.cpp ./src/Cone.cpp ./src/Sphere.cpp)
+
+
+add_executable(generator ${GENERATOR_FILES} )
+target_link_libraries(generator ${OPENGL_LIBRARIES} ${GLUT_LIBRARY} )

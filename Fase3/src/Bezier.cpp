@@ -1,4 +1,4 @@
-#include "Bezier.h"
+#include "../headers/Bezier.h"
 
 using namespace std;
 

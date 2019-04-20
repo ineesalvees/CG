@@ -545,7 +545,7 @@ int main(int argc, char **argv) {
 
 // Required callback registry 
     glutDisplayFunc(renderScene);
-    glutIdleFunc(renderScene);
+    //glutIdleFunc(renderScene);
     glutReshapeFunc(changeSize);
 //  glutKeyboardFunc(move);
 
