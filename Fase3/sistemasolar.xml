@@ -13,7 +13,7 @@
 		<group>
 		<!-- MERCURIO -->
 			<scale X="0.025" Y="0.025" Z="0.025"/>
-			<translate time="6">
+			<translate time="0.88">
 				<point X="1" Y="0" Z="0"/>
 				<point X="0" Y="0" Z="-1"/>
 				<point X="-1" Y="0" Z="0"/>
@@ -27,7 +27,7 @@
 
 		<!--VÉNUS-->
 		<group>
-			<translate time="6">
+			<translate time="2.24">
 				<point X="1.25" Y="0" Z="0"/>
 				<point X="0" Y="0" Z="-1.25"/>
 				<point X="-1.25" Y="0" Z="0"/>
@@ -42,7 +42,7 @@
 
 		<!--TERRA-->
 		<group>
-			<translate time="6">
+			<translate time="3.65">
 				<point X="1.5" Y="0" Z="0"/>
 				<point X="0" Y="0" Z="-1.5"/>
 				<point X="-1.5" Y="0" Z="0"/>
@@ -74,7 +74,7 @@
 		<group>
 			<scale X="0.035" Y="0.035" Z="0.035"/>
 			<color r="0.76" g="0.27" b="0.05"/>
-			<translate time="6">
+			<translate time="6.87">
 				<point X="1.75" Y="0" Z="0"/>
 				<point X="0" Y="0" Z="-1.75"/>
 				<point X="-1.75" Y="0" Z="0"/>
@@ -87,7 +87,7 @@
 
 		<!--JÚPITER-->
 		<group>
-			<translate time="6">
+			<translate time="11.86">
 				<point X="2.25" Y="0" Z="0"/>
 				<point X="0" Y="0" Z="-2.25"/>
 				<point X="-2.25" Y="0" Z="0"/>
@@ -102,7 +102,7 @@
 
 		<!--SATURNO-->
 		<group>
-			<translate time="6">
+			<translate time="29">
 				<point X="2.75" Y="0" Z="0"/>
 				<point X="0" Y="0" Z="-2.75"/>
 				<point X="-2.75" Y="0" Z="0"/>
@@ -112,22 +112,14 @@
 			<color r="0.76" g="0.67" b="0.43"/>
 
 			<models>
-				<model file="sphere.3d"/>
+				<model file="saturn.xml"/>
 			</models>
-
-			<group>
-				<color r="0.6" g="0.6" b="0.6"/>
-				<models>
-					<model file="sphere.3d"/>
-					<model file="torus.3d"/>
-				</models>
-			</group>
 	
 		</group>
 
 		<!--URANO-->
 		<group>
-			<translate time="6">
+			<translate time="40">
 				<point X="3.25" Y="0" Z="0"/>
 				<point X="0" Y="0" Z="-3.25"/>
 				<point X="-3.25" Y="0" Z="0"/>
@@ -142,7 +134,7 @@
 
 		<!--NEPTUNO-->
 		<group>
-			<translate time="6">
+			<translate time="60">
 				<point X="3.75" Y="0" Z="0"/>
 				<point X="0" Y="0" Z="-3.75"/>
 				<point X="-3.75" Y="0" Z="0"/>
@@ -155,10 +147,9 @@
 			</models>
 		
 		</group>
-
 		<!--Cometa-->
 		<group>
-			<translate time="6">
+			<translate time="20">
 				<point X="3.75" Y="0" Z="0"/>
 				<point X="0" Y="-3.75" Z="0"/>
 				<point X="-3.75" Y="0" Z="0"/>
