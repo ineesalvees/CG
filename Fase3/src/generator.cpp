@@ -140,7 +140,7 @@ void generatePatch(char* patch_path, char* tesselation, char* f_path){
 
     tess = atoi(tesselation);
 
-    Figure* f = bezier_Parse(patch_path,tess);
+    Figure* f = bezierPatch_parse(patch_path,tess);
     writeFile(f,f_path);
 }
 
