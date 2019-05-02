@@ -66,11 +66,14 @@ class Rotation : public Transformation {
 		float angle;
 
 	public:
-		Rotation(float time, float x, float y, float z);
+		Rotation(float time, float x, float y, float z, float angle);
 	    void make();
 
 		float getTime(){
 			return time;
+		}
+		float getAngle() {
+			return angle;
 		}
     virtual ~Rotation(void);
 

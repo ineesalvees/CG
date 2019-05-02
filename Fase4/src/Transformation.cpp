@@ -23,8 +23,8 @@ Transformation::Transformation(float x, float y, float z){
 }
 
 // rotate
-Rotation::Rotation(float time, float x, float y, float z) : Transformation (x,y,z) {
-	this->angle = 0;
+Rotation::Rotation(float time, float x, float y, float z,float angle) : Transformation (x,y,z) {
+	this->angle = angle;
 	this->time = time;
 }
 

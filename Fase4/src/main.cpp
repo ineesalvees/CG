@@ -243,7 +243,8 @@ Group* groupReader(pugi::xml_node group,Translation *translation, Rotation *rota
         }
         if (strcmp(attr.name(),"rotate")==0) {
 
-            pugi::xml_attribute time , cx,cy , cz;
+            pugi::xml_attribute time , cx,cy , cz,angle;
+            std::string timev,cxv,cyv,czv,anglev;
 
             time = attr.first_attribute();
 
@@ -251,14 +252,21 @@ Group* groupReader(pugi::xml_node group,Translation *translation, Rotation *rota
             cy = cx.next_attribute();
             cz = cy.next_attribute();
 
-            std::string timev,cxv,cyv,czv;
+            float an = 0;
+
+            if(attr.last_attribute()!=cz) {
+                angle = attr.last_attribute();
+                anglev = angle.value();
+                an = atof(anglev.c_str());
+            }
+
             timev = time.value();
             cxv = cx.value();
             cyv = cy.value();
             czv = cz.value();
 
 
-            rotation = new Rotation(atof(timev.c_str()),atof(cxv.c_str()),atof(cyv.c_str()),atof(czv.c_str()));
+            rotation = new Rotation(atof(timev.c_str()),atof(cxv.c_str()),atof(cyv.c_str()),atof(czv.c_str()),an);
 
             //printf("Rotate\nx- %s \ny- %s \nz- %s\n",cx.value(),cy.value(),cz.value());
             continue;
