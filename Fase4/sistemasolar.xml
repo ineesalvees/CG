@@ -1,0 +1,174 @@
+<scene>
+
+		
+		<!-- SOL -->
+		<group>
+			<rotate time="10" axisX="0" axisY="1" axisZ="0" /> 
+			<scale X="0.65" Y="0.65" Z="0.65"/>
+			<color r="0.75" g="0.2" b="0.06"/>
+			<models>
+				<model file="sphere.3d"/>
+			</models>
+		</group>
+
+		<group>
+		<!-- MERCURIO -->
+			<scale X="0.025" Y="0.025" Z="0.025"/>
+			<rotate time="5.9" axisX="0" axisY="1" axisZ="0" /> 
+			<translate time="0.88">
+				<point X="1" Y="0" Z="0"/>
+				<point X="0" Y="0" Z="-1"/>
+				<point X="-1" Y="0" Z="0"/>
+				<point X="0" Y="0" Z="1"/>
+			</translate>
+			<color X="0.59" Y="0.59" Z="0.62"/>			
+			<models>
+				<model file="sphere.3d"/>
+			</models>
+		</group>
+
+		<!--VÉNUS-->
+		<group>
+			<rotate time="24.3" axisX="0" axisY="1" axisZ="0" /> 
+			<translate time="2.24">
+				<point X="1.25" Y="0" Z="0"/>
+				<point X="0" Y="0" Z="-1.25"/>
+				<point X="-1.25" Y="0" Z="0"/>
+				<point X="0" Y="0" Z="1.25"/>
+			</translate>
+			<scale X="0.05" Y="0.06" Z="0.06"/>
+			<color r="0.89" g="0.73" b="0.46"/>			
+			<models>
+				<model file="sphere.3d"/>
+			</models>
+		</group>
+
+		<!--TERRA-->
+		<group>
+			<rotate time="1" axisX="0" axisY="1" axisZ="0" /> 
+			<translate time="3.65">
+				<point X="1.5" Y="0" Z="0"/>
+				<point X="0" Y="0" Z="-1.5"/>
+				<point X="-1.5" Y="0" Z="0"/>
+				<point X="0" Y="0" Z="1.5"/>
+			</translate>
+			<scale X="0.06" Y="0.06" Z="0.06"/>
+			<color r="0.0" g="0.3" b="0.8"/>
+			<models>
+				<model file="sphere.3d"/>
+			</models>
+
+			<group>
+			<translate time="6">
+				<point X="0.5" Y="0" Z="0"/>
+				<point X="0" Y="0" Z="-0.5"/>
+				<point X="-0.5" Y="0" Z="0"/>
+				<point X="0" Y="0" Z="0.5"/>
+			</translate>
+				<scale X="0.2" Y="0.2" Z="0.2"/>
+				<color r="0.6" g="0.6" b="0.6"/>
+				<models>
+					<model file="sphere.3d"/>
+				</models>
+			</group>
+
+		</group>
+
+		<!--MARTE-->
+		<group>
+			<rotate time="1" axisX="0" axisY="1" axisZ="0" /> 
+			<scale X="0.035" Y="0.035" Z="0.035"/>
+			<color r="0.76" g="0.27" b="0.05"/>
+			<translate time="6.87">
+				<point X="1.75" Y="0" Z="0"/>
+				<point X="0" Y="0" Z="-1.75"/>
+				<point X="-1.75" Y="0" Z="0"/>
+				<point X="0" Y="0" Z="1.75"/>
+			</translate>
+			<models>
+				<model file="sphere.3d"/>
+			</models>
+		</group>
+
+		<!--JÚPITER-->
+		<group>
+			<rotate time="0.5" axisX="0" axisY="1" axisZ="0" /> 
+			<translate time="11.86">
+				<point X="2.25" Y="0" Z="0"/>
+				<point X="0" Y="0" Z="-2.25"/>
+				<point X="-2.25" Y="0" Z="0"/>
+				<point X="0" Y="0" Z="2.25"/>
+			</translate>
+			<scale X="0.15" Y="0.15" Z="0.15"/>
+			<color r="0.85" g="0.81" b="0.62"/>
+			<models>
+				<model file="sphere.3d"/>
+			</models>
+		</group>
+
+		<!--SATURNO-->
+		<group>
+			<rotate time="0.5" x="0" y="1" z="0"/>
+			<translate time="29">
+				<point X="2.75" Y="0" Z="0"/>
+				<point X="0" Y="0" Z="-2.75"/>
+				<point X="-2.75" Y="0" Z="0"/>
+				<point X="0" Y="0" Z="2.75"/>
+			</translate>
+			<scale X="0.13" Y="0.13" Z="0.13"/>
+			<color r="0.76" g="0.67" b="0.43"/>
+
+			<models>
+				<model file="saturn.3d"/>
+			</models>
+	
+		</group>
+
+		<!--URANO-->
+		<group>
+			<rotate time="0.75" x="0" y="1" z="0"/>
+			<translate time="40">
+				<point X="3.25" Y="0" Z="0"/>
+				<point X="0" Y="0" Z="-3.25"/>
+				<point X="-3.25" Y="0" Z="0"/>
+				<point X="0" Y="0" Z="3.25"/>
+			</translate>
+			<scale X="0.1" Y="0.1" Z="0.1"/>
+			<color r="0.73" g="0.88" b="0.88"/>
+			<models>
+				<model file="sphere.3d"/>
+			</models>
+		</group>
+
+		<!--NEPTUNO-->
+		<group>
+			<rotate time="0.75" x="0" y="1" z="0"/>
+			<translate time="60">
+				<point X="3.75" Y="0" Z="0"/>
+				<point X="0" Y="0" Z="-3.75"/>
+				<point X="-3.75" Y="0" Z="0"/>
+				<point X="0" Y="0" Z="3.75"/>
+			</translate>
+			<scale X="0.08" Y="0.08" Z="0.08"/>
+			<color r="0.35" g="0.52" b="0.52"/>
+			<models>
+				<model file="sphere.3d"/>
+			</models>
+		
+		</group>
+		<!--Cometa-->
+		<group>
+			<translate time="20">
+				<point X="3.75" Y="0" Z="0"/>
+				<point X="0" Y="-3.75" Z="0"/>
+				<point X="-3.75" Y="0" Z="0"/>
+				<point X="0" Y="3.75" Z="0"/>
+			</translate>
+			<scale X="0.08" Y="0.08" Z="0.08"/>
+			<color r="0.35" g="0.52" b="0.52"/>
+			<models>
+				<model file="cometa.3d"/>
+			</models>
+		
+		</group>
+</scene>
