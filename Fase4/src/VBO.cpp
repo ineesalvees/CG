@@ -10,6 +10,7 @@
 #include "../headers/VBO.h"
 
 #include <vector>
+#include "../headers/Texture.h"
 
 using std::vector;
 

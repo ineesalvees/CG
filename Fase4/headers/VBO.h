@@ -10,17 +10,24 @@
 
 #include <vector>
 #include "Vertex.h"
-
+#include "Texture.h"
 
 class VBO {
 	private: 
   		std::vector<Vertex> vertexes;
 		float buff[1];
 		GLuint buffers[1];
+		Texture *texture;
 
 	public:
 		VBO(std::vector<Vertex> vertexes);
 		void render ();
+		Texture* getTexture() {
+			return texture;		
+		}
+		void setTexture(Texture *tex) {
+			texture = tex;		
+		}
 };
 
 #endif

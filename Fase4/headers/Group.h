@@ -4,6 +4,7 @@
 #include <vector>
 #include "VBO.h"
 #include "Transformation.h"
+#include "Light.h"
 
 using std::vector;
 
@@ -11,9 +12,9 @@ using std::vector;
 class Group {
 	private:
 		std::vector<VBO> vbos; 
-		std::vector<std::string> scenes;
 		std::vector<Transformation*> transformations;
 		std::vector<Group> children;
+		std::vector<Light*> lights;
 
 	public:
 		Group();
@@ -23,6 +24,8 @@ class Group {
 		void pushVBO (VBO *vbo);
 		void pushTransformation (Transformation *transformation);
 		void pushGroup (Group *group);
+		void pushLight(Light *light);
+		std::vector<Light*> getLights();
 };
 
 #endif

@@ -68,7 +68,6 @@ using namespace std;
 
 
 std::vector<Group> groups;
-std::vector<Light> lights;
 
 void changeSize(int w, int h) {
 
@@ -168,7 +167,7 @@ VBO* readFile(string name) {
 }
 
 
-Group* groupReader(pugi::xml_node group,Translation *translation, Rotation *rotation,Color *color, Scale *scale) {
+Group* groupReader(pugi::xml_node group,Translation *translation, Rotation *rotation,Color *color, Scale *scale,Light *light) {
     glPushMatrix();
 
     Group *res = new Group();
@@ -193,10 +192,10 @@ Group* groupReader(pugi::xml_node group,Translation *translation, Rotation *rota
                 yv = y.value();
                 zv = z.value();
 
-                Light *li = new Light(atof(xv.c_str()),atof(yv.c_str()),atof(zv.c_str()),type.value());
+                res->pushLight(new Light(atof(xv.c_str()),atof(yv.c_str()),atof(zv.c_str()),type.value()));
 
 
-                lights.push_back(*li);
+                
             }
         }
         if (strcmp(attr.name(),"translate")==0  ) {
@@ -289,11 +288,25 @@ Group* groupReader(pugi::xml_node group,Translation *translation, Rotation *rota
 
             for (pugi::xml_node model = attr.first_child(); model; model = model.next_sibling())
             {
+                pugi::xml_attribute texture,r , g , b;
+
 
                 pugi::xml_attribute filename = model.first_attribute();
-                
-                
-                res->pushVBO(readFile(filename.value()));
+                texture = filename.next_attribute();
+                r = texture.next_attribute();
+                g = r.next_attribute();
+                b = g.next_attribute();
+
+                std::string texturev,rv,gv,bv;
+                rv = r.value();
+                gv = g.value();
+                bv = b.value();
+                texturev = texture.value();
+
+                VBO *vbo = readFile(filename.value());
+                Texture *tex = new Texture(atof(rv.c_str()),atof(gv.c_str()),atof(bv.c_str()),texturev);
+                vbo->setTexture(tex);
+                res->pushVBO(vbo);
                 
                 
             }
@@ -318,7 +331,7 @@ Group* groupReader(pugi::xml_node group,Translation *translation, Rotation *rota
             //printf("group--------\n");
 
 
-            res->pushGroup(groupReader(attr,translation,rotation,color,scale));
+            res->pushGroup(groupReader(attr,translation,rotation,color,scale,light));
 
         }
 
@@ -346,7 +359,7 @@ void parseFile2(char *path) {
     {
 
 
-        Group *g = groupReader(group,NULL,NULL,NULL,NULL);
+        Group *g = groupReader(group,NULL,NULL,NULL,NULL,NULL);
 
         groups.push_back(*g);
 

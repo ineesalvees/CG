@@ -1,7 +1,9 @@
 #include "../headers/Group.h"
 #include "../headers/VBO.h"
 #include "../headers/Transformation.h"
+#include "../headers/Light.h"
 #include <vector>
+#include "../headers/Texture.h"
 
 
 Group::Group() {
@@ -29,5 +31,12 @@ void Group::pushTransformation (Transformation *transformation) {
 
 void Group::pushGroup (Group *group) {
 	this->children.push_back(*group);
+}
+
+void Group::pushLight(Light *light) {
+	this->lights.push_back(light);
+}
+std::vector<Light*> Group::getLights () {
+	return lights;
 }
 
