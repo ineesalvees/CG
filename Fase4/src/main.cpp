@@ -378,16 +378,24 @@ void parseFile2(char *path) {
 
 void render(Group g){
     glPushMatrix();
+    glEnable(GL_LIGHTING);
+    vector<Light*> l_list = g.getLights();
+
+    for(Light *l : l_list) {
+        l->renderLight();
+    }
     vector<Transformation*> t_list = g.getTransformations();
     for(Transformation *t: t_list){
         t->make();
     }
+    
 
     vector<VBO> vbos = g.getVBOs();
     for(VBO v: vbos) v.render();
 
     vector<Group> children = g.getChildren();
     for(Group child: children) render(child);
+    glDisable(GL_LIGHTING);
     glPopMatrix();
 }
 
@@ -442,7 +450,9 @@ void renderScene() {
     glScalef(scale, scale, scale);
 
     //glPolygonMode(GL_FRONT,GL_LINE);
+    
     for(Group g: groups) render(g);
+    
 
    
     // End of frame
@@ -614,6 +624,8 @@ int main(int argc, char **argv) {
 //  OpenGL settings
     glEnable(GL_DEPTH_TEST);
     glEnable(GL_CULL_FACE);
+    glEnable(GL_LIGHT0);
+    glEnable(GL_COLOR_MATERIAL);
     
 // enter GLUT's main cycle
     glutMainLoop();
