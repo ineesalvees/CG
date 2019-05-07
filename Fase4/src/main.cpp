@@ -54,15 +54,26 @@ int Y_ANGLE = 0;
 int Z_ANGLE = 0;
 
 //Mouse movements
-int alpha = 0, beta = 45, r = 50;
-float camX = 0, camY, camZ = 5;
-int startX, startY, tracking = 0;
+//int alpha = 0, beta = 45, r = 50;
+//float camX = 0, camY, camZ = 5;
+//int startX, startY, tracking = 0;
 
 float px = 0.0f, py = 0.0f, pz = 10.0f, dx= 0.0f, dy = 0.0f, dz = -1.0f;
 double alfa = M_PI;
 double beta1 = M_PI;
 int mexer = 0;
 int timebase = 0, frame = 0;
+
+float radius = 5.0f;
+float camX = -30, camY = 30, camZ = 20;
+float anguloX = 0.0f, anguloY = 0.0f, anguloZ = 0.0f;
+float coordX = 0, coordY = 0, coordZ = 0;
+int startX, startY, tracking = 0;
+int alpha = 0, beta = 0, r = 5;
+
+/* Luz */
+string tipo;
+float posX, posY, posZ;
 
 using namespace std; 
 
@@ -409,18 +420,11 @@ void renderScene() {
 
     // set the camera
     glLoadIdentity();
-
-    dx = sin(alfa);
-    dy = sin(beta1);
-    dz = cos(alfa);
-
-    gluLookAt(px, py, pz,
-              px + dx, py + dy, pz + dz,
-              0, 1, 0);
-
-    /*gluLookAt(camX, camY, camZ, 
-              0.0,0.0,0.0,
-              0.0f,1.0f,0.0f);*/
+    gluLookAt(camX, camY, camZ, 0.0, 0.0, 0.0, 0.0f, 1.0f, 0.0f);
+    glRotatef(anguloX, 1, 0, 0);
+    glRotatef(anguloY, 0, 1, 0);
+    glRotatef(anguloZ, 0, 0, 1);
+    glTranslatef(coordX, coordY, coordZ);
 
     frame++;
     time=glutGet(GLUT_ELAPSED_TIME);
@@ -431,10 +435,6 @@ void renderScene() {
         sprintf(s, "FPS: %f6.2", fps);
         glutSetWindowTitle(s);
     }
-
-    if (mexer){
-        moveforward();
-    };
 
     glColor3f(1,1,1);
 
@@ -449,7 +449,6 @@ void renderScene() {
     //Zoom in & Zoom out
     glScalef(scale, scale, scale);
 
-    //glPolygonMode(GL_FRONT,GL_LINE);
     
     for(Group g: groups) render(g);
     
@@ -457,6 +456,15 @@ void renderScene() {
    
     // End of frame
     glutSwapBuffers();
+}
+
+
+
+void resetCamara(){
+    anguloX = anguloY = anguloZ = 0.0f;
+    coordX = coordY = coordZ = 0;
+    alpha = 0.0f;
+    beta = 0.5f;
 }
 
 // write function to process keyboard events
@@ -476,14 +484,34 @@ void keyboard(unsigned char key, int x, int y){
             scale = 0.1;
     }
 
-    if (key == 'n')
-        mexer = (mexer + 1) % 2;
+    if (key == 'w')
+        anguloX += 5;
 
-    if (key == ' ')
-        moveforward();
+    if (key == 's')
+        anguloX -= 5;
 
-    if (key == 'b')
-        movebackwards();
+    if (key == 'a')
+        anguloY += 5;
+
+    if (key == 'd')
+        anguloY -= 5;
+        
+    if (key == 'q')
+        anguloZ += 5;
+
+    if (key == 'e')
+        anguloZ -= 5;
+
+    if (key == 'r')
+        resetCamara();
+
+    if (key == 'f')
+        glDisable(GL_LIGHTING);
+        glDisable(GL_LIGHT0); 
+
+    if (key == 'o')
+        glEnable(GL_LIGHTING);
+        glEnable(GL_LIGHT0);
 
     glutPostRedisplay();
 }
@@ -582,9 +610,6 @@ void processMouseMotion(int xx, int yy) {
 
     glutPostRedisplay();
 }
-
-
-
 
 int main(int argc, char **argv) {
 
