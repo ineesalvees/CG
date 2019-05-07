@@ -53,11 +53,6 @@ int X_ANGLE = 0;
 int Y_ANGLE = 0;
 int Z_ANGLE = 0;
 
-//Mouse movements
-//int alpha = 0, beta = 45, r = 50;
-//float camX = 0, camY, camZ = 5;
-//int startX, startY, tracking = 0;
-
 float px = 0.0f, py = 0.0f, pz = 10.0f, dx= 0.0f, dy = 0.0f, dz = -1.0f;
 double alfa = M_PI;
 double beta1 = M_PI;
@@ -65,7 +60,7 @@ int mexer = 0;
 int timebase = 0, frame = 0;
 
 float radius = 5.0f;
-float camX = -30, camY = 30, camZ = 20;
+float camX, camY, camZ;
 float anguloX = 0.0f, anguloY = 0.0f, anguloZ = 0.0f;
 float coordX = 0, coordY = 0, coordZ = 0;
 int startX, startY, tracking = 0;
@@ -516,6 +511,13 @@ void keyboard(unsigned char key, int x, int y){
     glutPostRedisplay();
 }
 
+void converte() {
+
+    camX = radius * cos(beta) * sin(alfa);
+    camY = radius * sin(beta);
+    camZ = radius * cos(beta) * cos(alfa);
+}
+
 void movement (int key, int x, int y) {
 
    switch (key) {
@@ -536,7 +538,7 @@ void movement (int key, int x, int y) {
                 beta1 = 3 * M_PI / 2;
             break;
     }
-
+    converte();
     glutPostRedisplay();
 }
 
@@ -620,6 +622,7 @@ int main(int argc, char **argv) {
     glutInitWindowPosition(100,100);
     glutInitWindowSize(800,800);
     glutCreateWindow("CG@DI-UM");
+    converte();
     glEnableClientState(GL_VERTEX_ARRAY);
 
     #ifdef __APPLE__
