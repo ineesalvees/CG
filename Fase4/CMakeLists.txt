@@ -43,6 +43,10 @@ else (WIN32) #Linux and Mac
 	    link_libraries(${GLEW_LIBRARIES})
 	endif()
 
+	find_package(DevIL REQUIRED)
+	link_libraries(${IL_LIBRARIES} )
+	include_directories(ยง{IL_INCLUDE_DIR})
+
 	if(NOT OPENGL_FOUND)
 		message(ERROR " OPENGL not found!")
 	endif(NOT OPENGL_FOUND)
@@ -51,7 +55,7 @@ endif(WIN32)
 # Project Name
 project(engine)
 
-set(ENGINE_FILES ./src/main.cpp ./src/Figure.cpp ./src/Transformation.cpp ./src/Vertex.cpp ./pugixml-1.9/src/pugixml.cpp ./src/VBO.cpp ./src/Group.cpp ./src/Light.cpp)
+set(ENGINE_FILES ./src/main.cpp ./src/Figure.cpp ./src/Transformation.cpp ./src/Vertex.cpp ./pugixml-1.9/src/pugixml.cpp ./src/VBO.cpp ./src/Group.cpp ./src/Light.cpp ./src/Texture.cpp)
 
 add_executable(engine ${ENGINE_FILES})
 
