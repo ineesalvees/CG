@@ -16,6 +16,14 @@ std::vector<Vertex> Figure::getvertexes () {
 	return this->vertexes;
 }
 
+std::vector<Vertex> Figure::getnorm () {
+	return this->norm;
+}
+
+std::vector<Vertex> Figure::gettex () {
+	return this->tex;
+}
+
 Vertex Figure::getvertex (int i) {
 	return this->vertexes.at(i);
 }
@@ -50,7 +58,6 @@ void Figure::draw() {
 }
 
 void Figure::save (char *filename) {
-	printf("OLAOALAOAL");
 	char src[] = "";
 	strcat(src,filename);
 	ofstream file(src);
@@ -58,6 +65,25 @@ void Figure::save (char *filename) {
 	for(vector<Vertex>::const_iterator i = vertexes.begin(); i != vertexes.end(); ++i) {
     	file << i->getx() << " " << i->gety() << " " << i->getz() << " ";
 	}
+
+	char src1[] = "";
+	strcat(src1,filename);
+	strcat(src1,"n");
+	ofstream file1(src1);
+	
+	for(vector<Vertex>::const_iterator i = norm.begin(); i != norm.end(); ++i) {
+    	file1 << i->getx() << " " << i->gety() << " " << i->getz() << " ";
+	}
+
+	char src2[] = "";
+	strcat(src2,filename);
+	strcat(src2,"t");
+	ofstream file2(src2);
+	
+	for(vector<Vertex>::const_iterator i = tex.begin(); i != tex.end(); ++i) {
+    	file2 << i->getx() << " " << i->gety() << " " << i->getz() << " ";
+	}
+
 }
 
 void Figure::sphere(float radius, int slices, int stack) {

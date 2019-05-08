@@ -11,6 +11,8 @@ class Figure {
     std::vector<Vertex> tex;
   public:
     std::vector<Vertex> getvertexes ();
+    std::vector<Vertex> getnorm ();
+    std::vector<Vertex> gettex ();
   	Vertex getvertex (int i);
   	void pushvertex (Vertex *v);
     void pushNorm(Vertex *v);
