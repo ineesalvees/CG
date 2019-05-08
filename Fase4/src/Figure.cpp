@@ -23,7 +23,12 @@ Vertex Figure::getvertex (int i) {
 void Figure::pushvertex (Vertex *v) {
 	this->vertexes.push_back(*v);
 }
-
+void Figure::pushNorm(Vertex *v) {
+	this->norm.push_back(*v);
+}
+void Figure::pushTex(Vertex *v) {
+	this->tex.push_back(*v);
+}
 int Figure::getsize() {
 	return this->vertexes.size();
 }
@@ -58,6 +63,9 @@ void Figure::save (char *filename) {
 void Figure::sphere(float radius, int slices, int stack) {
 
 	float alpha, beta, beta1;
+	Vertex* normal;
+	float texU = 1 / (float)slices;
+    float texV = 1 / (float)stack;
 
 	for(int j = 0; j < stack; j++){
 		for(int i=0; i < slices; i++){
@@ -65,13 +73,42 @@ void Figure::sphere(float radius, int slices, int stack) {
 			beta = j * ((M_PI)/stack) - M_PI / 2;
 			beta1 = beta + ((M_PI)/stack);
 
-		pushvertex(new Vertex(radius*cos(beta) * cos(alpha), radius*sin(beta), radius*cos(beta)*sin(alpha)));
-		pushvertex(new Vertex(radius*cos(beta + ((M_PI)/stack)) * cos(alpha), sin(beta + ((M_PI)/stack))*radius, radius*cos(beta + ((M_PI)/stack))*sin(alpha)));
-		pushvertex(new Vertex(radius*cos(beta)*cos(alpha + ((2*M_PI) / slices)),radius*sin(beta),radius*cos(beta)*sin(alpha + ((2*M_PI) / slices))));
+			Vertex *v1 = new Vertex(radius*cos(beta) * cos(alpha), radius*sin(beta), radius*cos(beta)*sin(alpha));
+			normal = v1->normalCalc();
+			pushvertex(v1);
+			pushNorm(normal);
+			pushTex(new Vertex(i*texU,j*texV + texV,0));
+			
+			Vertex *v2 = new Vertex(radius*cos(beta + ((M_PI)/stack)) * cos(alpha), sin(beta + ((M_PI)/stack))*radius, radius*cos(beta + ((M_PI)/stack))*sin(alpha));
+			pushvertex(v2);
+			normal = v2->normalCalc();
+			pushNorm(normal);
+			pushTex(new Vertex(i*texU + texU,j*texV,0));
+
+			Vertex *v3 = new Vertex(radius*cos(beta)*cos(alpha + ((2*M_PI) / slices)),radius*sin(beta),radius*cos(beta)*sin(alpha + ((2*M_PI) / slices)));
+			pushvertex(v3);
+			normal = v3->normalCalc();
+			pushNorm(normal);
+			pushTex(new Vertex(i*texU + texU, j*texV + texV, 0));
+			
+			Vertex *v4 = new Vertex(radius*cos(beta + ((M_PI)/stack)) * cos(alpha), sin(beta + ((M_PI)/stack))*radius, radius*cos(beta + ((M_PI)/stack))*sin(alpha));
+			pushvertex(v4);
+			normal = v4->normalCalc();
+			pushNorm(normal);
+			pushTex(new Vertex(i*texU,j*texV + texV,0));
+			
+			Vertex *v5 = new Vertex(radius*cos(beta + ((M_PI)/stack))*cos(alpha + ((2*M_PI) / slices)), radius*sin(beta + ((M_PI)/stack)), radius*cos(beta1)*sin(alpha + ((2*M_PI) / slices)));
+			pushvertex(v5);
+			normal = v5->normalCalc();
+			pushNorm(normal);
+			pushTex(new Vertex(i*texU, j*texV, 0));
+			
+			Vertex *v6 = new Vertex(radius*cos(beta)*cos(alpha + ((2*M_PI) / slices)), radius*sin(beta), radius*cos(beta)*sin(alpha + ((2*M_PI) / slices)));
+			pushvertex(v6);
+			normal = v6->normalCalc();
+			pushNorm(normal);
+			pushTex(new Vertex(i*texU + texU, j*texV + texV, 0));
 		
-		pushvertex(new Vertex(radius*cos(beta + ((M_PI)/stack)) * cos(alpha), sin(beta + ((M_PI)/stack))*radius, radius*cos(beta + ((M_PI)/stack))*sin(alpha)));
-		pushvertex(new Vertex(radius*cos(beta + ((M_PI)/stack))*cos(alpha + ((2*M_PI) / slices)), radius*sin(beta + ((M_PI)/stack)), radius*cos(beta1)*sin(alpha + ((2*M_PI) / slices))));
-		pushvertex(new Vertex(radius*cos(beta)*cos(alpha + ((2*M_PI) / slices)), radius*sin(beta), radius*cos(beta)*sin(alpha + ((2*M_PI) / slices))));
 		}
 	} 
 }

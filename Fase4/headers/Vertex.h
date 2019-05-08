@@ -14,6 +14,8 @@ class Vertex {
   	float getx () const;
   	float gety () const;
   	float getz () const;
+  	Vertex* normalCalc();
+    
 }; 
 
 #endif

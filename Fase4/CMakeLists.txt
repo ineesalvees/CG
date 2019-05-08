@@ -45,7 +45,7 @@ else (WIN32) #Linux and Mac
 
 	find_package(DevIL REQUIRED)
 	link_libraries(${IL_LIBRARIES} )
-	include_directories(ยง{IL_INCLUDE_DIR})
+	include_directories({IL_INCLUDE_DIR})
 
 	if(NOT OPENGL_FOUND)
 		message(ERROR " OPENGL not found!")

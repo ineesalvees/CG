@@ -317,8 +317,12 @@ Group* groupReader(pugi::xml_node group,Translation *translation, Rotation *rota
                 bv = b.value();
                 texturev = texture.value();
 
-                VBO *vbo = readFile(filename.value());
+
+
                 Texture *tex = new Texture(atof(rv.c_str()),atof(gv.c_str()),atof(bv.c_str()),texturev);
+
+                tex->setUpTexture(texturev);
+                VBO *vbo = readFile(filename.value());
                 vbo->setTexture(tex);
                 res->pushVBO(vbo);
                 
@@ -329,7 +333,7 @@ Group* groupReader(pugi::xml_node group,Translation *translation, Rotation *rota
 
 
             if (translation != NULL) res->pushTransformation(translation);
-            //if (rotation != NULL) res->pushTransformation(rotation);
+            if (rotation != NULL) res->pushTransformation(rotation);
             if (scale != NULL) res->pushTransformation(scale);
             if (color != NULL) res->pushTransformation(color);
 

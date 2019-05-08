@@ -15,6 +15,8 @@
 class VBO {
 	private: 
   		std::vector<Vertex> vertexes;
+  		std::vector<Vertex> norm;
+  		std::vector<Vertex> tex;
 		float buff[1];
 		GLuint buffers[1];
 		Texture *texture;

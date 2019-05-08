@@ -1,4 +1,5 @@
 #include "../headers/Vertex.h"
+#include <math.h>
 
 Vertex::Vertex (float x, float y, float z) {
 	this->x = x;
@@ -27,4 +28,14 @@ float Vertex::gety () const {
 
 float Vertex::getz () const {
 	return this->z;
+}
+Vertex* Vertex::normalCalc() {
+    float l, coordX, coordY, coordZ;
+
+    l = sqrt(this->x * this->x + this->y * this->y + this->z * this->z);
+    coordX = this->x / l;
+    coordY = this->y / l;
+    coordZ = this->z / l;
+
+    return new Vertex(coordX, coordY, coordZ);
 }

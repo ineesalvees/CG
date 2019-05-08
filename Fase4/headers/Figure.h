@@ -7,10 +7,14 @@
 class Figure { 
   private: 
   	std::vector<Vertex> vertexes;
+    std::vector<Vertex> norm;
+    std::vector<Vertex> tex;
   public:
     std::vector<Vertex> getvertexes ();
   	Vertex getvertex (int i);
   	void pushvertex (Vertex *v);
+    void pushNorm(Vertex *v);
+    void pushTex(Vertex *v);
   	int getsize();
     void getvertexat(int i, Vertex** v);
   	void save (char *filepath);
