@@ -126,9 +126,7 @@ void movebackwards(){
 }
 
 
-
-VBO* readFile(string name) {
-
+std::vector<Vertex> reader(string name) {
   double arr[3];
   Figure *figure = new Figure();
   int verts = 0;
@@ -163,13 +161,27 @@ VBO* readFile(string name) {
 
         }
 
-    VBO *vbo = new VBO(figure->getvertexes());
-    return vbo;
+    return figure->getvertexes();
 
 
   }
 
   nfile.close();
+
+}
+
+
+VBO* readFile(string filename) {
+    std::string filename2 = filename + 'n';
+
+    std::string filename3 = filename + 't';
+
+
+  
+    VBO *vbo = new VBO(reader(filename),reader(filename2),reader(filename3));
+    return vbo;
+
+
 }
 
 

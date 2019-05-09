@@ -14,8 +14,10 @@
 
 using std::vector;
 
-VBO::VBO(std::vector<Vertex> vertexes){
+VBO::VBO(std::vector<Vertex> vertexes,std::vector<Vertex> norm,std::vector<Vertex> tex){
     this->vertexes = vertexes;
+    this->norm = norm;
+    this->tex = tex;
 }
 
 void VBO::render () {

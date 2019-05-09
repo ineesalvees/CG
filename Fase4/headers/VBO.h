@@ -22,7 +22,7 @@ class VBO {
 		Texture *texture;
 
 	public:
-		VBO(std::vector<Vertex> vertexes);
+		VBO(std::vector<Vertex> vertexes,std::vector<Vertex> norm,std::vector<Vertex> tex);
 		void render ();
 		Texture* getTexture() {
 			return texture;		
