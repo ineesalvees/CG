@@ -17,13 +17,15 @@ class VBO {
   		std::vector<Vertex> vertexes;
   		std::vector<Vertex> norm;
   		std::vector<Vertex> tex;
-		float buff[1];
-		GLuint buffers[1];
+		float buff_size[3];
+		GLuint glu, buffs[3];
 		Texture *texture;
 
 	public:
 		VBO(std::vector<Vertex> vertexes,std::vector<Vertex> norm,std::vector<Vertex> tex);
 		void render ();
+		void setUpTexture(std::string t_file);
+		void set();
 		Texture* getTexture() {
 			return texture;		
 		}

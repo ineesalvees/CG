@@ -16,13 +16,11 @@ using namespace std;
 class Texture{
 	private:
 		float r,g,b;
-		GLuint tex;
 		std::string texture;
 
 	public:
 		Texture();
 		Texture(float r, float g, float b, std::string texture);
-		void setUpTexture(std::string t_file);
 
 		float getR() {
 			return r;
@@ -36,9 +34,7 @@ class Texture{
 		std::string getTexture() {
 			return texture;
 		}
-		GLuint getTex() {
-			return tex;
-		}
+		
 
 };
 #endif

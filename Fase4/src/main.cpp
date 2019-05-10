@@ -4,7 +4,7 @@
 #include <GL/glew.h>
 #include <GL/glut.h>
 #endif
-
+#include <IL/il.h>
 #define _USE_MATH_DEFINES
 
 #include "../headers/Transformation.h"
@@ -290,7 +290,7 @@ Group* groupReader(pugi::xml_node group,Translation *translation, Rotation *rota
             continue;
         }
 
-        if (strcmp(attr.name(),"scale")==0 || strcmp(attr.name(),"color")==0) {
+        if (strcmp(attr.name(),"scale")==0 ) {
 
             pugi::xml_attribute x , y , z;
 
@@ -303,8 +303,7 @@ Group* groupReader(pugi::xml_node group,Translation *translation, Rotation *rota
             yv = y.value();
             zv = z.value();
 
-            if (strcmp(attr.name(),"scale")==0) scale = new Scale(atof(xv.c_str()),atof(yv.c_str()),atof(zv.c_str()));
-            else color = new Color(atof(xv.c_str()),atof(yv.c_str()),atof(zv.c_str()));
+            scale = new Scale(atof(xv.c_str()),atof(yv.c_str()),atof(zv.c_str()));
 
             continue;
         }
@@ -333,26 +332,19 @@ Group* groupReader(pugi::xml_node group,Translation *translation, Rotation *rota
 
                 Texture *tex = new Texture(atof(rv.c_str()),atof(gv.c_str()),atof(bv.c_str()),texturev);
 
-                tex->setUpTexture(texturev);
                 VBO *vbo = readFile(filename.value());
                 vbo->setTexture(tex);
+                vbo->setUpTexture(texturev);
+
+                vbo->set();
                 res->pushVBO(vbo);
                 
                 
             }
 
-            
-
-
             if (translation != NULL) res->pushTransformation(translation);
             if (rotation != NULL) res->pushTransformation(rotation);
             if (scale != NULL) res->pushTransformation(scale);
-            if (color != NULL) res->pushTransformation(color);
-
-            
-
-
-
 
             continue;
             
@@ -634,12 +626,23 @@ int main(int argc, char **argv) {
     filename = argv[1];
 // init GLUT and the window
     glutInit(&argc, argv);
+    ilInit();
     glutInitDisplayMode(GLUT_DEPTH|GLUT_DOUBLE|GLUT_RGBA);
     glutInitWindowPosition(100,100);
     glutInitWindowSize(800,800);
     glutCreateWindow("CG@DI-UM");
     converte();
     glEnableClientState(GL_VERTEX_ARRAY);
+//  OpenGL settings
+    glEnable(GL_DEPTH_TEST);
+    glEnable(GL_CULL_FACE);
+    glEnable(GL_LIGHT0);
+    glEnable(GL_COLOR_MATERIAL);
+    glEnable(GL_TEXTURE_2D);
+    glEnableClientState(GL_VERTEX_ARRAY);
+    glEnableClientState(GL_NORMAL_ARRAY);
+    glEnableClientState(GL_TEXTURE_COORD_ARRAY);
+    glEnable(GL_NORMALIZE);
 
     #ifdef __APPLE__
     #else
@@ -665,11 +668,6 @@ int main(int argc, char **argv) {
 //  glutKeyboardFunc(processKeys);
 //  glutSpecialFunc(processSpecialKeys);
     
-//  OpenGL settings
-    glEnable(GL_DEPTH_TEST);
-    glEnable(GL_CULL_FACE);
-    glEnable(GL_LIGHT0);
-    glEnable(GL_COLOR_MATERIAL);
     
 // enter GLUT's main cycle
     glutMainLoop();

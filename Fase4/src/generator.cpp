@@ -148,7 +148,7 @@ int main (int argc, char *argv[]) {
 	cout << argv[1] << "\n";
 
 	if (argc > 2) {
-		/*
+		
 		if (strcmp(argv[1],"Sphere") == 0) {
 			cout << "Drawing Sphere!\n";
 
@@ -156,9 +156,10 @@ int main (int argc, char *argv[]) {
 			int slices = atoi(argv[3]);
 			int stacks = atoi(argv[4]);
 
-			Sphere *s = new Sphere(radius,slices,stacks);
-			s->figure->save(argv[5]);
-		}
+			Figure *s = new Figure();
+			s->sphere(radius,slices,stacks);
+			s->save(argv[5]);
+		}/*
 		if (strcmp(argv[1],"Box") == 0) {
 			cout << "Drawing Box!\n";
 
@@ -212,7 +213,6 @@ int main (int argc, char *argv[]) {
 		if (strcmp(argv[1],"Teapot") == 0){
 			int tess;
 
-    		printf("helelo");
     		tess = atoi(argv[3]);
     		Figure* f = bezierPatch_parse(argv[2],tess);
     		f->save(argv[4]);
@@ -226,17 +226,22 @@ int main (int argc, char *argv[]) {
 
 			Figure *f = new Figure ();
 
+			
+
 			float radiusIn = atof(argv[2]);
 			float radiusOut = atof(argv[3]);
 			int sides = atoi(argv[4]);
 			int rings = atoi(argv[5]);
 
-			float dimSide = (2*M_PI)/sides;
-			float dimRing = (2*M_PI)/rings;
+			float dimSide = (2*M_PI)/sides; //dim side 0 PHI SHIft
+			float dimRing = (2*M_PI)/rings; //dim ring = theta shifts
+
+			float textureSide = float(1)/float(sides);
+    		float textureRing = float(1)/float(rings);
 
 			for (int i = 0; i < rings; i++) {		
 				double a0 = i*dimRing;
-				double a1 = a0 + dimRing;
+				double a1 = a0 + dimRing;   //dimring = thetashift
 
 			float x0 = cos(a0);
 			float y0 = sin(a0);
@@ -258,11 +263,23 @@ int main (int argc, char *argv[]) {
 					f->pushvertex(new Vertex(x0*r,y0*r,z));
 					f->pushvertex(new Vertex(x1*r,y1*r,z));
 					f->pushvertex(new Vertex(x0*nr,y0*nr,nz));
+					f->pushNorm(new Vertex( x0*cos(j*dimSide), y0*cos(j*dimSide), sin(j*dimSide)));
+           			f->pushNorm(new Vertex( x1*cos(j*dimSide), y1*cos(j*dimSide), sin(j*dimSide)));
+            		f->pushNorm(new Vertex( x0*cos((j+1)*dimSide), y0*cos((j+1)*dimSide), sin((j+1)*dimSide)));
+            		f->pushTex(new Vertex(i*textureRing,j*textureSide,0));
+            		f->pushTex(new Vertex((i+1)*textureRing,j*textureSide,0));
+            		f->pushTex(new Vertex(i*textureRing,(j+1)*textureSide,0));
 					
 
 					f->pushvertex(new Vertex(x0*nr,y0*nr,nz));
 					f->pushvertex(new Vertex(x1*r,y1*r,z));
 					f->pushvertex(new Vertex(x1*nr,y1*nr,nz));
+					f->pushNorm(new Vertex( x0*cos((j+1)*dimSide), y0*cos((j+1)*dimSide), sin((j+1)*dimSide)));
+           			f->pushNorm(new Vertex( x1*cos(j*dimSide), y1*cos(j*dimSide), sin(j*dimSide)));
+            		f->pushNorm(new Vertex( x1*cos((j+1)*dimSide), y1*cos((j+1)*dimSide), sin((j+1)*dimSide)));
+            		f->pushTex(new Vertex(i*textureRing,(j+1)*textureSide,0));
+            		f->pushTex(new Vertex((i+1)*textureRing,j*textureSide,0));
+            		f->pushTex(new Vertex((i+1)*textureRing,(j+1)*textureSide,0));
 				}
 			}
 			f->save(argv[6]);
