@@ -140,13 +140,32 @@ void Figure::sphere(float radius, int slices, int stack) {
 }
 void Figure::plane(float size, float height) {
 
-	pushvertex(new Vertex(size/2.0,height,-size/2.0));
-	pushvertex(new Vertex(-size/2.0,height,size/2.0));
-	pushvertex(new Vertex(size/2.0,height,size/2.0));
+	float aux = size / 2.0;
 
-	pushvertex(new Vertex(size/2.0,height,-size/2.0));
-	pushvertex(new Vertex(-size/2.0,height,-size/2.0));
-	pushvertex(new Vertex(-size/2.0,height,size/2.0));
+	pushvertex(new Vertex(-aux , 0 , -aux));
+    pushNorm(new Vertex(0,1,0));
+    pushTex(new Vertex(1,1,0));
+
+    pushvertex(new Vertex(-aux , 0 , aux));
+    pushNorm(new Vertex(0,1,0));
+    pushTex(new Vertex(1,0,0));
+
+    pushvertex(new Vertex(aux , 0 , aux));
+    pushNorm(new Vertex(0,1,0));
+    pushTex(new Vertex(0,1,0));
+
+    pushvertex(new Vertex(-aux , 0 , -aux));
+    pushNorm(new Vertex(0,1,0));
+    pushTex(new Vertex(0,1,0));
+
+    pushvertex(new Vertex(aux , 0 , aux));
+    pushNorm(new Vertex(0,1,0));
+    pushTex(new Vertex(1,0,0));
+    
+    pushvertex(new Vertex(aux , 0 , -aux));
+    pushNorm(new Vertex(0,1,0));
+    pushTex(new Vertex(0,0,0));
+
 
 }
 
